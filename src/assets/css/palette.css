@@ -1,0 +1,17 @@
+:root {
+    --primary300: #FAE8E2;
+    --primary400: #E1B8AA;
+    --primary500: #C78772;
+    --primary600: #7B4D3E;
+    --primary700: #673B2F;
+    --primary800: #532922;
+    --secondary300: #C5DFEC;
+    --secondary400: #8FB1C2;
+    --secondary500: #5D879B;
+    --secondary600: #2B5C74;
+    --secondary700: #123247;
+    --secondary800: #11202E;
+    --error: #DA2B25;
+    --white: #FFF;
+    --black: #000;
+}

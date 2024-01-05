@@ -1,3 +1,5 @@
+@import "palette.css";
+
 @font-face {
     font-family: 'Inconsolata';
     src: url(../fonts/Inconsolata-VariableFont_wdth.ttf);
@@ -6,35 +8,41 @@
     font-family: 'Inconsolata', sans-serif;
 }
 
-
-@media screen and (max-width:1200px) {
-    .primary-box{
-        width: 40%;
-    }
-}
-
-/*Flex components*/
-.flex-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-flow: wrap;
-}
-
-.primary-box{
+.sidenav {
+    height: 100%;
     width: 20%;
-    height: 10em;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 20px;
-    background-color: #d84c4c;
-    color: white;
-    max-width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--secondary700);
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
-@media screen and (max-width:600px) {
-    .primary-box{
-        width: 90%;
-    }
+.sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--white);
+    display: block;
+}
+
+.sidenav a:hover {
+    color: var(--black);
+    background-color: var(--secondary400);
+}
+
+body {
+    background-color: var(--primary500);
+}
+
+.main {
+    margin-left: 20%; /* Same as the width of the sidenav */
+    
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
