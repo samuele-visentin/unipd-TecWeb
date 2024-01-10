@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `tecweb`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `tecweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-
-USE `tecweb`;
-
---
 -- Table structure for table `capitolo`
 --
 
@@ -32,10 +24,12 @@ DROP TABLE IF EXISTS `capitolo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `capitolo` (
   `id` char(16) NOT NULL,
-  `idIndagine` char(16) DEFAULT NULL,
-  `progressivo` int(11) DEFAULT NULL,
+  `idIndagine` char(16) NOT NULL,
+  `progressivo` int(11) NOT NULL,
   `contenuto` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idIndagine` (`idIndagine`),
+  CONSTRAINT `capitolo_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,6 +43,33 @@ LOCK TABLES `capitolo` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `documentoiniziale`
+--
+
+DROP TABLE IF EXISTS `documentoiniziale`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documentoiniziale` (
+  `progressivo` int(11) NOT NULL,
+  `tipo` enum('lettera','cronologia') NOT NULL,
+  `contenuto` text NOT NULL,
+  `idIndagine` char(16) NOT NULL,
+  PRIMARY KEY (`progressivo`,`idIndagine`),
+  KEY `idIndagine` (`idIndagine`),
+  CONSTRAINT `documentoiniziale_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentoiniziale`
+--
+
+LOCK TABLES `documentoiniziale` WRITE;
+/*!40000 ALTER TABLE `documentoiniziale` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documentoiniziale` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `domanda`
 --
 
@@ -58,9 +79,11 @@ DROP TABLE IF EXISTS `domanda`;
 CREATE TABLE `domanda` (
   `id` char(16) NOT NULL,
   `progressivo` int(11) NOT NULL,
-  `idCapitolo` char(16) DEFAULT NULL,
+  `idCapitolo` char(16) NOT NULL,
   `contenuto` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idCapitolo` (`idCapitolo`),
+  CONSTRAINT `domanda_ibfk_1` FOREIGN KEY (`idCapitolo`) REFERENCES `capitolo` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -85,6 +108,7 @@ CREATE TABLE `indagine` (
   `dataInserimento` datetime NOT NULL,
   `nome` varchar(25) NOT NULL,
   `descrizione` varchar(255) NOT NULL,
+  `image_path` varchar(75) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -95,6 +119,7 @@ CREATE TABLE `indagine` (
 
 LOCK TABLES `indagine` WRITE;
 /*!40000 ALTER TABLE `indagine` DISABLE KEYS */;
+INSERT INTO `indagine` VALUES ('0000000000000001','2024-01-10 22:30:00','test','test',NULL);
 /*!40000 ALTER TABLE `indagine` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,11 +133,15 @@ DROP TABLE IF EXISTS `prova`;
 CREATE TABLE `prova` (
   `id` char(16) NOT NULL,
   `tipo` enum('evento','testimonianza','indizio') NOT NULL,
-  `idIndagine` char(16) DEFAULT NULL,
-  `idCapitolo` char(16) DEFAULT NULL,
+  `idIndagine` char(16) NOT NULL,
+  `idCapitolo` char(16) NOT NULL,
   `descrizione` varchar(255) NOT NULL,
   `image_path` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idIndagine` (`idIndagine`),
+  KEY `idCapitolo` (`idCapitolo`),
+  CONSTRAINT `prova_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`),
+  CONSTRAINT `prova_ibfk_2` FOREIGN KEY (`idCapitolo`) REFERENCES `capitolo` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -135,7 +164,10 @@ DROP TABLE IF EXISTS `provadimostra`;
 CREATE TABLE `provadimostra` (
   `idProva` char(16) NOT NULL,
   `idRisposta` char(16) NOT NULL,
-  PRIMARY KEY (`idProva`,`idRisposta`)
+  PRIMARY KEY (`idProva`,`idRisposta`),
+  KEY `idRisposta` (`idRisposta`),
+  CONSTRAINT `provadimostra_ibfk_1` FOREIGN KEY (`idProva`) REFERENCES `prova` (`id`),
+  CONSTRAINT `provadimostra_ibfk_2` FOREIGN KEY (`idRisposta`) REFERENCES `risposta` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -160,8 +192,10 @@ CREATE TABLE `recensione` (
   `contenuto` varchar(255) NOT NULL,
   `dataIniziale` datetime NOT NULL,
   `dataModifica` datetime DEFAULT NULL,
-  `idUtente` char(16) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `idUtente` char(16) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idUtente` (`idUtente`),
+  CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -183,11 +217,13 @@ DROP TABLE IF EXISTS `risposta`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `risposta` (
   `id` char(16) NOT NULL,
-  `codice` int(11) DEFAULT NULL,
-  `idDomanda` char(16) DEFAULT NULL,
+  `codice` int(11) NOT NULL,
+  `idDomanda` char(16) NOT NULL,
   `isCorrect` tinyint(1) NOT NULL,
   `contenuto` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idDomanda` (`idDomanda`),
+  CONSTRAINT `risposta_ibfk_1` FOREIGN KEY (`idDomanda`) REFERENCES `domanda` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -211,7 +247,10 @@ CREATE TABLE `salvataggio` (
   `idIndagine` char(16) NOT NULL,
   `idUtente` char(16) NOT NULL,
   `progressivoDomanda` int(11) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`idIndagine`,`idUtente`)
+  PRIMARY KEY (`idIndagine`,`idUtente`),
+  KEY `idUtente` (`idUtente`),
+  CONSTRAINT `salvataggio_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`),
+  CONSTRAINT `salvataggio_ibfk_2` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -259,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-10 11:59:06
+-- Dump completed on 2024-01-10 22:23:01
