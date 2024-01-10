@@ -48,17 +48,32 @@ body {
 
 header {
     background-color: rgb(var(--secondary800));
-    padding: 0.5em;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
-#logo {
+header #menuButton {
+    margin: 0.2em;
     text-indent: -999em;
-    background-image: url(../images/logo.svg);
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border: 0;
+    background-image: url(../icons/menu.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
-    font-size: var(--headerFontSize);
-    line-height: 1.5em;
+}
+
+header #logo {
+    font-size: 1.5em;
+    text-indent: -999em;
+    background-image: url(../images/logo.svg);
+    width: 6em;
+    height: 3em;
+    background-size: 6em 3em;
+    margin-left: 0.5em;
 }
 
 /*************************************
@@ -96,25 +111,28 @@ header {
 }
 
 /*************************************
-    USER TOOLBAR MENU STYLE
+    USER TOOLBAR STYLE
 *************************************/
 
-#userToolbar ul {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+#userToolbar {
+    margin-left: auto;
 }
 
-#menuButton-menu {
-    background-image: url(../icons/menu.svg);
+#userToolbar ul {  
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#userToolbar #loginButton {
+    background-image: url(../icons/person.svg);
     background-position: var(--iconPosition);
     background-repeat: no-repeat;
     padding-left: var(--iconLeftPadding);
 }
 
-#menuButton-account {
+#userToolbar #signupButton {
+    margin-left: 1em;
     background-image: url(../icons/person.svg);
     background-position: var(--iconPosition);
     background-repeat: no-repeat;
@@ -194,7 +212,6 @@ main {
 }
 
 .navHelp:focus {
-    /*
-        TO DO
-    */
+    position: inherit;
+    left: auto;
 }

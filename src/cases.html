@@ -15,15 +15,6 @@
     <body>
       <header>
         <h1 id="logo">Sleuth Systems</h1>
-        <!-- Alternativa
-        <nav id="toolbar">
-          <ul>
-            <li><button id="menuIcon">Menu</button></li>
-            <h1 id="webLogo">Sleuth Systems</h1>
-            <li id="accountButton"><a href="#" lang="en">Account</a></li>
-          </ul>
-        </nav> 
-        -->
       </header>
 
       <a class="navHelp" href="#content">Vai ai contenuti</a>
@@ -34,25 +25,23 @@
           <li id="menuButton-account"><a href="#" lang="en">Account</a></li>
         </ul>
       </nav>      
-      
+
       <nav class="menu" id="contentMenu">
         <p class="menuSection">Generale</p>
         <ul>
-          <li class="menuSelected" id="menuButton-home"><span lang="en">Home</span></li>
-          <li id="menuButton-cases"><a href="cases.html">Elenco dei casi</a></li>
+          <li id="menuButton-home"><a href="index.html" lang="en">Home</a></li>
+          <li class="menuSelected" id="menuButton-cases">Elenco dei casi</li>
           <li id="menuButton-about"><a href="about.html">Chi siamo</a></li>
           <li id="menuButton-faq"><a href="faq.html" lang="en"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
         </ul>
-      </nav>      
+      </nav>
 
       <!-- should breadcrumb be outside? -->
       <nav id="breadcrumb" aria-label="breadcrumbs">
-        <p><span lang="en">Home</span></p>
+        <p><a href="index.html" lang="en">Home</a> &raquo; Elenco dei casi</p>
       </nav>
 
       <main id="content">        
-        <h2>Sidenav Example</h2>
-        <p>This sidenav is always shown.</p>
       </main>
     </body>
 </html>

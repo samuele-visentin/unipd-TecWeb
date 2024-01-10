@@ -1,0 +1,11 @@
+@import "palette.css";
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url(../fonts/Inconsolata-VariableFont_wdth.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
