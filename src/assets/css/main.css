@@ -24,13 +24,17 @@
     /* CONTENTMENU PARAMETERS */
     --contentMenuWidth: 220px;
 
+    /* PAGE-CONTENT PARAMETERS */
+    --contentLeftMargin: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 2px + 1.5em);
+    --small-contentLeftMargin: 1.5em;
+
     /* LINK COLORS */
     --aLink: 255, 255, 255;
     --aVisited: 220, 132, 245;
 }
 
 html {
-    height: 100%;
+    height: fit-content;
     font-size: 100%;
     font-family: 'Inconsolata', sans-serif;
     line-height: 1.5em;
@@ -38,27 +42,39 @@ html {
     background-color: rgb(var(--primary500));
 }
 
-body {
-    height: 100%;
-}
-
 /*************************************
     HEADER STYLE
 *************************************/
 
-header {
+#pageHeader {
     background-color: rgb(var(--secondary800));
-    padding: 0.5em;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
-#logo {
+#pageHeader #menuButton {
+    margin: 0.2em;
     text-indent: -999em;
-    background-image: url(../images/logo.svg);
+    min-width: 2em;
+    min-height: 2em;
+    background-color: transparent;
+    border: 0;
+    background-image: url(../icons/menu.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
-    font-size: var(--headerFontSize);
-    line-height: 1.5em;
+}
+
+header #logo {
+    font-size: 1.5em;
+    text-indent: -999em;
+    background-image: url(../images/logo.png);
+    min-width: 7.5em;
+    min-height: 2.5em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 0.5em;
 }
 
 /*************************************
@@ -96,26 +112,30 @@ header {
 }
 
 /*************************************
-    USER TOOLBAR MENU STYLE
+    USER TOOLBAR STYLE
 *************************************/
 
-#userToolbar ul {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+#userToolbar {
+    padding: 0;
+    margin-left: auto;
 }
 
-#menuButton-menu {
-    background-image: url(../icons/menu.svg);
+#userToolbar ul {  
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#userToolbar #loginButton {
+    background-image: url(../icons/login.svg);
     background-position: var(--iconPosition);
     background-repeat: no-repeat;
     padding-left: var(--iconLeftPadding);
 }
 
-#menuButton-account {
-    background-image: url(../icons/person.svg);
+#userToolbar #signupButton {
+    margin-left: 1em;
+    background-image: url(../icons/investigate.svg);
     background-position: var(--iconPosition);
     background-repeat: no-repeat;
     padding-left: var(--iconLeftPadding);
@@ -128,8 +148,15 @@ header {
 #contentMenu {
     float: left;
     overflow: hidden;
+    position: -webkit-sticky;  /*per Safari*/
+    position: sticky;
+    top: 0;
     width: var(--contentMenuWidth);
-    height: 100%;
+    height: 100vh;
+}
+
+#contentMenu.toggleMenu{
+    display: none;
 }
 
 #contentMenu .menuSection {
@@ -171,17 +198,13 @@ header {
 *************************************/
 
 #breadcrumb {
-    margin-left: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + var(--iconLeftPadding));
+    margin-left: var(--contentLeftMargin);
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
-/*************************************
-    MAIN STYLE
-*************************************/
-
-main {
-    margin-left: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + var(--iconLeftPadding));
+#breadcrumb.toggleMenu {
+    margin-left: var(--small-contentLeftMargin);
 }
 
 /*************************************
@@ -194,7 +217,117 @@ main {
 }
 
 .navHelp:focus {
-    /*
-        TO DO
-    */
+    position: inherit;
+    left: auto;
+}
+
+/*************************************
+    BACK TO TOP STYLE
+*************************************/
+
+#backToTop {
+    padding: 0.4em;
+    border-radius: 5px;
+    background-color: rgb(var(--secondary800));
+    position: fixed;
+    right: 0.5em;
+    bottom: 0.5em;
+}
+
+#backToTop:link {
+    color: rgb(var(--aLink));
+}
+
+#backToTop:visited {
+    color: rgb(var(--aVisited));
+}
+
+/*************************************
+    MAIN STYLE
+*************************************/
+
+#content {
+    padding: 0.5em;
+    margin-left: var(--contentLeftMargin);
+    color: rgb(var(--darkColor));
+}
+
+#content.toggleMenu {
+    margin-left: var(--small-contentLeftMargin);
+}
+
+/*************************************
+    MAIN LETTER STYLE
+*************************************/
+
+#content section.letter {
+    background-color: rgb(var(--primary300));
+    background-image: url(../images/letterStamp.svg);
+    background-position: top 10px right 10px;
+    padding: 100px 1em 0;
+    background-repeat: no-repeat;
+}
+
+#content section.letter time {
+    font-weight: bold;
+}
+
+#content section.letter ul {
+    padding-left: 1.8em;
+}
+
+#content section.letter header, #content section.letter footer{
+    padding: 1em 0;
+}
+
+#content section.letter footer .signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.5em;
+}
+
+/*************************************
+    MAIN TIMELINE STYLE
+*************************************/
+
+#content section.timeline dl {
+    display: grid;
+    grid-template-columns: max-content auto;    
+    background-color: rgb(var(--primary300));
+    gap: 0.5em 1em;
+    grid-template-columns: minmax(min-content, max-content);
+    padding: 1em;
+}
+
+#content section.timeline dt, #content section.timeline dd {
+    background-color: rgb(var(--primary300));
+}
+  
+#content section.timeline dt {
+    font-weight: bold;
+    grid-column-start: 1;
+}
+  
+#content section.timeline dd {
+    grid-column-start: 2;
+}
+
+/*************************************
+    MAIN ARTICLEPIECE STYLE
+*************************************/
+
+#content section.articlePiece {
+    background-color: transparent;
+    background-image: url(../images/pageTear.svg);
+    padding-top: 2em;
+}
+
+#content section.articlePiece header{
+    background-color: rgb(var(--primary300));
+    padding: 1em;
+    border-bottom: 5px double rgb(var(--darkColor));
+}
+
+#content section.articlePiece p{
+    background-color: rgb(var(--primary300));
+    padding: 1em;
 }

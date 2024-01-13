@@ -1,11 +1,34 @@
 @import "palette.css";
-
+/*
 @font-face {
     font-family: 'Inconsolata';
     src: url(../fonts/Inconsolata-VariableFont_wdth.ttf);
+}*/
+
+header #logo {
+    background-image: url(../images/logo_small.png);
+    min-width: 2em;
+    min-height: 2.5em;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-* {
-    padding: 0;
-    margin: 0;
+#contentMenu {    
+    z-index: 1;
+    float: none;
+    display: none;
+    -webkit-box-shadow: 10px 0 10px -8px #333;
+    box-shadow: 10px 0 10px -8px #333;
+}
+
+#breadcrumb {
+    margin-left: var(--small-contentLeftMargin);
+}
+
+#content {
+    margin-left: var(--small-contentLeftMargin);
+}
+
+#contentMenu.toggleMenu {
+    display: block;
 }
