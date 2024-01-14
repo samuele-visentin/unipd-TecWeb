@@ -1,4 +1,6 @@
 <?php
+    require_once("app/global.php");
+    
     $layout = file_get_contents("templates/layout.html");
 
     $title = 'Clue Catchers';
