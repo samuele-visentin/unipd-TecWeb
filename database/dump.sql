@@ -207,7 +207,7 @@ CREATE TABLE `recensione` (
   `contenuto` varchar(255) NOT NULL,
   `dataIniziale` datetime NOT NULL,
   `dataModifica` datetime DEFAULT NULL,
-  `idUtente` char(16) NOT NULL,
+  `idUtente` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idUtente` (`idUtente`),
   CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`)
@@ -261,14 +261,14 @@ DROP TABLE IF EXISTS `salvataggio`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `salvataggio` (
   `idIndagine` char(16) NOT NULL,
-  `idUtente` char(16) NOT NULL,
+  `idUtente` int(11) NOT NULL,
   `progressivoDomanda` char(16) DEFAULT NULL,
   PRIMARY KEY (`idIndagine`,`idUtente`),
   KEY `idUtente` (`idUtente`),
-  KEY `fk_domanda` (`progressivoDomanda`),
-  CONSTRAINT `fk_domanda` FOREIGN KEY (`progressivoDomanda`) REFERENCES `domanda` (`id`),
-  CONSTRAINT `salvataggio_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`),
-  CONSTRAINT `salvataggio_ibfk_2` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`)
+  KEY `progressivoDomanda` (`progressivoDomanda`),
+  CONSTRAINT `salvataggio_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`),
+  CONSTRAINT `salvataggio_ibfk_2` FOREIGN KEY (`progressivoDomanda`) REFERENCES `domanda` (`id`),
+  CONSTRAINT `salvataggio_ibfk_3` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -289,7 +289,7 @@ DROP TABLE IF EXISTS `utente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `utente` (
-  `id` char(16) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(16) NOT NULL,
   `passwordHash` varchar(255) NOT NULL,
   `isAdmin` tinyint(1) DEFAULT 0,
@@ -316,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-13 16:06:33
+-- Dump completed on 2024-01-15 10:27:58
