@@ -18,7 +18,7 @@
             $this->connection->close();
         }
 
-        public function query(string $query, array $params = array()) {
+        public function query(string $query, array $params = array(), $close = true) {
             $this->connection();
             $stmt = $this->connection->prepare($query);
             if ($stmt == false) {
@@ -39,8 +39,21 @@
                 throw new Exception("Error in query: ". $stmt->error);
             }
             $stmt->close();
-            $this->closeConnection();
+            if ($close) $this->closeConnection();
             return $result;
+        }
+
+        public function transition_query(string $query, array $params = array()) {
+            $this->connection();
+            $this->connection->begin_transaction();
+            try {
+                $this->query($query, $params, false);
+                $this->connection->commit();
+            } catch (Exception $e) {
+                $this->connection->rollback();
+                throw $e;
+            }
+            $this->closeConnection();
         }
     }
 ?>
