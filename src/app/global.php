@@ -2,6 +2,7 @@
 $SERVER_NAME = $_SERVER['SERVER_NAME'];
 $SERVER_PORT = $_SERVER['SERVER_PORT'];
 $BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/";
+$DB = new DatabaseAccess();
 
 session_start();
 

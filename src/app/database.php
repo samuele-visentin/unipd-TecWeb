@@ -1,9 +1,9 @@
 <?php
     class DatabaseAccess {
-        private const HOST_DB = "localhost";
-        private const DATABASE_NAME = "tecweb";
-        private const USERNAME = "root";
-        private const PASSWORD = "";
+        static private const HOST_DB = "localhost";
+        static private const DATABASE_NAME = "tecweb";
+        static private const USERNAME = "root";
+        static private const PASSWORD = "";
 
         private $connection;
         private $is_persistent = false;
