@@ -39,3 +39,21 @@ header #logo {
     max-height: calc(100vh - 76px - 56px - 16px);
     overflow-y: hidden;
 }
+
+/*************************************
+    MAIN CASE STYLE
+*************************************/
+
+#content .case {
+    flex-direction: column;
+}
+
+#content .case img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content .case header {
+    margin-top: 1em;
+}
