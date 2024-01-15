@@ -25,7 +25,8 @@ function getAllProvaDimostra() {
 
 function getProvaDimostraByIdDomanda(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM provadimostra WHERE idDomanda = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM provadimostra WHERE idDomanda = ?", 
+        array("s", $id));
     $row = $result->fetch_assoc();
     return new ProvaDimostra($row);
 }

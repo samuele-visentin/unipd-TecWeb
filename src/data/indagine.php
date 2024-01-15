@@ -29,7 +29,8 @@ function getAllIndagine() {
 
 function getIndagineById(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM indagine WHERE id = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM indagine WHERE id = ?", 
+        array("s", $id));
     $row = $result->fetch_assoc();
     return new Indagine($row);
 }

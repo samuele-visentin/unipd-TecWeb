@@ -1,6 +1,4 @@
-
 <?php
-require_once("../app/global.php");
 require_once("../app/database.php");
 
 class Utente {
@@ -29,7 +27,7 @@ function getAllUtenti() {
 
 function getUtenteById(string $id): ?Utente {
     global $DB;
-    $result = $DB->query("SELECT * FROM utente WHERE id = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM utente WHERE id = ?", array("s", $id));
     $row = $result->fetch_assoc();
     if($row === null)
         return null;
@@ -38,24 +36,29 @@ function getUtenteById(string $id): ?Utente {
 
 function getUtenteByUsername(string $username): ?Utente {
     global $DB;
-    $result = $DB->query("SELECT * FROM utente WHERE username = ?", array(array("s", $username)));
+    $result = $DB->query("SELECT * FROM utente WHERE username = ?", 
+        array("s", $username));
     $row = $result->fetch_assoc();
     if($row === null)
         return null;
     return new Utente($row);
 }
 
-function login(string $username, string $hash) {
+function login(string $username, string $password) {
     global $DB;
-    $result = $DB->query("SELECT * FROM utente WHERE username = ? AND passwordHash = ?", array(array("ss", $username, $hash)));
+    $result = $DB->query("SELECT * FROM utente WHERE username = ? 
+        AND passwordHash = ?", array("ss", $username, 
+        hash('sha256', $password)));
     $row = $result->fetch_assoc();
     if($row === null)
         return null;
     return new Utente($row);
 }
 
-function insertUtente($username, $password_hash) {
+function insertUtente($username, $password) {
     global $DB;
-    $result = $DB->lock_query("INSERT INTO utente (username, passwordHash) VALUES (?, ?, ?)", "utente", array(array("ss", $username, $password_hash)));
+    $result = $DB->lock_query("INSERT INTO utente (username, password_hash) 
+        VALUES (?, ?, ?)", "utente", array("sss", $username, 
+        hash('sha256',$password)));
     return $result;
 }

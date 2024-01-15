@@ -1,9 +1,11 @@
 <?php
+require_once("database.php");
+
 $SERVER_NAME = $_SERVER['SERVER_NAME'];
 $SERVER_PORT = $_SERVER['SERVER_PORT'];
 $BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/";
 $DB = new DatabaseAccess();
-
+$TITLE = "Clue Catchers";
 session_start();
 
 function is_logged_in(): bool {
@@ -11,7 +13,7 @@ function is_logged_in(): bool {
 }
 
 function secure_input(string $in): string {
-    return trim(htmlentities(strip_tags($in)));
+    return htmlentities(strip_tags(trim($in)));
 }
 
 function to500($errno, $errstr = null) {
@@ -21,7 +23,6 @@ function to500($errno, $errstr = null) {
     exit();
 }
 
-set_error_handler('to500');
-set_exception_handler('to500');
-
+//set_error_handler('to500');
+//set_exception_handler('to500');
 ?>

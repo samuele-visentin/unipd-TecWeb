@@ -41,7 +41,8 @@ function getAllDocumentoIniziale() {
 
 function getDocumentoInizialeById(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM documentoiniziale WHERE id = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM documentoiniziale WHERE id = ?", 
+        array("s", $id));
     $row = $result->fetch_assoc();
     return new DocumentoIniziale($row);
 }

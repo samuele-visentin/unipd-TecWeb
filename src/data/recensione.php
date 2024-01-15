@@ -34,7 +34,8 @@ function getAllRecensione() {
 
 function getRecensioneByUtente(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM recensione WHERE idUtente = ? order by dataIniziale", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM recensione WHERE idUtente = ? 
+        order by dataIniziale", array("s", $id));
     while ($row = $result->fetch_assoc()) {
         $recensioni[] = new Recensione($row);
     }

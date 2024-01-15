@@ -51,7 +51,8 @@ function getAllProva() {
 
 function getProvaById(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM prova WHERE id = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM prova WHERE id = ?", 
+        array("s", $id));
     $row = $result->fetch_assoc();
     return new Prova($row);
 }

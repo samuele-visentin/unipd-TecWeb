@@ -29,7 +29,8 @@ function getAllDomanda() {
 
 function getDomandaById(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM domanda WHERE id = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM domanda WHERE id = ?", 
+        array("s", $id));
     $row = $result->fetch_assoc();
     return new Domanda($row);
 }

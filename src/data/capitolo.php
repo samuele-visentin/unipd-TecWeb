@@ -31,7 +31,8 @@ function getAllCapitolo() {
 
 function getCapitoloById(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM capitolo WHERE id = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM capitolo WHERE id = ?", 
+        array("s", $id));
     $row = $result->fetch_assoc();
     return new Capitolo($row);
 }

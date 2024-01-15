@@ -27,7 +27,8 @@ function getAllSalvataggio() {
 
 function getSalvataggiByIdUtente(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM salvataggio WHERE idUtente = ?", array(array("s", $id)));
+    $result = $DB->query("SELECT * FROM salvataggio WHERE idUtente = ?", 
+        array("s", $id));
     while ($row = $result->fetch_assoc()) {
         $salvataggi[] = new Salvataggio($row);
     }

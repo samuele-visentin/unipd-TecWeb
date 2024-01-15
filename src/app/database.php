@@ -1,9 +1,9 @@
 <?php
     class DatabaseAccess {
-        static private const HOST_DB = "localhost";
-        static private const DATABASE_NAME = "tecweb";
-        static private const USERNAME = "root";
-        static private const PASSWORD = "";
+        private const HOST_DB = "localhost";
+        private const DATABASE_NAME = "tecweb";
+        private const USERNAME = "root";
+        private const PASSWORD = "";
 
         private $connection;
 
@@ -27,13 +27,9 @@
             if ($stmt == false) {
                 throw new Exception("Connot prepare the query: ". $this->connection->error);
             }
-            $format = "";
-            $values = array();
-            foreach ($params as $valtype) {
-                $format .= $valtype[0];
-                $values[] = $valtype[1];
-            }
-            if ($format !== "") {
+            if(!empty($params)) {
+                $format = (string)$params[0];
+                $values = array_slice($params, 1);
                 $stmt->bind_param($format, ...$values);
             }
             $stmt->execute();
