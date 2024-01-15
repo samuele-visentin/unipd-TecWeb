@@ -25,9 +25,9 @@ function to500($errno, $errstr = null) {
 
 function getUserToolBar() {
     if(isset($_SESSION['userId']) && $_SESSION['userId'] !== "") {
-        return file_get_contents("templates/logout_menu_template.html");
+        return file_get_contents("templates/logout_layout.html");
     }
-    return file_get_contents("templates/login_menu_template.html");
+    return file_get_contents("templates/login_layout.html");
 }
 
 //set_error_handler('to500');

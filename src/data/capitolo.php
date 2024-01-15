@@ -32,4 +32,15 @@ function getCapitoloById(string $id) {
     $row = $result->fetch_assoc();
     return new Capitolo($row);
 }
+
+function getCapitoliByIndagine(string $id) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM capitolo WHERE idIndagine = ? 
+        order by progressivo asc", 
+        array("s", $id));
+    while ($row = $result->fetch_assoc()) {
+        $capitoli[] = new Capitolo($row);
+    }
+    return $capitoli;
+}
 ?>

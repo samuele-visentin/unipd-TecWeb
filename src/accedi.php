@@ -10,7 +10,7 @@
     $keywords = '';
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> >> Accedi</p>';
-    $content = file_get_contents("templates/accedi_template.html");
+    $content = file_get_contents("templates/accedi_layout.html");
     $menu = '
     <p class="menuSection">Generale</p>
     <ul>

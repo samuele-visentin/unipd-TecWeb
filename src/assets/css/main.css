@@ -369,3 +369,7 @@ header #logo {
 #content .case p {
     margin: 0 1em;
 }
+
+#content .case a {
+    margin: 0 1em;
+}

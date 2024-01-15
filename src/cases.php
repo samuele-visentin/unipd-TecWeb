@@ -2,6 +2,29 @@
     require_once("app/global.php");
     require_once("data/indagine.php");
 
+    /***********************************
+        impostazione layout CASE
+    ***********************************/
+    $caseLayout = file_get_contents("templates/case_layout.html");
+    $caseArray = array();
+    $cases = getAllIndagine();
+
+    foreach($cases as $case) {
+        $caseTitle = $case->nome;
+        $caseImgPath = isset($case->image_path) ? ($case->image_path) : 'assets/images/img_placeholder.png';
+        $caseDescription = $case->descrizione;
+
+        $newCase = str_replace("[caseTitle]", $caseTitle, $caseLayout);
+        $newCase = str_replace("[caseImgPath]", $caseImgPath, $newCase);
+        $newCase = str_replace("[caseDescription]", $caseDescription, $newCase);
+        $newCase = str_replace("[caseLink]", 'case.php?id='.$case->id, $newCase);
+        $caseArray[] = $newCase;
+    }
+
+    /***********************************
+        impostazione layout PAGE
+    ***********************************/
+
     $layout = file_get_contents("templates/layout.html");
 
     $title = 'I nostri casi | Clue Catchers';

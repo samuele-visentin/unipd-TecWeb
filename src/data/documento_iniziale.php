@@ -1,14 +1,12 @@
 <?php
-
-
 enum TipoDocumento {
-    const Lettera = "lettera";
-    const Cronologia = "cronologia";
+    const lettera = "lettera";
+    const cronologia = "cronologia";
 }
 
 class DocumentoIniziale {
     public string $id_indagine;
-    public TipoDocumento $tipo;
+    public $tipo;
     public string $contenuto;
     public int $progressivo;
 
@@ -19,10 +17,10 @@ class DocumentoIniziale {
         $this->id_indagine = $row["idIndagine"];
         switch($row["tipo"]) {
             case "lettera":
-                $this->tipo = TipoDocumento::Lettera;
+                $this->tipo = TipoDocumento::lettera;
                 break;
             case "cronologia":
-                $this->tipo = TipoDocumento::Cronologia;
+                $this->tipo = TipoDocumento::cronologia;
                 break;
         }
     }
@@ -43,5 +41,16 @@ function getDocumentoInizialeById(string $id) {
         array("s", $id));
     $row = $result->fetch_assoc();
     return new DocumentoIniziale($row);
+}
+
+function getDocumentiInizialeByIndagine(string $id) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM documentoiniziale WHERE idIndagine = ? 
+        order by progressivo asc", 
+        array("s", $id));
+    while ($row = $result->fetch_assoc()) {
+        $documenti[] = new DocumentoIniziale($row);
+    }
+    return $documenti;
 }
 ?>
