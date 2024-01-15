@@ -1,7 +1,4 @@
-
 <?php
-require_once("../app/global.php");
-require_once("../app/database.php");
 
 enum TipoProva {
     const evento = "evento";

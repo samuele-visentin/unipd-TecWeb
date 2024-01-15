@@ -1,7 +1,5 @@
-
 <?php
-require_once("../app/global.php");
-require_once("../app/database.php");
+
 
 enum TipoDocumento {
     const Lettera = "lettera";

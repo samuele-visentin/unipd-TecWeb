@@ -1,5 +1,4 @@
 <?php
-require_once("../app/database.php");
 
 class Utente {
     public string $id;

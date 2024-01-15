@@ -1,8 +1,4 @@
 <?php
-
-require_once(__DIR__."/../app/global.php");
-require_once(__DIR__."/../app/database.php");
-
 class Indagine {
     public string $id;
     public DateTime $data_inserimento;

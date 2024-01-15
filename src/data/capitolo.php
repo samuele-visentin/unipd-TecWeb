@@ -1,8 +1,4 @@
-
 <?php
-require_once("../app/global.php");
-require_once("../app/database.php");
-
 class Capitolo {
     public string $id;
     public string $id_indagine;

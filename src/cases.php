@@ -7,8 +7,11 @@
     $title = 'I nostri casi | Clue Catchers';
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; I nostri casi</p>';
-    $content = '';
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; I nostri casi</p>';    
+    $content = '<h2>I nostri casi</h2>';
+    foreach($caseArray as $case) {
+        $content = $content.$case;
+    }
     $menu = '
         <p class="menuSection">Generale</p>
         <ul>

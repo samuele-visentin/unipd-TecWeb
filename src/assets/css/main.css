@@ -18,14 +18,15 @@
     --menuFontSize: 1.1em;
     --menuLeftPadding: 1em;
     --menuRightPadding: 1em;
-    --iconLeftPadding: 32px;
-    --iconPosition: 2px 5px;
+    --iconLeftPadding: 2em;
+    --iconPosition: 0.1em 0.3em;
 
     /* CONTENTMENU PARAMETERS */
-    --contentMenuWidth: 220px;
+    --contentMenuWidth: 200px;
 
     /* PAGE-CONTENT PARAMETERS */
     --contentLeftMargin: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 2px + 1.5em);
+    --contentRightMargin: 1.5em;
     --small-contentLeftMargin: 1.5em;
 
     /* LINK COLORS */
@@ -249,11 +250,16 @@ header #logo {
 #content {
     padding: 0.5em;
     margin-left: var(--contentLeftMargin);
+    margin-right: var(--contentRightMargin);
     color: rgb(var(--darkColor));
 }
 
 #content.toggleMenu {
     margin-left: var(--small-contentLeftMargin);
+}
+
+#content h2 {
+    margin-bottom: 1em;
 }
 
 /*************************************
@@ -263,8 +269,8 @@ header #logo {
 #content section.letter {
     background-color: rgb(var(--primary300));
     background-image: url(../images/letterStamp.svg);
-    background-position: top 10px right 10px;
-    padding: 100px 1em 0;
+    background-position: top 0.6em right 0.6em;
+    padding: 6em 1em 0;
     background-repeat: no-repeat;
 }
 
@@ -324,10 +330,42 @@ header #logo {
 #content section.articlePiece header{
     background-color: rgb(var(--primary300));
     padding: 1em;
-    border-bottom: 5px double rgb(var(--darkColor));
+    border-bottom: 0.3em double rgb(var(--darkColor));
 }
 
 #content section.articlePiece p{
     background-color: rgb(var(--primary300));
     padding: 1em;
+}
+
+/*************************************
+    MAIN CASE STYLE
+*************************************/
+
+#content .case {
+    padding: 1em;
+    background-color: rgb(var(--primary300));
+    border-radius: 10px;
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-direction: row;
+}
+
+#content .case div {
+    order: 2;
+}
+
+#content .case img {
+    margin: auto 0;
+    order: 1;
+    max-height: 10em;
+    max-width: 10em;
+}
+
+#content .case header {
+    margin: 0 1em 1em;
+}
+
+#content .case p {
+    margin: 0 1em;
 }
