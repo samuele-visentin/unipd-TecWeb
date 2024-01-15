@@ -23,6 +23,13 @@ function to500($errno, $errstr = null) {
     exit();
 }
 
+function getUserToolBar() {
+    if(isset($_SESSION['userId']) && $_SESSION['userId'] !== "") {
+        return file_get_contents("templates/logout_menu_template.html");
+    }
+    return file_get_contents("templates/login_menu_template.html");
+}
+
 //set_error_handler('to500');
 //set_exception_handler('to500');
 ?>

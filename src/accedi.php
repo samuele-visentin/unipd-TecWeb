@@ -1,6 +1,6 @@
 <?php
     require_once("app/global.php");
-    if($_SESSION["userId"] !== null) {
+    if(isset($_SESSION["userId"]) && $_SESSION["userId"] !== "") {
         header("Location: cases.php");
         exit();
     }
@@ -25,6 +25,7 @@
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);
     $page = str_replace("[content]", $content, $page);
     $page = str_replace("[menu]", $menu, $page);
+    $page = str_replace("[userToolbar]", "", $page);
 
     echo $page;
 

@@ -24,6 +24,7 @@
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);
     $page = str_replace("[content]", $content, $page);
     $page = str_replace("[menu]", $menu, $page);
+    $page = str_replace("[userToolbar]", getUserToolBar(), $page);
 
     echo $page;
 ?>
