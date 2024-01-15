@@ -14,7 +14,9 @@ header #logo {
 }
 
 #contentMenu {    
-    z-index: 1;
+    z-index: 1;    
+    position: fixed;
+    top: 76px;
     float: none;
     display: none;
     -webkit-box-shadow: 10px 0 10px -8px #333;
@@ -31,4 +33,9 @@ header #logo {
 
 #contentMenu.toggleMenu {
     display: block;
+}
+
+#content.toggleMenu {
+    max-height: calc(100vh - 76px - 56px - 16px);
+    overflow-y: hidden;
 }
