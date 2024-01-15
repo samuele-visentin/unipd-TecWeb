@@ -35,3 +35,27 @@ function getUtenteById(string $id): ?Utente {
         return null;
     return new Utente($row);
 }
+
+function getUtenteByUsername(string $username): ?Utente {
+    global $DB;
+    $result = $DB->query("SELECT * FROM utente WHERE username = ?", array(array("s", $username)));
+    $row = $result->fetch_assoc();
+    if($row === null)
+        return null;
+    return new Utente($row);
+}
+
+function login(string $username, string $hash) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM utente WHERE username = ? AND passwordHash = ?", array(array("ss", $username, $hash)));
+    $row = $result->fetch_assoc();
+    if($row === null)
+        return null;
+    return new Utente($row);
+}
+
+function insertUtente($username, $password_hash) {
+    global $DB;
+    $result = $DB->query("INSERT INTO utente (username, passwordHash) VALUES (?, ?, ?)", array(array("ss", $username, $password_hash)));
+    return $result;
+}

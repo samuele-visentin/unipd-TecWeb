@@ -6,7 +6,6 @@
         static private const PASSWORD = "";
 
         private $connection;
-        private $is_persistent = false;
 
         private function connection() {
             $this->connection = new mysqli(self::HOST_DB, self::USERNAME, self::PASSWORD, self::DATABASE_NAME);
@@ -15,14 +14,8 @@
             }
         }
 
-        public function closeConnection(){
-            if ($this->is_persistent === false) {
-                $this->connection->close();
-            }
-        }
-
-        public function setPersistentConnection(bool $is_persistent) {
-            $this->is_persistent = $is_persistent;
+        private function closeConnection(){
+            $this->connection->close();
         }
 
         public function query(string $query, array $params = array()) {

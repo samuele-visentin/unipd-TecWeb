@@ -6,6 +6,14 @@ $DB = new DatabaseAccess();
 
 session_start();
 
+function is_logged_in(): bool {
+    return isset($_SESSION["userId"]);
+}
+
+function secure_input(string $in): string {
+    return trim(htmlentities(strip_tags($in)));
+}
+
 function to500($errno, $errstr = null) {
     global $BASE_URL;
     http_response_code(500);
