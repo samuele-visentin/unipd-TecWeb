@@ -7,7 +7,7 @@
 
         private $connection;
 
-        private function connection() {
+        private function connect() {
             $this->connection = new mysqli(self::HOST_DB, self::USERNAME, self::PASSWORD, self::DATABASE_NAME);
             if ($this->connection->error) {
                 throw new Exception("Error while connecting to db: ".$this->connection->error);
@@ -16,10 +16,12 @@
 
         private function closeConnection(){
             $this->connection->close();
+            $this->connection = null;
         }
 
-        public function query(string $query, array $params = array(), $close = true) {
-            $this->connection();
+        public function query(string $query, array $params = array()) {
+            if($this->connection === null)
+                $this->connect();
             $stmt = $this->connection->prepare($query);
             if ($stmt == false) {
                 throw new Exception("Connot prepare the query: ". $this->connection->error);
@@ -39,21 +41,17 @@
                 throw new Exception("Error in query: ". $stmt->error);
             }
             $stmt->close();
-            if ($close) $this->closeConnection();
+            $this->closeConnection();
             return $result;
         }
 
-        public function transition_query(string $query, array $params = array()) {
-            $this->connection();
-            $this->connection->begin_transaction();
-            try {
-                $this->query($query, $params, false);
-                $this->connection->commit();
-            } catch (Exception $e) {
-                $this->connection->rollback();
-                throw $e;
+        public function lock_query(string $query, string $nome_tabella, array $params = array()) {
+            $this->connect();
+            $res = $this->connection->query("LOCK TABLES " . $nome_tabella . " WRITE");
+            if($res === false) {
+                throw new Exception("Error while LOCK: ". $this->connection->error);
             }
-            $this->closeConnection();
+            $this->query($query, $params);
         }
     }
 ?>
