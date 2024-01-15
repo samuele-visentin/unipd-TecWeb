@@ -1,14 +1,12 @@
 <?php
-    require_once("app/global.php");
-
-    $selected="CASES";
+    $selected="ABOUT";
     include_once('components/sidebar.php');
     $layout = file_get_contents("templates/layout.html");
 
-    $title = 'I nostri casi | Clue Catchers';
+    $title = 'Chi siamo | Clue Catchers';
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; I nostri casi</p>';
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Chi siamo</p>';
     $content = '';
 
     $page = str_replace("[title]", $title, $layout);
@@ -17,7 +15,6 @@
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);
     $page = str_replace("[content]", $content, $page);
     $page = str_replace("[sidebar]", $sidebar, $page);
-    $page = str_replace("[userToolbar]", getUserToolBar(), $page);
 
     echo $page;
 ?>
