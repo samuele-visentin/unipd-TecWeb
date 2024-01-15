@@ -19,7 +19,8 @@
             $this->connection = null;
         }
 
-        public function query(string $query, array $params = array()) {
+        public function query(string $query, array $params = array(),
+                            bool $close_connection = true) {
             if($this->connection === null)
                 $this->connect();
             $stmt = $this->connection->prepare($query);
@@ -41,7 +42,8 @@
                 throw new Exception("Error in query: ". $stmt->error);
             }
             $stmt->close();
-            $this->closeConnection();
+            if($close_connection) 
+                $this->closeConnection();
             return $result;
         }
 
@@ -51,7 +53,16 @@
             if($res === false) {
                 throw new Exception("Error while LOCK: ". $this->connection->error);
             }
-            $this->query($query, $params);
+            try {
+                $result = $this->query($query, $params, false);
+            } finally {
+                $res = $this->connection->query("UNLOCK TABLES");
+                if($res === false) {
+                    throw new Exception("Error while UNLOCK: ". $this->connection->error);
+                }
+                $this->closeConnection();
+            }
+            return $result;
         }
     }
 ?>
