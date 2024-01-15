@@ -1,5 +1,6 @@
 <?php
     require_once("app/global.php");
+    require_once("data/indagine.php");
 
     $layout = file_get_contents("templates/layout.html");
 

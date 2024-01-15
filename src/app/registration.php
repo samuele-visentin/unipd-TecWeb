@@ -58,7 +58,6 @@ if(isset($_POST["username"]) && $_POST["username"] !== ""
         header("Location: ../registrati.php?{$params}");
         exit();
     }
-    $password = password_hash($password, PASSWORD_DEFAULT);
     insertUtente($username, $password);
     $user = getUtenteByUsername($username);
     $_SESSION["userId"] = $user->id;

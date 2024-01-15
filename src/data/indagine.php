@@ -1,6 +1,7 @@
 <?php
-require_once("../app/global.php");
-require_once("../app/database.php");
+
+require_once(__DIR__."/../app/global.php");
+require_once(__DIR__."/../app/database.php");
 
 class Indagine {
     public string $id;

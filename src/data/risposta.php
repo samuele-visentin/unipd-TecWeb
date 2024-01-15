@@ -32,7 +32,7 @@ function getAllRisposta() {
 function getRispostaByIdDomanda(string $id) {
     global $DB;
     $result = $DB->query("SELECT * FROM risposta WHERE idDomanda = ? 
-    order by codice asc", array("s", $id));
+        order by codice asc", array("s", $id));
     while ($row = $result->fetch_assoc()) {
         $risposte[] = new Risposta($row);
     }

@@ -4,6 +4,8 @@
         header("Location: cases.php");
         exit();
     }
+
+    $title = 'Accedi | '.$TITLE;
     $layout = file_get_contents("templates/layout.html");
     $keywords = '';
     $description = '';
@@ -19,7 +21,7 @@
     </ul>
     ';
 
-    $page = str_replace("[title]", $TITLE, $layout);
+    $page = str_replace("[title]", $title, $layout);
     $page = str_replace("[keywords]", $keywords, $page);
     $page = str_replace("[description]", $description, $page);
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);

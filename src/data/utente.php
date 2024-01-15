@@ -58,7 +58,7 @@ function login(string $username, string $password) {
 function insertUtente($username, $password) {
     global $DB;
     $result = $DB->lock_query("INSERT INTO utente (username, password_hash) 
-        VALUES (?, ?, ?)", "utente", array("sss", $username, 
+        VALUES (?, ?, ?)", "utente", array("ss", $username, 
         hash('sha256',$password)));
     return $result;
 }

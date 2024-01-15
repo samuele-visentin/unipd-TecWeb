@@ -1,5 +1,5 @@
 <?php
-require_once("../app/global.php");
+require_once("global.php");
 require_once("../data/utente.php");
 
 // Verifica se il form di login è stato inviato
