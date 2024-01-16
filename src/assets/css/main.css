@@ -83,6 +83,7 @@ header #logo {
 *************************************/
 
 .menu {
+    font-weight: 600;
     background-color: rgb(var(--secondary800));
     color: rgb(var(--lightColor));
     padding-left: var(--menuLeftPadding);
@@ -91,11 +92,16 @@ header #logo {
 }
 
 .menu a:link {
-    color: rgb(var(--aLink));
+    color: var(--lightColor);
 }
 
 .menu a:visited {
-    color: rgb(var(--aVisited));
+    color: var(--lightColor);
+}
+
+.menu a[disabled] {
+    pointer-events: none; 
+    display: inline-block;
 }
 
 .menu ul {
@@ -105,11 +111,14 @@ header #logo {
 .menu ul li {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
+    padding-left: 10px;
 }
 
 .menu .menuSelected {
-    background-color: rgb(var(--secondary300), 0.2);
+    background-color: rgb(var(--secondary400));
     border-radius: 5px;
+    color: rgb(var(--darkColor));
+    font-weight: 800;
 }
 
 /*************************************
@@ -163,35 +172,46 @@ header #logo {
 #contentMenu .menuSection {
     font-weight: 600;
     font-size: 1.3em;
-    padding: 1em 0;
+    padding: 16px 0px 20px 16px;
 }
 
-#menuButton-home {
+.menuButton {
+    background-position: var(--iconPosition);
+    background-repeat: no-repeat;
+    padding-left: var(--iconLeftPadding);
+    padding-top: var(--iconTopPadding);
+}
+
+#iconHome {
     background-image: url(../icons/home.svg);
-    background-position: var(--iconPosition);
-    background-repeat: no-repeat;
-    padding-left: var(--iconLeftPadding);
 }
 
-#menuButton-cases {    
+#iconHome-selected {
+    background-image: url(../icons/darkIcons/home.svg);
+}
+
+#iconCases {    
     background-image: url(../icons/lista.svg);
-    background-position: var(--iconPosition);
-    background-repeat: no-repeat;
-    padding-left: var(--iconLeftPadding);
 }
 
-#menuButton-about {    
+#iconCases-selected {    
+    background-image: url(../icons/darkIcons/lista.svg);
+}
+
+#iconAbout {    
     background-image: url(../icons/computer.svg);
-    background-position: var(--iconPosition);
-    background-repeat: no-repeat;
-    padding-left: var(--iconLeftPadding);
 }
 
-#menuButton-faq {    
+#iconAbout-selected {    
+    background-image: url(../icons/darkIcons/computer.svg);
+}
+
+#iconFAQ {    
     background-image: url(../icons/help.svg);
-    background-position: var(--iconPosition);
-    background-repeat: no-repeat;
-    padding-left: var(--iconLeftPadding);
+}
+
+#iconFAQ-selected {    
+    background-image: url(../icons/darkIcons/help.svg);
 }
 
 #menuButton-letter {    
