@@ -5,9 +5,8 @@ require_once("data/capitolo.php");
 require_once("data/indagine.php");
 
 if(!(isset($_SESSION["userId"]) && $_SESSION["userId"] !== "")) {
-    /*
     header("Location: accedi.php");
-    exit();*/
+    exit();
 }
 if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $caseId = $_GET["id"];
