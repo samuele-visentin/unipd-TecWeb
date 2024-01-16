@@ -194,6 +194,20 @@ header #logo {
     padding-left: var(--iconLeftPadding);
 }
 
+#menuButton-letter {    
+    background-image: url(../icons/evenlope.svg);
+    background-position: var(--iconPosition);
+    background-repeat: no-repeat;
+    padding-left: var(--iconLeftPadding);
+}
+
+#menuButton-timeline {    
+    background-image: url(../icons/calendario.svg);
+    background-position: var(--iconPosition);
+    background-repeat: no-repeat;
+    padding-left: var(--iconLeftPadding);
+}
+
 /*************************************
     BREADCRUMB STYLE
 *************************************/
@@ -258,7 +272,7 @@ header #logo {
     margin-left: var(--small-contentLeftMargin);
 }
 
-#content h2 {
+#content h1 {
     margin-bottom: 1em;
 }
 
@@ -269,9 +283,10 @@ header #logo {
 #content section.letter {
     background-color: rgb(var(--primary300));
     background-image: url(../images/letterStamp.svg);
-    background-position: top 0.6em right 0.6em;
-    padding: 6em 1em 0;
+    background-position: top 1em right 1em;
+    padding: 6.5em 1em 0;
     background-repeat: no-repeat;
+    margin-bottom: 2em;
 }
 
 #content section.letter time {

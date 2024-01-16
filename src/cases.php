@@ -31,7 +31,7 @@
     $keywords = '';
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; I nostri casi</p>';    
-    $content = '<h2>I nostri casi</h2>';
+    $content = '<h1>I nostri casi</h1>';
     foreach($caseArray as $case) {
         $content = $content.$case;
     }

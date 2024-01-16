@@ -29,6 +29,6 @@ function getIndagineById(string $id) {
     $result = $DB->query("SELECT * FROM indagine WHERE id = ?", 
         array("s", $id));
     $row = $result->fetch_assoc();
-    return new Indagine($row);
+    return !is_null($row) ? new Indagine($row) : null;
 }
 ?>
