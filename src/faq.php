@@ -3,7 +3,7 @@
     include_once('components/sidebar.php');
     $layout = file_get_contents("templates/layout.html");
 
-    $title = '<abbr title="Frequently Asked Questions">FAQ</abbr> | Clue Catchers';
+    $title = 'FAQ | Clue Catchers';
     $keywords = '';
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <abbr title="Frequently Asked Questions">FAQ</abbr></p>';
