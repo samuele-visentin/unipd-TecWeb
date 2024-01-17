@@ -24,9 +24,7 @@
     /***********************************
         impostazione layout PAGE
     ***********************************/
-
-    $selected="CASES";
-    include_once('components/sidebar.php');
+    require_once("components/sidebar.php");
     $layout = file_get_contents("templates/layout.html");
 
     $title = 'I nostri casi | Clue Catchers';
@@ -42,7 +40,7 @@
     $page = str_replace("[description]", $description, $page);
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);
     $page = str_replace("[content]", $content, $page);
-    $page = str_replace("[sidebar]", $sidebar, $page);
+    $page = str_replace("[sidebar]", getSidebar("CASES"), $page);
     $page = str_replace("[userToolbar]", getUserToolBar(), $page);
 
     echo $page;

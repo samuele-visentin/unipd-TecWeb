@@ -1,9 +1,11 @@
 <?php
-require_once("database.php");
+require_once(__DIR__."/database.php");
+
 
 $SERVER_NAME = $_SERVER['SERVER_NAME'];
 $SERVER_PORT = $_SERVER['SERVER_PORT'];
-$BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/";
+$BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/src/";
+
 $DB = new DatabaseAccess();
 $TITLE = "Clue Catchers";
 session_start();
@@ -19,7 +21,7 @@ function secure_input(string $in): string {
 function to500($errno, $errstr = null) {
     global $BASE_URL;
     http_response_code(500);
-    header("Location: {$BASE_URL}500.php");
+    header("Location: " . $BASE_URL . "500.php");
     exit();
 }
 

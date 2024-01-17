@@ -2,8 +2,8 @@
 require_once("global.php");
 require_once("../data/utente.php");
 
-// Verifica se il form di login è stato inviato
-if($_SESSION["userId"] === null) {
+if(!isset($_SESSION["userId"])) {
+    // Verifica se il form di login è stato inviato
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Recupera i dati inseriti dall'utente
         $username = $_POST["username"];

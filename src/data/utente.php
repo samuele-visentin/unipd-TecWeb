@@ -43,10 +43,11 @@ function getUtenteByUsername(string $username): ?Utente {
     return new Utente($row);
 }
 
-function login(string $username, string $password) {
+function login(string $username, string $password): ?Utente {
     global $DB;
     $result = $DB->query("SELECT * FROM utente WHERE username = ? 
-        AND passwordHash = ?", array("ss", $username, 
+        AND passwordHash = ?", array("ss", $username,
+        //eseguimo l'hash della password prima del confronto con il db
         hash('sha256', $password)));
     $row = $result->fetch_assoc();
     if($row === null)
@@ -56,8 +57,8 @@ function login(string $username, string $password) {
 
 function insertUtente($username, $password) {
     global $DB;
-    $result = $DB->lock_query("INSERT INTO utente (username, password_hash) 
-        VALUES (?, ?, ?)", "utente", array("ss", $username, 
+    $result = $DB->lock_query("INSERT INTO utente (username, passwordHash) 
+        VALUES (?, ?)", "utente", array("ss", $username, 
         hash('sha256',$password)));
     return $result;
 }

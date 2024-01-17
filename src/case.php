@@ -3,6 +3,7 @@ require_once("app/global.php");
 require_once("data/documento_iniziale.php");
 require_once("data/capitolo.php");
 require_once("data/indagine.php");
+require_once("components/sidebar.php");
 
 if(!(isset($_SESSION["userId"]) && $_SESSION["userId"] !== "")) {
     header("Location: accedi.php");
@@ -29,14 +30,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
             $content.=$doc->contenuto;
         }
     }
-    $menu = '
-        <p class="menuSection">Generale</p>
-        <ul>
-            <li id="menuButton-home"><a href="index.php" lang="en">Home</a></li>
-            <li id="menuButton-cases"><a href="cases.php">I nostri casi</a></li>
-            <li id="menuButton-about"><a href="about.html">Chi siamo</a></li>
-            <li id="menuButton-faq"><a href="faq.html" lang="en"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-        </ul>
+    $menu = getSidebar("");
+    $menu .= '
         <p class="menuSection">'.$case->nome.'</p>
         <ul>
             <li class="menuSelected" id="menuButton-letter">Presentazione</li>
@@ -49,7 +44,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $page = str_replace("[description]", $description, $page);
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);
     $page = str_replace("[content]", $content, $page);
-    $page = str_replace("[menu]", $menu, $page);
+    $page = str_replace("[sidebar]", $menu, $page);
     $page = str_replace("[userToolbar]", getUserToolBar(), $page);
 
     echo $page;

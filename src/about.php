@@ -1,6 +1,6 @@
 <?php
-    $selected="ABOUT";
-    include_once('components/sidebar.php');
+    require_once("app/global.php");
+    require_once('components/sidebar.php');
     $layout = file_get_contents("templates/layout.html");
 
     $title = 'Chi siamo | Clue Catchers';
@@ -14,7 +14,8 @@
     $page = str_replace("[description]", $description, $page);
     $page = str_replace("[breadcrumbs]", $breadcrumbs, $page);
     $page = str_replace("[content]", $content, $page);
-    $page = str_replace("[sidebar]", $sidebar, $page);
+    $page = str_replace("[sidebar]", getSidebar("ABOUT"), $page);
+    $page = str_replace("[userToolbar]", getUserToolBar(), $page);
 
     echo $page;
 ?>
