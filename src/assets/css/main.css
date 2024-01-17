@@ -20,15 +20,14 @@
     --menuRightPadding: 1em;
     --iconLeftPadding: 2em;
     --iconPosition: 0.1em 0.3em;
-    --iconTopPadding: 9px;
 
     /* CONTENTMENU PARAMETERS */
     --contentMenuWidth: 200px;
 
     /* PAGE-CONTENT PARAMETERS */
-    --contentLeftMargin: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 2px + 1.5em);
-    --contentRightMargin: 1.5em;
-    --small-contentLeftMargin: 1.5em;
+    --contentLeftPadding: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 2px + 1.5em);
+    --contentRightPadding: 1.5em;
+    --small-contentLeftPadding: 1.5em;
 
     /* LINK COLORS */
     --aLink: 255, 255, 255;
@@ -176,57 +175,58 @@ header #logo {
     padding: 16px 0px 20px 16px;
 }
 
-.menuButton {
+.menu .menuButton {
     background-position: var(--iconPosition);
     background-repeat: no-repeat;
     padding-left: var(--iconLeftPadding);
-    padding-top: var(--iconTopPadding);
 }
 
-#iconHome {
+#homeButton {
     background-image: url(../icons/home.svg);
 }
 
-#iconHome-selected {
+#homeButton.menuSelected {
     background-image: url(../icons/darkIcons/home.svg);
 }
 
-#iconCases {    
+#casesButton {    
     background-image: url(../icons/lista.svg);
 }
 
-#iconCases-selected {    
+#casesButton.menuSelected {    
     background-image: url(../icons/darkIcons/lista.svg);
 }
 
-#iconAbout {    
+#aboutButton {    
     background-image: url(../icons/computer.svg);
 }
 
-#iconAbout-selected {    
+#aboutButton.menuSelected {    
     background-image: url(../icons/darkIcons/computer.svg);
 }
 
-#iconFAQ {    
+#faqButton {    
     background-image: url(../icons/help.svg);
 }
 
-#iconFAQ-selected {    
+#faqButton.menuSelected {    
     background-image: url(../icons/darkIcons/help.svg);
 }
 
-#menuButton-letter {    
+#caseButton {
     background-image: url(../icons/evenlope.svg);
-    background-position: var(--iconPosition);
-    background-repeat: no-repeat;
-    padding-left: var(--iconLeftPadding);
 }
 
-#menuButton-timeline {    
+#caseButton.menuSelected {
+    background-image: url(../icons/darkIcons/evenlope.svg);
+}
+
+#timelineButton {
     background-image: url(../icons/calendario.svg);
-    background-position: var(--iconPosition);
-    background-repeat: no-repeat;
-    padding-left: var(--iconLeftPadding);
+}
+
+#timelineButton.menuSelected {
+    background-image: url(../icons/darkIcons/calendario.svg);
 }
 
 /*************************************
@@ -234,13 +234,13 @@ header #logo {
 *************************************/
 
 #breadcrumb {
-    margin-left: var(--contentLeftMargin);
+    padding-left: var(--contentLeftPadding);
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
 #breadcrumb.toggleMenu {
-    margin-left: var(--small-contentLeftMargin);
+    padding-left: var(--small-contentLeftPadding);
 }
 
 /*************************************
@@ -283,14 +283,17 @@ header #logo {
 *************************************/
 
 #content {
-    padding: 0.5em;
-    margin-left: var(--contentLeftMargin);
-    margin-right: var(--contentRightMargin);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: var(--contentLeftPadding);
+    padding-right: var(--contentRightPadding);
+    margin: auto;
+    max-width: 50em;
     color: rgb(var(--darkColor));
 }
 
 #content.toggleMenu {
-    margin-left: var(--small-contentLeftMargin);
+    padding-left: var(--small-contentLeftPadding);
 }
 
 #content h1 {
