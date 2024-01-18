@@ -409,3 +409,30 @@ header #logo {
 #content .case a {
     margin: 0 1em;
 }
+
+/*************************************
+    MAIN ACCEDI STYLE
+*************************************/
+
+div.form-container{
+    min-width: 10em;
+    max-width: 20em;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(var(--primary300));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#username {
+    order: 1;
+}
+
+#password {
+    order: 1;
+}
