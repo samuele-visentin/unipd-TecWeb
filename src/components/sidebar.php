@@ -1,6 +1,6 @@
 <?php
     function getSidebar(string $selected, string $caseName = "", string $caseId = "") {
-        $needsCaseMenu = array("CASE", "TIMELINE");
+        $needsCaseMenu = array("CASE", "TIMELINE", "WITNESS", "CLUES");
 
         $sidebar = '<p class="menuSection">Generale</p><ul>';
         $sidebar .= '
@@ -32,6 +32,15 @@
             $sidebar .= '
                         <li id="timelineButton" class="menuButton'.($selected == "TIMELINE" ? ' menuSelected"' : '"').'>'
                             .($selected != "TIMELINE" ? '<a href="timeline.php?id='.$caseId.'">Cronologia</a>' : 'Cronologia').
+                        '</li></ul>';
+            $sidebar .= '<p class="menuSection">Prove</p><ul>';
+            $sidebar .= '
+                        <li id="witnessButton" class="menuButton'.($selected == "WITNESS" ? ' menuSelected"' : '"').'>'
+                            .($selected != "WITNESS" ? '<a href="witness.php?id='.$caseId.'">Testimonianze</a>' : 'Testimonianze').
+                        '</li>';
+            $sidebar .= '
+                        <li id="cluesButton" class="menuButton'.($selected == "CLUES" ? ' menuSelected"' : '"').'>'
+                            .($selected != "CLUES" ? '<a href="clues.php?id='.$caseId.'">Indizi</a>' : 'Indizi').
                         '</li></ul>';
         }
                     
