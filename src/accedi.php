@@ -11,7 +11,7 @@
     $content = file_get_contents("templates/accedi_layout.html");
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> >> Accedi</p>';
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Accedi</p>';
     $account = '<li id="signupButton"><a href="registarti.php" lang="en">Sign up</a></li>';
 
     $page = str_replace("[title]", $title, $layout);

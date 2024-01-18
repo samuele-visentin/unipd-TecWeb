@@ -24,11 +24,11 @@ header #logo {
 }
 
 #breadcrumb {
-    margin-left: var(--small-contentLeftMargin);
+    padding-left: var(--small-contentLeftPadding);
 }
 
 #content {
-    margin-left: var(--small-contentLeftMargin);
+    padding-left: var(--small-contentLeftPadding);
 }
 
 #contentMenu.toggleMenu {
@@ -56,4 +56,8 @@ header #logo {
 
 #content .case header {
     margin-top: 1em;
+}
+
+#content .case a {
+    align-self: center;
 }

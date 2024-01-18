@@ -6,8 +6,9 @@ require_once("data/indagine.php");
 require_once("components/sidebar.php");
 
 if(!(isset($_SESSION["userId"]) && $_SESSION["userId"] !== "")) {
+    /*
     header("Location: accedi.php");
-    exit();
+    exit();*/
 }
 if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $caseId = $_GET["id"];
@@ -23,21 +24,14 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $title = $case->nome.' | Clue Catchers';
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; '.$case->nome.'</p>';   
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; Presentazione</p>';   
     $content = '<h1>'.$case->nome.'</h1>';
     foreach($documenti as $doc) {
         if($doc->tipo === TipoDocumento::lettera) {
             $content.=$doc->contenuto;
         }
     }
-    $menu = getSidebar("");
-    $menu .= '
-        <p class="menuSection">'.$case->nome.'</p>
-        <ul>
-            <li class="menuSelected" id="menuButton-letter">Presentazione</li>
-            <li id="menuButton-timeline"><a href="timeline.php?id='.$case->id.'">Cronologia</a></li>
-        </ul>
-    ';
+    $menu = getSidebar("CASE", $case->nome, $case->id);
 
     $page = str_replace("[title]", $title, $layout);
     $page = str_replace("[keywords]", $keywords, $page);
