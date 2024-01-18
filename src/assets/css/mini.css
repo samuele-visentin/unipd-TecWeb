@@ -57,3 +57,7 @@ header #logo {
 #content .case header {
     margin-top: 1em;
 }
+
+#content .case a {
+    align-self: center;
+}

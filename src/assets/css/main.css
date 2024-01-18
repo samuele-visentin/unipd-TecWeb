@@ -25,7 +25,7 @@
     --contentMenuWidth: 200px;
 
     /* PAGE-CONTENT PARAMETERS */
-    --contentLeftPadding: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 2px + 1.5em);
+    --contentLeftPadding: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 1.5em);
     --contentRightPadding: 1.5em;
     --small-contentLeftPadding: 1.5em;
 
@@ -92,11 +92,11 @@ header #logo {
 }
 
 .menu a:link {
-    color: var(--lightColor);
+    color: rgb(var(--aLink));
 }
 
 .menu a:visited {
-    color: var(--lightColor);
+    color: rgb(var(--aVisited));
 }
 
 .menu a[disabled] {
@@ -111,7 +111,7 @@ header #logo {
 .menu ul li {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
-    padding-left: 10px;
+    padding-left: 0.6em;
 }
 
 .menu .menuSelected {
@@ -172,7 +172,7 @@ header #logo {
 #contentMenu .menuSection {
     font-weight: 600;
     font-size: 1.3em;
-    padding: 16px 0px 20px 16px;
+    padding: 1em 0 1.2em 1em;
 }
 
 .menu .menuButton {
@@ -235,8 +235,25 @@ header #logo {
 
 #breadcrumb {
     padding-left: var(--contentLeftPadding);
+    padding-right: var(--contentRightPadding);
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+#breadcrumb p {
+    display: inline;
+    background-color: rgb(var(--secondary800));
+    padding: 0.4em;
+    border-radius: 5px;
+    color: rgb(var(--lightColor));
+}
+
+#breadcrumb a:link {
+    color: rgb(var(--aLink));
+}
+
+#breadcrumb a:visited {
+    color: rgb(var(--aVisited));
 }
 
 #breadcrumb.toggleMenu {
@@ -263,11 +280,17 @@ header #logo {
 
 #backToTop {
     padding: 0.4em;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: rgb(var(--secondary800));
     position: fixed;
     right: 0.5em;
     bottom: 0.5em;
+    text-indent: -999em;
+    min-width: 1.5em;
+    min-height: 1.5em;
+    background-image: url(../images/toTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #backToTop:link {
@@ -300,6 +323,10 @@ header #logo {
     margin-bottom: 1em;
 }
 
+#content h2 {
+    margin-bottom: 0.8em;
+}
+
 /*************************************
     MAIN LETTER STYLE
 *************************************/
@@ -321,7 +348,7 @@ header #logo {
     padding-left: 1.8em;
 }
 
-#content section.letter header, #content section.letter footer{
+#content section.letter footer{
     padding: 1em 0;
 }
 
@@ -341,6 +368,7 @@ header #logo {
     gap: 0.5em 1em;
     grid-template-columns: minmax(min-content, max-content);
     padding: 1em;
+    margin-bottom: 1em;
 }
 
 #content section.timeline dt, #content section.timeline dd {
@@ -392,6 +420,8 @@ header #logo {
 
 #content .case div {
     order: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 #content .case img {
@@ -406,9 +436,21 @@ header #logo {
 }
 
 #content .case p {
-    margin: 0 1em;
+    margin: 0 1em 1em 1em;
 }
 
 #content .case a {
-    margin: 0 1em;
+    align-self: flex-end;
+    margin-top: auto;
+    background-color: rgb(var(--secondary800));
+    padding: 0.4em;
+    border-radius: 5px;
+}
+
+#content .case a:link {
+    color: rgb(var(--aLink));
+}
+
+#content .case a:visited {
+    color: rgb(var(--aVisited));
 }
