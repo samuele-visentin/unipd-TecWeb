@@ -53,4 +53,32 @@ function getProvaById(string $id) {
     $row = $result->fetch_assoc();
     return new Prova($row);
 }
+
+function getProvaByCapitolo(string $id_capitolo) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM prova WHERE idCapitolo = ?", 
+        array("s", $id_capitolo));
+    while ($row = $result->fetch_assoc()) {
+        $prove[] = new Prova($row);
+    }
+    return $prove;
+}
+
+function getProveBySalvataggio(string $id_salvataggio, string $id_indagine) {
+    $query = "SELECT prova.id as id, prova.idIndagine as idIndagine, 
+        prova.titolo as titolo, 
+        prova.idCapitolo as idCapitolo, prova.contenuto as contenuto, 
+        prova.image_path as image_path, prova.tipo as tipo
+        FROM salvataggio
+        JOIN domanda ON salvataggio.progressivoDomanda = domanda.id
+        and salvataggio.id = ? and salvataggio.idIndagine = ?
+        JOIN capitolo ON domanda.idCapitolo = capitolo.id
+        JOIN prova ON capitolo.id = prova.idCapitolo";
+    global $DB;
+    $result = $DB->query($query, array("ss", $id_salvataggio, $id_indagine));
+    while ($row = $result->fetch_assoc()) {
+        $prove[] = new Prova($row);
+    }
+    return $prove;
+}
 ?>

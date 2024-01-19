@@ -1,12 +1,11 @@
 <div class="form-container">
     <form action="app/login.php" method="post">
-        <fieldset>
-            <legend lang="en">Login</legend>
-            <input type="text" name="username" id="username">
-            <label for="username" lang="en">Username: </label> <br>
-            <input type="password" name="password" id="password">
-            <label for="password" lang="en">Password: </label> <br>
-            <input type="submit" value="Accedi">
-        </fieldset>
+        <h2 lang="en">Login</h2>
+        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required> <br>
+        <label for="username" lang="en">Username: </label> <br>
+        <input type="password" name="password" id="password" placeholder="Inserisci la password" required> <br>
+        <label for="password" lang="en">Password: </label> <br>
+        [errorMessage]
+        <input type="submit" value="Accedi">
     </form>
 </div>

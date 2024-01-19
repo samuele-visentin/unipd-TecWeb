@@ -1,0 +1,14 @@
+<div class="form-container">
+    <form action="app/registration.php" method="post">
+        <h2 lang="en">Sign up</h2>
+        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required pattern=""> <br>
+        <label for="username" lang="en">Username: </label> <br>
+        <input type="password" name="password" id="password" placeholder="Inserisci la password" required pattern=""> <br>
+        <label for="password" lang="en">Password: </label> <br>
+        <input type="password" name="confermaPassword" id="confermaPassword" placeholder="Reinserisci la password" required pattern=""
+        onblur=""> <br>
+        <label for="confermaPassword">Conferma <span lang="en">password</span>:</label> <br>
+        [errorMessage]
+        <input type="submit" value="Registrati">
+    </form>
+</div>

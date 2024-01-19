@@ -468,17 +468,3 @@ div.form-container{
     background-color: rgb(var(--primary300));
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-#username {
-    order: 1;
-}
-
-#password {
-    order: 1;
-}
-
