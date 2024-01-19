@@ -479,14 +479,34 @@ header #logo {
     MAIN ACCEDI STYLE
 *************************************/
 
-div.form-container{
-    min-width: 10em;
-    max-width: 20em;
-    margin: 50px auto;
-    padding: 20px;
+form {
     border-radius: 10px;
     background-color: rgb(var(--primary300));
+    width: 300px;
+    margin: 20% 20%;
 }
+
+div.login-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#username {
+    order: 2;
+}
+
+#password{
+    order: 4;
+}
+
+#labelUsername {
+    order: 1;
+}
+
+#labelPassword {
+    order: 3;
+}  
 
 /************************************
     WITNESSES STYLE

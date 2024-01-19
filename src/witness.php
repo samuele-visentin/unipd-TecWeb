@@ -21,7 +21,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $salvataggio = getSalvataggioByUtenteAndIndagine($_SESSION["userId"], $caseId);
     //$salvataggio = getSalvataggioByUtenteAndIndagine(0, $caseId);
     if(!is_null($salvataggio)) {
-        $prove = getProveBySalvataggio($salvataggio, $caseId);
+        $prove = getProveBySalvataggio($salvataggio);
     } else {
         $prove = getProveByIndagineAndProgressivoCapitolo($caseId, 0);
     }

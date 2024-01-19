@@ -1,11 +1,12 @@
-<div class="form-container">
-    <form action="app/login.php" method="post">
-        <h2 lang="en">Login</h2>
-        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required> <br>
-        <label for="username" lang="en">Username: </label> <br>
-        <input type="password" name="password" id="password" placeholder="Inserisci la password" required> <br>
-        <label for="password" lang="en">Password: </label> <br>
-        [errorMessage]
-        <input type="submit" value="Accedi">
-    </form>
-</div>
+
+<form action="app/login.php" method="post">
+    <h2 lang="en">Login</h2>
+    <div class="login-container">
+        <input type="text" name="username" id="username" placeholder="Inserisci l'username" maxlength="20" required> 
+        <label id="labelUsername" for="username" lang="en">Username: </label> 
+        <input type="password" name="password" id="password" placeholder="Inserisci la password" required>
+        <label id="labelPassword" for="password" lang="en">Password: </label> 
+    </div>
+    [errorMessage]
+    <input type="submit" value="Accedi">
+</form>

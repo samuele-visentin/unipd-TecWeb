@@ -3,13 +3,13 @@
 class Salvataggio {
     public string $id_indagine;
     public string $id_utente;
-    public string $progressivo_domanda;
+    public string $id_domanda;
 
     public function __construct(array $row) 
     {
         $this->id_indagine = $row["idIndagine"];
         $this->id_utente = $row["idUtente"];
-        $this->progressivo_domanda = $row["idDomanda"];
+        $this->id_domanda = $row["idDomanda"];
     }
 }
 

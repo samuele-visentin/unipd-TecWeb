@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__."/salvataggio.php");
 
 enum TipoProva {
     const evento = "evento";
@@ -75,18 +76,16 @@ function getProveByIndagineAndProgressivoCapitolo(string $idIndagine, int $progr
     return $prove;
 }
 
-function getProveBySalvataggio(string $id_salvataggio, string $id_indagine) {
+function getProveBySalvataggio(Salvataggio $salvataggio) {
     $query = "SELECT prova.id as id, prova.idIndagine as idIndagine, 
         prova.titolo as titolo, 
         prova.idCapitolo as idCapitolo, prova.contenuto as contenuto, 
         prova.image_path as image_path, prova.tipo as tipo
-        FROM salvataggio
-        JOIN domanda ON salvataggio.idDomanda = domanda.id
-        and salvataggio.id = ? and salvataggio.idIndagine = ?
-        JOIN capitolo ON domanda.idCapitolo = capitolo.id
+        FROM domanda 
+        JOIN capitolo ON domanda.idCapitolo = capitolo.id and domanda.id = ?
         JOIN prova ON capitolo.id = prova.idCapitolo";
     global $DB;
-    $result = $DB->query($query, array("ss", $id_salvataggio, $id_indagine));
+    $result = $DB->query($query, array("s", $salvataggio->id_domanda));
     while ($row = $result->fetch_assoc()) {
         $prove[] = new Prova($row);
     }
