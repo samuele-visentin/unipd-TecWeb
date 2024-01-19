@@ -8,7 +8,7 @@ enum TipoProva {
 
 class Prova {
     public string $id;
-    public TipoProva $tipo;
+    public $tipo;
     public string $id_indagine;
     public string $id_capitolo;
     public string $contenuto;
@@ -54,10 +54,20 @@ function getProvaById(string $id) {
     return new Prova($row);
 }
 
-function getProvaByCapitolo(string $id_capitolo) {
+function getProvaByIdIndagine(string $id) {
     global $DB;
-    $result = $DB->query("SELECT * FROM prova WHERE idCapitolo = ?", 
-        array("s", $id_capitolo));
+    $result = $DB->query("SELECT * FROM prova WHERE idIndagine = ?", 
+        array("s", $id));
+    while ($row = $result->fetch_assoc()) {
+        $prove[] = new Prova($row);
+    }
+    return $prove;
+}
+
+function getProveByIndagineAndProgressivoCapitolo(string $idIndagine, int $progressivoCapitolo) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM prova WHERE idCapitolo = (SELECT id FROM capitolo WHERE idIndagine = ? AND progressivo = ?);", 
+        array("si", $idIndagine, $progressivoCapitolo));
     while ($row = $result->fetch_assoc()) {
         $prove[] = new Prova($row);
     }

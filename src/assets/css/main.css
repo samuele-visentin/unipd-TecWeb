@@ -172,7 +172,11 @@ header #logo {
 #contentMenu .menuSection {
     font-weight: 600;
     font-size: 1.3em;
-    padding: 1em 0 1.2em 1em;
+    padding: 0.4em 0;
+}
+
+#contentMenu ul {
+    padding-bottom: 1em;
 }
 
 .menu .menuButton {
@@ -227,6 +231,22 @@ header #logo {
 
 #timelineButton.menuSelected {
     background-image: url(../icons/darkIcons/calendario.svg);
+}
+
+#witnessButton {
+    background-image: url(../icons/group.svg);
+}
+
+#witnessButton.menuSelected {
+    background-image: url(../icons/darkIcons/group.svg);
+}
+
+#cluesButton {
+    background-image: url(../icons/assignment.svg);
+}
+
+#cluesButton.menuSelected {
+    background-image: url(../icons/darkIcons/assignment.svg);
 }
 
 /*************************************
@@ -467,4 +487,36 @@ div.form-container{
     border-radius: 10px;
     background-color: rgb(var(--primary300));
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/************************************
+    WITNESSES STYLE
+*************************************/
+
+#content .witness {
+    background-color: rgb(var(--primary300));
+    padding: 1em;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 2em;
+}
+
+#content .witness dl {
+    margin-top: 1.2em;
+}
+
+#content .witness dt::before {
+    content: "";
+    display: block;
+}
+
+#content .witness dd, #content .witness dt {
+    display: inline;
+}
+
+#content .witness dt {
+    font-weight: bold;
+}
+
+#content .witness dd::after {
+    content: ".";
 }
