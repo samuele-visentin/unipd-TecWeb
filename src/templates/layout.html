@@ -15,7 +15,7 @@
   </head>
   <body>
     <header id="pageHeader">
-      <button id="menuButton" onclick="toggleContentMenu()" aria-label="Mostra o nascondi menu">Menu</button>
+      <button id="menuButton" onclick="openMenu()">Mostra menu</button>
       <h1 id="logo" lang="en">Clue Catchers</h1>
       <nav class="menu" id="userToolbar" aria-label="Link di accesso account">
         <ul>
@@ -26,6 +26,7 @@
     </header>
     
     <nav class="menu" id="contentMenu" aria-label="Navigazione principale">
+      <button id="menuClose" onclick="closeMenu()">Chiudi menu</button>
       [sidebar]
     </nav>
       

@@ -73,7 +73,7 @@ function getProveByIndagineAndProgressivoCapitolo(string $idIndagine, int $progr
     while ($row = $result->fetch_assoc()) {
         $prove[] = new Prova($row);
     }
-    return $prove;
+    return (!empty($prove)) ? $prove : null;
 }
 
 function getProveBySalvataggio(Salvataggio $salvataggio) {
