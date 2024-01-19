@@ -13,14 +13,21 @@ header #logo {
     background-repeat: no-repeat;
 }
 
+#pageHeader #menuButton {
+    display: block;
+}
+
 #contentMenu {    
     z-index: 1;    
     position: fixed;
-    top: 76px;
     float: none;
     display: none;
     -webkit-box-shadow: 10px 0 10px -8px #333;
     box-shadow: 10px 0 10px -8px #333;
+}
+
+#menuClose {
+    display: block;
 }
 
 #breadcrumb {
@@ -33,11 +40,6 @@ header #logo {
 
 #contentMenu.toggleMenu {
     display: block;
-}
-
-#content.toggleMenu {
-    max-height: calc(100vh - 76px - 56px - 16px);
-    overflow-y: hidden;
 }
 
 /*************************************

@@ -65,6 +65,7 @@ html {
     background-image: url(../icons/menu.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    display: none;
 }
 
 header #logo {
@@ -165,9 +166,22 @@ header #logo {
     height: 100vh;
 }
 
-#contentMenu.toggleMenu{
+#menuClose {
+    margin: 2em 0;
+    text-indent: -999em;
+    min-width: 2em;
+    min-height: 2em;
+    background-color: transparent;
+    border: 0;
+    background-image: url(../icons/close.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
     display: none;
 }
+/*
+#contentMenu.toggleMenu{
+    display: none;
+}*/
 
 #contentMenu .menuSection {
     font-weight: 600;
@@ -275,10 +289,10 @@ header #logo {
 #breadcrumb a:visited {
     color: rgb(var(--aVisited));
 }
-
+/*
 #breadcrumb.toggleMenu {
     padding-left: var(--small-contentLeftPadding);
-}
+}*/
 
 /*************************************
     NAV HELP STYLE
@@ -334,10 +348,10 @@ header #logo {
     max-width: 50em;
     color: rgb(var(--darkColor));
 }
-
+/*
 #content.toggleMenu {
     padding-left: var(--small-contentLeftPadding);
-}
+}*/
 
 #content h1 {
     margin-bottom: 1em;
@@ -348,91 +362,14 @@ header #logo {
 }
 
 /*************************************
-    MAIN LETTER STYLE
-*************************************/
-
-#content section.letter {
-    background-color: rgb(var(--primary300));
-    background-image: url(../images/letterStamp.svg);
-    background-position: top 1em right 1em;
-    padding: 6.5em 1em 0;
-    background-repeat: no-repeat;
-    margin-bottom: 2em;
-}
-
-#content section.letter time {
-    font-weight: bold;
-}
-
-#content section.letter ul {
-    padding-left: 1.8em;
-}
-
-#content section.letter footer{
-    padding: 1em 0;
-}
-
-#content section.letter footer .signature {
-    font-family: 'Brush Script MT', cursive;
-    font-size: 1.5em;
-}
-
-/*************************************
-    MAIN TIMELINE STYLE
-*************************************/
-
-#content section.timeline dl {
-    display: grid;
-    grid-template-columns: max-content auto;    
-    background-color: rgb(var(--primary300));
-    gap: 0.5em 1em;
-    grid-template-columns: minmax(min-content, max-content);
-    padding: 1em;
-    margin-bottom: 1em;
-}
-
-#content section.timeline dt, #content section.timeline dd {
-    background-color: rgb(var(--primary300));
-}
-  
-#content section.timeline dt {
-    font-weight: bold;
-    grid-column-start: 1;
-}
-  
-#content section.timeline dd {
-    grid-column-start: 2;
-}
-
-/*************************************
-    MAIN ARTICLEPIECE STYLE
-*************************************/
-
-#content section.articlePiece {
-    background-color: transparent;
-    background-image: url(../images/pageTear.svg);
-    padding-top: 2em;
-}
-
-#content section.articlePiece header{
-    background-color: rgb(var(--primary300));
-    padding: 1em;
-    border-bottom: 0.3em double rgb(var(--darkColor));
-}
-
-#content section.articlePiece p{
-    background-color: rgb(var(--primary300));
-    padding: 1em;
-}
-
-/*************************************
     MAIN CASE STYLE
 *************************************/
 
 #content .case {
     padding: 1em;
     background-color: rgb(var(--primary300));
-    border-radius: 10px;
+    border: 2px solid rgb(var(--darkColor));
+    border-radius: 20px;
     margin-bottom: 1.5em;
     display: flex;
     flex-direction: row;
@@ -518,4 +455,148 @@ div.form-container{
 
 #content .witness dd::after {
     content: ".";
+}
+
+/************************************
+    CLUE STYLE
+************************************/
+
+#content .clue {
+    border: 2px solid rgb(var(--darkColor));
+    background-color: rgb(var(--primary300));
+    padding: 1em;
+    border-radius: 20px;
+    margin-bottom: 2em;
+}
+
+#content .clue h3 {
+    padding: 0.5em 0;
+    border-bottom: 2px solid rgb(var(--darkColor));
+}
+
+#content .clue header + p, #content .clue header + ul, #content .clue header + section {
+    margin-top: 0.5em;
+}
+
+#content .clue p {
+    margin-bottom: 0.2em;
+}
+
+#content .clue ul {
+    margin-left: 1.2em;
+}
+
+#content .clue table {
+    border-collapse: collapse;
+}
+
+#content .clue #tabSummary {
+    text-indent: -999em;
+}
+
+#content .clue td, #content .clue th {
+    border: 1px solid rgb(var(--darkColor));    
+    text-align: left;
+    padding: 0.3em 0.8em;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(var(--lightColor));
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(var(--primary300));
+}
+
+/*************************************
+    MAIN LETTER STYLE
+*************************************/
+
+#content section.letter {
+    background-color: rgb(var(--primary300));
+    background-image: url(../images/letterStamp.svg);
+    background-position: top 1em right 1em;
+    padding: 6.5em 1em 0;
+    background-repeat: no-repeat;
+    margin-bottom: 2em;
+    border: 2px solid rgb(var(--darkColor));
+}
+
+#content section.letter time {
+    font-weight: bold;
+}
+
+#content section.letter ul {
+    padding-left: 1.8em;
+}
+
+#content section.letter footer{
+    padding: 1em 0;
+}
+
+#content section.letter footer .signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.5em;
+}
+
+/*************************************
+    MAIN TIMELINE STYLE
+*************************************/
+
+#content section.timeline dl {
+    display: grid;
+    grid-template-columns: max-content auto;    
+    background-color: rgb(var(--primary300));
+    gap: 0.5em 1em;
+    grid-template-columns: minmax(min-content, max-content);
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 2px solid rgb(var(--darkColor));
+}
+
+#content section.timeline dt, #content section.timeline dd {
+    background-color: rgb(var(--primary300));
+}
+  
+#content section.timeline dt {
+    font-weight: bold;
+    grid-column-start: 1;
+}
+  
+#content section.timeline dd {
+    grid-column-start: 2;
+}
+
+/*************************************
+    MAIN ARTICLEPIECE STYLE
+*************************************/
+
+#content section.articlePiece {
+    border: 2px solid rgb(var(--darkColor));
+    background-image: url(../images/article.png);
+    margin-bottom: 2em;
+}
+
+#content section.articlePiece p {
+    
+    margin: 0;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+#content section.articlePiece p:last-of-type {
+    margin-bottom: 1em;    
+}
+
+#content section.articlePiece header{
+    background-image: url(../images/newspaperHeader.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: top 1em right 1em;
+    padding-top: 8em;
+    padding-bottom: 1em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    font-weight: 500;
+    font-size: large;
 }

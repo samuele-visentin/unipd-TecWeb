@@ -43,4 +43,20 @@ function getCapitoliByIndagine(string $id) {
     }
     return $capitoli;
 }
+
+function getCapitoloByIndagineAndProgressivo(string $idIndagine, int $progressivoCapitolo) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM capitolo WHERE idIndagine = ? AND progressivo = ?", 
+        array("si", $idIndagine, $progressivoCapitolo));
+    $row = $result->fetch_assoc();
+    return !is_null($row) ? new Capitolo($row) : null;
+}
+
+function getLastCapitoloByUtenteAndIndagine(int $idUtente, string $idIndagine) {
+    global $DB;
+    $result = $DB->query("SELECT progressivo FROM capitolo WHERE id = (SELECT idCapitolo FROM domanda WHERE id = (SELECT idDomanda FROM salvataggio WHERE idUtente = ? AND idIndagine = ?))", 
+        array("is", $idUtente, $idIndagine));
+    $val = $result->fetch_assoc();
+    return $val;
+}
 ?>

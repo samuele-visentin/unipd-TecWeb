@@ -1,7 +1,6 @@
 function focusFirst() {
-    // Focus the first focusable element.
     document.getElementById("menuButton").focus({
-      preventScroll: true,
+      preventScroll: true
     });
 }
   

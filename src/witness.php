@@ -7,39 +7,54 @@ require_once("data/salvataggio.php");
 require_once("components/sidebar.php");
 
 if(!(isset($_SESSION["userId"]) && $_SESSION["userId"] !== "")) {
-    /*
     header("Location: accedi.php");
-    exit();*/
+    exit();
 }
 if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $caseId = $_GET["id"];
+    $userId = (int)$_SESSION["userId"];
     $case = getIndagineById($caseId);
     if(is_null($case)) {
         header("Location: 404.php");
         exit();
     }
-    $salvataggio = getSalvataggioByUtenteAndIndagine($_SESSION["userId"], $caseId);
-    //$salvataggio = getSalvataggioByUtenteAndIndagine(0, $caseId);
-    if(!is_null($salvataggio)) {
-        $prove = getProveBySalvataggio($salvataggio, $caseId);
+    $lastChapt = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
+    //$lastChapt = 5;
+    $prove = array();
+    $capitoli = array();
+    if(!is_null($lastChapt)) {
+        for ($i = 0; $i <= $lastChapt; $i++) { 
+            $capitoli[$i] = getCapitoloByIndagineAndProgressivo($caseId, $i);
+            $prove[$i] = getProveByIndagineAndProgressivoCapitolo($caseId, $i);
+        }
     } else {
-        $prove = getProveByIndagineAndProgressivoCapitolo($caseId, 0);
+        $capitoli[0] = getCapitoloByIndagineAndProgressivo($caseId, 0);
+        $prove[0] = getProveByIndagineAndProgressivoCapitolo($caseId, 0);
     }
-
     $layout = file_get_contents("templates/layout.html");
-    $witnessLayout = file_get_contents("templates/witness_layout.html");
+    $clueLayout = file_get_contents("templates/witness_layout.html");
+    $clueGroupLayout = file_get_contents("templates/witnesses_group_layout.html");
 
     $title = 'Testimonianze | '.$case->nome.' | Clue Catchers';
     $keywords = '';
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Testimonianze </p>';   
     $content = '<h1>'.$case->nome.'</h1>';
-    foreach($prove as $prova) {
-        if($prova->tipo === TipoProva::testimonianza) {
-            $witness = str_replace("[titolo]", $prova->titolo, $witnessLayout);
-            $witness = str_replace("[contenuto]", $prova->contenuto, $witness);
-            $content.=$witness;
+    for ($i = 0; $i < count($capitoli); $i++) { 
+        if(is_null($prove[$i])) continue;     
+        $clueContent = "";
+        foreach($prove[$i] as $prova) {
+            if($prova->tipo === TipoProva::testimonianza) {
+                $clue = str_replace("[titolo]", $prova->titolo, $clueLayout);
+                $clue = str_replace("[contenuto]", $prova->contenuto, $clue);
+                $clueContent.=$clue;
+            }
         }
+        if(!($clueContent === "")) {
+            $groupLayout = str_replace("[capitolo]", 'Capitolo '.$i.': '.$capitoli[$i]->titolo, $clueGroupLayout);
+            $groupLayout = str_replace("[contenuto]", $clueContent, $groupLayout);
+            $content .= $groupLayout;
+        }        
     }
     $menu = getSidebar("WITNESS", $case->nome, $case->id);
 
