@@ -66,7 +66,8 @@ function getProvaByIdIndagine(string $id) {
 
 function getProveByIndagineAndProgressivoCapitolo(string $idIndagine, int $progressivoCapitolo) {
     global $DB;
-    $result = $DB->query("SELECT * FROM prova WHERE idCapitolo = (SELECT id FROM capitolo WHERE idIndagine = ? AND progressivo = ?);", 
+    $result = $DB->query("SELECT * FROM prova WHERE idCapitolo = 
+        (SELECT id FROM capitolo WHERE idIndagine = ? AND progressivo = ?);", 
         array("si", $idIndagine, $progressivoCapitolo));
     while ($row = $result->fetch_assoc()) {
         $prove[] = new Prova($row);
@@ -80,7 +81,7 @@ function getProveBySalvataggio(string $id_salvataggio, string $id_indagine) {
         prova.idCapitolo as idCapitolo, prova.contenuto as contenuto, 
         prova.image_path as image_path, prova.tipo as tipo
         FROM salvataggio
-        JOIN domanda ON salvataggio.progressivoDomanda = domanda.id
+        JOIN domanda ON salvataggio.idDomanda = domanda.id
         and salvataggio.id = ? and salvataggio.idIndagine = ?
         JOIN capitolo ON domanda.idCapitolo = capitolo.id
         JOIN prova ON capitolo.id = prova.idCapitolo";

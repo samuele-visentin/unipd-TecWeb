@@ -9,7 +9,7 @@ class Salvataggio {
     {
         $this->id_indagine = $row["idIndagine"];
         $this->id_utente = $row["idUtente"];
-        $this->progressivo_domanda = $row["progressivoDomanda"];
+        $this->progressivo_domanda = $row["idDomanda"];
     }
 }
 
