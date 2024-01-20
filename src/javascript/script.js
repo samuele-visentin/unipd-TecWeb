@@ -26,6 +26,58 @@ mql.onchange = (e) => {
   }
 };
 
+async function displayCriteria(inputId) {
+  var input = document.getElementById("displayCriteria");
+  if(input == null) {
+      let div = document.getElementById("input-container");
+      input = document.createElement("div");
+      input.id = "displayCriteria";
+      input.setAttribute("role", "region");
+      input.setAttribute("aria-live", "polite");
+      div.parentNode.insertBefore(input, div.nextSibling);
+  }
+  var criteria = "";
+  if (inputId === "username") {
+      criteria = await (await fetch("hint/username.html")).text();
+  } else if (inputId === "password" || inputId === "confermaPassword") {
+      criteria = await (await fetch("hint/password.html")).text();
+  }
+  input.innerHTML = criteria;
+}
+
+function validateForm() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var confermaPassword = document.getElementById("confermaPassword").value;
+  var errorMessage = document.getElementById("error-message");
+  if(errorMessage == null) {
+    let h = document.getElementById("login-signup");
+    errorMessage = document.createElement("p");
+    errorMessage.id = "error-message";
+    h.parentNode.insertBefore(errorMessage, h.nextSibling);
+  }
+
+  if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)) {
+    errorMessage.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
+    document.location = document.location.href + "#error-message";
+    return false;
+  }
+
+  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/)) {
+    errorMessage.innerHTML = "La <span lang='en'>password</span> non rispetta i criteri richiesti.";
+    document.location = document.location.href + "#error-message";
+    return false;
+  }
+
+  if (password !== confermaPassword) {
+    errorMessage.innerHTML = "Le <span lang='en'>password</span> non corrispondono.";
+    document.location = document.location.href + "#error-message";
+    return false;
+  }
+
+  return true;
+}
+
 /*
 const mql = window.matchMedia("screen and (max-width: 600px)");
 
