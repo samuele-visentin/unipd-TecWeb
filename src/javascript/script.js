@@ -53,11 +53,11 @@ function validateForm() {
     let h = document.getElementById("login-signup");
     let errorMessage = document.getElementById("error-message");
     errorMessage ??= document.createElement("p");
+    errorMessage.role = "alert";
     errorMessage.id = "error-message";
     errorMessage.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
     errorMessage.innerHTML = message;
     h.parentNode.insertBefore(errorMessage, h.nextSibling);
-    document.location = document.location.href + "#error-message";
   }
   if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)) {
     errorMessage("L'<span lang='en'>username</span> non rispetta i criteri richiesti");
