@@ -1,11 +1,11 @@
 <form class="center-form" action="app/login.php" method="post">
     <h1 id="login" lang="en">Login</h1>
-    <div class="login-container">
-        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required> 
-        <label id="labelUsername" for="username" lang="en">Username: </label> 
-        <input type="password" name="password" id="password" placeholder="Inserisci la password" required>
-        <label id="labelPassword" for="password" lang="en">Password: </label> 
-    </div>
     [errorMessage]
+    <div class="login-container">
+        <input type="text" name="username" id="username" placeholder="Inserisci l'username" [aria] required> 
+        <label id="labelUsername" for="username" lang="en">Username: </label> 
+        <input type="password" name="password" id="password" placeholder="Inserisci la password" [aria] required>
+        <label id="labelPassword" for="password" lang="en">Password: </label> 
+    </div>    
     <input type="submit" value="Accedi">
 </form>

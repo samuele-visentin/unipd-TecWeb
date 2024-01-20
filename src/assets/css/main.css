@@ -431,9 +431,8 @@ form.center-form {
     border: 2px solid rgb(var(--darkColor));
     border-radius: 10px;
     background-color: rgb(var(--primary300));
-    width: 50%;
-    max-width: 300px;
-    min-width: 200px;
+    max-width: 18.7em;
+    /*min-width: 12.5em;*/
     padding: 2em;
     margin: auto;
     margin-top: 35%;
@@ -443,19 +442,23 @@ div.login-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 form.center-form label {
     padding: 0.5em;
+    width: 5em;
 }
 
 form.center-form input {
     margin: 0.5em;
     padding: 0.3em;
     border-radius: 5px;
+    width: 12em
 }
 
 form.center-form input[type="submit"] {
+    width: auto;
     display: block;
     margin: auto;
     margin-top: 1em;
@@ -491,6 +494,10 @@ p#error-message {
     color: red;
     font-weight: 600;
     text-align: center;
+    background-image: url(../images/warning.svg);
+    background-repeat: no-repeat;
+    padding-top: 1.5em;
+    background-position: center top;
 }
 
 /************************************
