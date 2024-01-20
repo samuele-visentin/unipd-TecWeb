@@ -49,32 +49,32 @@ function validateForm() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
   var confermaPassword = document.getElementById("confermaPassword").value;
-  var errorMessage = document.getElementById("error-message");
-  if(errorMessage == null) {
+  function errorMessage(message) {
     let h = document.getElementById("login-signup");
-    errorMessage = document.createElement("p");
+    let errorMessage = document.getElementById("error-message");
+    errorMessage ??= document.createElement("p");
     errorMessage.id = "error-message";
-    h.parentNode.insertBefore(errorMessage, h.nextSibling);
-  }
-
-  if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)) {
     errorMessage.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
+    errorMessage.innerHTML = message;
+    h.parentNode.insertBefore(errorMessage, h.nextSibling);
     document.location = document.location.href + "#error-message";
+  }
+  if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)) {
+    errorMessage("L'<span lang='en'>username</span> non rispetta i criteri richiesti");
     return false;
   }
-
   if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/)) {
-    errorMessage.innerHTML = "La <span lang='en'>password</span> non rispetta i criteri richiesti.";
-    document.location = document.location.href + "#error-message";
+    errorMessage("La <span lang='en'>password</span> non rispetta i criteri richiesti.");
     return false;
   }
-
   if (password !== confermaPassword) {
-    errorMessage.innerHTML = "Le <span lang='en'>password</span> non corrispondono.";
-    document.location = document.location.href + "#error-message";
+    errorMessage("Le <span lang='en'>password</span> non corrispondono.");
     return false;
   }
-
+  let errorMessage = document.getElementById("error-message");
+  if (errorMessage != null) {
+    errorMessage.remove();
+  }
   return true;
 }
 
