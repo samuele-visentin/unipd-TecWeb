@@ -48,6 +48,11 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
             if($prova->tipo === TipoProva::indizio || $prova->tipo === TipoProva::evento) {
                 $clue = str_replace("[titolo]", $prova->titolo, $clueLayout);
                 $clue = str_replace("[contenuto]", $prova->contenuto, $clue);
+                if(is_null($prova->image_path)) {
+                    $clue = str_replace("[immagine]", "", $clue);
+                } else {
+                    $clue = str_replace("[immagine]", '<img alt="" src="assets/'.$prova->image_path.'"></img>', $clue);
+                }
                 $clueContent.=$clue;
             }
         }

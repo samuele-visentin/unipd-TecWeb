@@ -345,7 +345,7 @@ header #logo {
     padding-left: var(--contentLeftPadding);
     padding-right: var(--contentRightPadding);
     margin: auto;
-    max-width: 50em;
+    max-width: 70em;
     color: rgb(var(--darkColor));
 }
 /*
@@ -379,6 +379,7 @@ header #logo {
     order: 2;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 #content .case img {
@@ -573,6 +574,7 @@ p#error-message {
     padding: 1em;
     border-radius: 20px;
     margin-bottom: 2em;
+    overflow-x: auto;
 }
 
 #content .clue h3 {
@@ -592,8 +594,23 @@ p#error-message {
     margin-left: 1.2em;
 }
 
+#content .clue img {
+    width: auto;
+    padding: 1em 0;
+    display: block;
+    margin: auto;
+    max-height: 70vh;
+    max-width: 90%;
+}
+
 #content .clue table {
     border-collapse: collapse;
+    margin: auto;
+}
+
+#content .clue th {
+    color: rgb(var(--lightColor));
+    background-color: rgb(var(--primary500));
 }
 
 #content .clue #tabSummary {

@@ -70,6 +70,7 @@ function getProveByIndagineAndProgressivoCapitolo(string $idIndagine, int $progr
     $result = $DB->query("SELECT * FROM prova WHERE idCapitolo = 
         (SELECT id FROM capitolo WHERE idIndagine = ? AND progressivo = ?);", 
         array("si", $idIndagine, $progressivoCapitolo));
+    $prove = array();
     while ($row = $result->fetch_assoc()) {
         $prove[] = new Prova($row);
     }

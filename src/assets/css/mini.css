@@ -63,3 +63,24 @@ header #logo {
 #content .case a {
     align-self: center;
 }
+
+#content .clue table, #content .clue thead, #content .clue tbody, #content .clue th, #content .clue td, #content .clue tr {
+    display: block;
+}
+
+#content .clue th {
+    position: absolute;
+    left: -999em;
+}
+
+#content .clue td::before {
+    content: attr(data-th) / ""; /* contenuto alternativo vuoto per evitare che lo screen reader legga due volte la stessa intestazione */
+    position: absolute;
+    left: 0.5em;
+    font-weight: bold;
+}
+
+#content .clue td {
+    position: relative;
+    padding-left: 50%;
+}
