@@ -6,7 +6,8 @@ require_once("data/indagine.php");
 require_once("components/sidebar.php");
 
 if(!isset($_SESSION["userId"]) || $_SESSION["userId"] === "") {
-    header("Location: accedi.php");
+    $target = $_SERVER["REQUEST_URI"];
+    header("Location: accedi.php?target={$target}");
     exit();
 }
 if(isset($_GET["id"]) && $_GET["id"] !== "") {
