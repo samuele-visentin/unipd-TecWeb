@@ -14,7 +14,7 @@
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Registrati</p>';
     $account = '<li id="loginButton"><a href="accedi.php" lang="en">Log in</a></li>';
     $error = '';
-    if(isset($_GET["error"])) {
+    if(isset($_GET["error"]) && $_GET["error"] !== "") {
         $id_error = $_GET["error"];
         $error = '<p id="error-message">';
         $content = str_replace("[aria]", 'aria-invalid="true" aria-describedby="error-message"', $content);
@@ -31,12 +31,15 @@
             case 4:
                 $error .= 'Combila tutti i campi per poterti registrare</p>';
                 break;
+            case 5:
+                $error .= 'Username già in uso</p>';
+                break;
             default:
                 $error .= 'Qualcosa è andato storto, riprova</p>';
                 break;
         }
     } else {
-        $page = str_replace("[aria]", "", $content);
+        $content = str_replace("[aria]", "", $content);
     }
     $page = str_replace("[title]", $title, $layout);
     $page = str_replace("[keywords]", $keywords, $page);

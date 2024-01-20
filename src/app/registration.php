@@ -47,12 +47,14 @@ if(isset($_POST["username"]) && $_POST["username"] !== ""
     if(check_username($username) === false) {
         $params .= "error=1";
     }
-    else if(check_password($password) === false || $password !== $_POST["confirmPassword"]) {
+    else if(check_password($password) === false) {
         $params .= "error=2";
+    } else if($password !== $_POST["confermaPassword"]) {
+        $params .= "error=3";
     } else {
         $res = getUtenteByUsername($username);
         if($res !== null) {
-            $params .= "error=3";
+            $params .= "error=5";
         }
     }
     if($params !== "") {
