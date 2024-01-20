@@ -8,7 +8,7 @@
         pattern="^[a-zA-Z0-9_]{4,16}$"
         aria-labelledby="displayCriteria"
         [aria]
-        onclick="displayCriteria('username')">
+        onfocus="displayCriteria('username')">
         <label id="labelUsername" for="username" lang="en">Username:</label>
         <input type="password" name="password" id="password" 
         placeholder="Inserisci la password"
@@ -16,7 +16,7 @@
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$"
         aria-labelledby="displayCriteria"
         [aria]
-        onclick="displayCriteria('password')">
+        onfocus="displayCriteria('password')">
         <label id="labelPassword" for="password" lang="en">Password:</label>
         <input type="password" name="confermaPassword" id="confermaPassword" 
         placeholder="Reinserisci la password" 
@@ -24,7 +24,7 @@
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$"
         aria-labelledby="displayCriteria"
         [aria]
-        onclick="displayCriteria('confermaPassword')">
+        onfocus="displayCriteria('confermaPassword')">
         <label id="labelConfermaPassword" for="confermaPassword">Conferma <span lang="en">password</span>:</label>
     </div>
     <input type="submit" value="Registrati">
