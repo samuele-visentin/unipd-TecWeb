@@ -21,19 +21,19 @@ seguenti caratteri speciali: @, $, !, %, *, ?, &.
 
 - `[A-Za-z\d@$!%*?&]{8,25}`: 
 Questa parte dell'espressione regolare verifica che la password sia 
-lunga almeno 8 caratteri e che contenga solo caratteri alfanumerici 
+lunga almeno 4 caratteri e che contenga solo caratteri alfanumerici 
 e i caratteri speciali specificati.
 
 - `$`: 
 Questo simbolo indica la fine della stringa.
     */
-    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$/';
+    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/';
     return preg_match($pattern, $password);
 }
 
 function check_username(string $username) {
-    //username cosi continene solo lettere numeri e underscore tra 5 e 16 char
-    $pattern = '/^[a-zA-Z0-9_]{5,16}$/';
+    //username cosi continene solo lettere numeri e underscore tra 4 e 16 char
+    $pattern = '/^[a-zA-Z0-9_]{4,16}$/';
     return preg_match($pattern, $username);
 }
 
@@ -62,6 +62,6 @@ if(isset($_POST["username"]) && $_POST["username"] !== ""
     $user = getUtenteByUsername($username);
     $_SESSION["userId"] = $user->id;
     $_SESSION["isAdmin"] = $user->is_admin;
-    header("Location: ../registrationsuccess.php");
+    header("Location: ../cases.php");
 }
 

@@ -413,7 +413,7 @@ header #logo {
 }
 
 /*************************************
-    FORM STYLE ACCEDI
+    ACCEDI STYLE
 *************************************/
 
 h1#login {
@@ -427,16 +427,16 @@ h1#login {
     margin-bottom: 0;
 }
 
+
 form.center-form {
     border: 2px solid rgb(var(--darkColor));
     border-radius: 10px;
     background-color: rgb(var(--primary300));
     width: 50%;
-    max-width: 300px;
+    max-width: 350px;
     min-width: 200px;
     padding: 2em;
-    margin: auto;
-    margin-top: 35%;
+    margin: 5em auto;
 }
 
 div.login-container{
@@ -453,6 +453,7 @@ form.center-form input {
     margin: 0.5em;
     padding: 0.3em;
     border-radius: 5px;
+    border: 1px solid;
 }
 
 form.center-form input[type="submit"] {
@@ -485,7 +486,15 @@ input#password{
 
 #labelPassword {
     order: 3;
-}  
+} 
+
+#labelConfermaPassword {
+    order: 5;
+}
+
+#confermaPassword {
+    order: 6;
+}
 
 p#error-message {
     color: red;

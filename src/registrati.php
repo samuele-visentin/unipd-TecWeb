@@ -6,22 +6,32 @@
         header("Location: cases.php");
         exit();
     }
-    $title = 'Accedi | '.$TITLE;
+    $title = 'Registrati | '.$TITLE;
     $layout = file_get_contents("templates/layout.html");
-    $content = file_get_contents("templates/accedi_layout.html");
+    $content = file_get_contents("templates/registrati_layout.html");
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Accedi</p>';
-    $account = '<li id="signupButton"><a href="registarti.php" lang="en">Sign up</a></li>';
-    
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Registrati</p>';
+    $account = '<li id="loginButton"><a href="accedi.php" lang="en">Log in</a></li>';
+    $error = '';
     if(isset($_GET["error"])) {
-        $error = '<p id="error-message">
-        <span lang="en">Username</span> o <span lang="en">password</span>
-        errati</p>';
-    } else {
-        $error = '';
+        $id_error = $_GET["error"];
+        $error = '<p id="error-message">';
+        switch($id_error) {
+            case 1:
+                $error .= '<span lang="en">Username</span> non valido</p>';
+                break;
+            case 2:
+                $error .= '<span lang="en">Password</span> non valida</p>';
+                break;
+            case 3:
+                $error .= 'Le <span lang="en">password</span> non coincidono</p>';
+                break;
+            default:
+                $error .= 'Qualcosa è andato storto, riprova</p>';
+                break;
+        }
     }
-
     $page = str_replace("[title]", $title, $layout);
     $page = str_replace("[keywords]", $keywords, $page);
     $page = str_replace("[description]", $description, $page);

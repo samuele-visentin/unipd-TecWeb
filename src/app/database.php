@@ -34,7 +34,7 @@
             }
             $stmt->execute();
             $result = $stmt->get_result();
-            if($result === false) {
+            if(isset($stmt->error) && $stmt->error !== "") {
                 throw new Exception("Error in query: ". $stmt->error);
             }
             $stmt->close();

@@ -12,7 +12,7 @@
     $keywords = '';
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Accedi</p>';
-    $account = '<li id="signupButton"><a href="registarti.php" lang="en">Sign up</a></li>';
+    $account = '<li id="signupButton"><a href="registrati.php" lang="en">Sign up</a></li>';
     
     if(isset($_GET["error"])) {
         $error = '<p id="error-message">

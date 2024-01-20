@@ -1,14 +1,70 @@
-<div class="form-container">
-    <form action="app/registration.php" method="post">
-        <h2 lang="en">Sign up</h2>
-        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required pattern=""> <br>
-        <label for="username" lang="en">Username: </label> <br>
-        <input type="password" name="password" id="password" placeholder="Inserisci la password" required pattern=""> <br>
-        <label for="password" lang="en">Password: </label> <br>
-        <input type="password" name="confermaPassword" id="confermaPassword" placeholder="Reinserisci la password" required pattern=""
-        onblur=""> <br>
-        <label for="confermaPassword">Conferma <span lang="en">password</span>:</label> <br>
-        [errorMessage]
-        <input type="submit" value="Registrati">
-    </form>
-</div>
+<form class="center-form" action="app/registration.php" method="post">
+    <h1 id="login" lang="en">Sign up</h1>
+    <div id="input-container" class="login-container">
+        <input type="text" name="username" id="username" 
+        placeholder="Inserisci l'username" 
+        required pattern="^[a-zA-Z0-9_]{4,16}$"
+        onclick="displayCriteria('username')">
+        <label id="labelUsername" for="username" lang="en">Username:</label>
+        <input type="password" name="password" id="password" placeholder="Inserisci la password" 
+        required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$"
+        onclick="displayCriteria('password')">
+        <label id="labelPassword" for="password" lang="en">Password:</label>
+        <input type="password" name="confermaPassword" id="confermaPassword" placeholder="Reinserisci la password" required 
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$"
+        onclick="displayCriteria('confermaPassword')">
+        <label id="labelConfermaPassword" for="confermaPassword">Conferma <span lang="en">password</span>:</label>
+    </div>
+    <input type="submit" value="Registrati">
+</form>
+
+<script>
+/*function displayCriteria(inputId) {
+    var input = document.getElementById("displayCriteria");
+    if(input === null) {
+        let div = document.getElementById("input-container");
+        input = document.createElement("dl");
+        
+    }
+    var label = document.getElementById("label" + inputId.charAt(0).toUpperCase() + inputId.slice(1));
+    var criteria = "";
+
+    if (inputId === "username") {
+        criteria = "L'username deve contenere solo lettere, numeri e underscore e deve essere lungo da 4 a 16 caratteri.";
+    } else if (inputId === "password" || inputId === "confermaPassword") {
+        criteria = "La password deve contenere almeno una lettera minuscola, una lettera maiuscola, un numero, un carattere speciale e deve essere lunga da 4 a 25 caratteri.";
+    }
+
+    label.innerHTML = input.value ? "" : criteria;
+}*/
+
+function validateForm() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var confermaPassword = document.getElementById("confermaPassword").value;
+    var errorMessage = document.getElementById("errorMessage");
+
+    if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)) {
+        errorMessage.innerHTML = "L'username deve contenere solo lettere, numeri e underscore e deve essere lungo da 4 a 16 caratteri.";
+        return false;
+    }
+
+    if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/)) {
+        errorMessage.innerHTML = "La password deve contenere almeno una lettera minuscola, una lettera maiuscola, un numero, un carattere speciale e deve essere lunga da 4 a 25 caratteri.";
+        return false;
+    }
+
+    if (password !== confermaPassword) {
+        errorMessage.innerHTML = "Le password non corrispondono.";
+        return false;
+    }
+
+    return true;
+}
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    if (!validateForm()) {
+        event.preventDefault();
+    }
+});
+</script>
