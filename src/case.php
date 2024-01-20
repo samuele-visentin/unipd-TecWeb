@@ -5,7 +5,7 @@ require_once("data/capitolo.php");
 require_once("data/indagine.php");
 require_once("components/sidebar.php");
 
-if(!(isset($_SESSION["userId"]) && $_SESSION["userId"] !== "")) {
+if(!isset($_SESSION["userId"]) || $_SESSION["userId"] === "") {
     header("Location: accedi.php");
     exit();
 }

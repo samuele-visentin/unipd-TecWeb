@@ -152,6 +152,22 @@ header #logo {
     padding-left: var(--iconLeftPadding);
 }
 
+#userToolbar #accountButton {
+    margin-left: 1em;
+    background-image: url(../icons/person.svg);
+    background-position: var(--iconPosition);
+    background-repeat: no-repeat;
+    padding-left: var(--iconLeftPadding);
+}
+
+#userToolbar #logoutButton {
+    margin-left: 1em;
+    background-image: url(../icons/logout.svg);
+    background-position: var(--iconPosition);
+    background-repeat: no-repeat;
+    padding-left: var(--iconLeftPadding);
+}
+
 /*************************************
     CONTENT MENU STYLE
 *************************************/

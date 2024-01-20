@@ -37,7 +37,8 @@ function check_username(string $username) {
     return preg_match($pattern, $username);
 }
 
-if(isset($_POST["username"]) && $_POST["username"] !== ""
+if( $_SERVER["REQUEST_METHOD"] === "POST" &&
+    isset($_POST["username"]) && $_POST["username"] !== ""
     && isset($_POST["password"]) && $_POST["password"] !== ""
     && isset($_POST["confermaPassword"]) && $_POST["confermaPassword"] !== "") {
     
