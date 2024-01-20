@@ -625,7 +625,7 @@ p#error-message {
 }
 
 #content .clue th {
-    color: rgb(var(--lightColor));
+    color: rgb(var(--darkColor));
     background-color: rgb(var(--primary500));
 }
 
