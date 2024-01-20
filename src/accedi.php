@@ -18,8 +18,10 @@
         $error = '<p id="error-message">
         <span lang="en">Username</span> o <span lang="en">password</span>
         errati</p>';
+        $content = str_replace("[aria]", 'aria-invalid="true" aria-describedby="error-message"', $content);
     } else {
         $error = '';
+        $content = str_replace("[aria]", "", $content);
     }
 
     $page = str_replace("[title]", $title, $layout);

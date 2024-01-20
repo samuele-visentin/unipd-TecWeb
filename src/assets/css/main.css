@@ -413,10 +413,10 @@ header #logo {
 }
 
 /*************************************
-    ACCEDI STYLE
+    ACCEDI REGISTRATI STYLE
 *************************************/
 
-h1#login {
+h1#login-signup {
     background-image: url(../icons/darkIcons/person.svg);
     background-repeat: no-repeat;
     background-position: left;
@@ -432,9 +432,8 @@ form.center-form {
     border: 2px solid rgb(var(--darkColor));
     border-radius: 10px;
     background-color: rgb(var(--primary300));
-    width: 50%;
-    max-width: 350px;
-    min-width: 200px;
+    max-width: 18.7em;
+    /*min-width: 12.5em;*/
     padding: 2em;
     margin: 5em auto;
 }
@@ -443,20 +442,25 @@ div.login-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 form.center-form label {
     padding: 0.5em;
+    width: 5em;
 }
 
 form.center-form input {
-    margin: 0.5em;
+    margin: auto;
     padding: 0.3em;
     border-radius: 5px;
     border: 1px solid;
+    width: 12em;
+    height: 1.3em;
 }
 
 form.center-form input[type="submit"] {
+    width: auto;
     display: block;
     margin: auto;
     margin-top: 1em;
@@ -466,6 +470,7 @@ form.center-form input[type="submit"] {
     padding: 0.5em;
     color: rgb(var(--lightColor));
     font-weight: 600;
+    height: auto;
 }
 
 form.center-form input[type="submit"]:hover {
@@ -500,6 +505,30 @@ p#error-message {
     color: red;
     font-weight: 600;
     text-align: center;
+    background-image: url(../images/warning.svg);
+    background-repeat: no-repeat;
+    padding-top: 1.5em;
+    background-position: center top;
+}
+
+#displayCriteria dt {
+    font-weight: bold;
+}
+
+#displayCriteria dd {
+    margin-left: 1em;
+}
+
+#displayCriteria dd::before {
+    content: '\2022';
+    margin-right: 0.2em;
+    font-size: 1.5em;
+}
+
+#displayCriteria h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
 /************************************
