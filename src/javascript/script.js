@@ -71,9 +71,9 @@ function validateForm() {
     errorMessage("Le <span lang='en'>password</span> non corrispondono.");
     return false;
   }
-  let errorMessage = document.getElementById("error-message");
-  if (errorMessage != null) {
-    errorMessage.remove();
+  let p = document.getElementById("error-message");
+  if (p != null) {
+    p.remove();
   }
   return true;
 }
