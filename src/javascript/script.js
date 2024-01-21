@@ -28,14 +28,6 @@ mql.onchange = (e) => {
 
 async function displayCriteria(inputId) {
   var input = document.getElementById("displayCriteria");
-  if(input == null) {
-      let div = document.getElementById("input-container");
-      input = document.createElement("div");
-      input.id = "displayCriteria";
-      input.setAttribute("role", "region");
-      input.setAttribute("aria-live", "polite");
-      div.parentNode.insertBefore(input, div.nextSibling);
-  }
   var criteria = "";
   if (inputId === "username") {
       criteria = await (await fetch("hint/username.html")).text();
