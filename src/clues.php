@@ -19,8 +19,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
         header("Location: 404.php");
         exit();
     }
-    //$lastChapt = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
-    $lastChapt = 5;
+    $lastChapt = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
+    //$lastChapt = 5;
     $prove = array();
     $capitoli = array();
     if(!is_null($lastChapt)) {
