@@ -19,8 +19,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
         header("Location: 404.php");
         exit();
     }
-    $lastChapt = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
-    //$lastChapt = 5;
+    //$lastChapt = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
+    $lastChapt = 5;
     $prove = array();
     $capitoli = array();
     if(!is_null($lastChapt)) {
@@ -51,7 +51,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
                 if(is_null($prova->image_path)) {
                     $clue = str_replace("[immagine]", "", $clue);
                 } else {
-                    $clue = str_replace("[immagine]", '<img alt="" src="assets/'.$prova->image_path.'"></img>', $clue);
+                    $clue = str_replace("[immagine]", '<img alt="" src="assets/'.$prova->image_path.'">', $clue);
                 }
                 $clueContent.=$clue;
             }
