@@ -739,3 +739,60 @@ tr:nth-child(odd) {
     font-weight: 500;
     font-size: large;
 }
+
+/*************************************
+    FRONT PAGE STYLE
+*************************************/
+#content section.frontPageContent{
+    display: block;
+    background-color: rgb(var(--secondary800));
+    background-position: center;
+    background-size: auto;
+    padding: 2em;
+    color: white;
+    font-size: large;
+    
+}
+
+#content section.frontPageContent h2.frontPageTitles{
+    display: block;
+    font-size: 2em;
+    text-align: center;
+    font-style: italic;
+}
+
+#content section.frontPageContent img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    max-height: 45%;
+    max-width: 95%;
+    border-color: rgb(var(--primary300));
+    border-width: 2px;
+}
+
+#content section.frontPageContent .frontPageCaseDesc{
+    margin: auto;
+    max-height: 45%;
+    max-width: 95%;
+    background-color: rgb(var(--secondary600));
+    font-size: large;
+    padding: 1em;
+}
+
+/*************************************
+    ERROR PAGE STYLE
+*************************************/
+h1.errorPageTitle{
+    font-size: 4em;
+}
+
+h2.errorPageVerbose{
+    font-size: 3em;
+}
+
+h3.errorPageJoke{
+    font-size: 2em;
+}
