@@ -796,3 +796,51 @@ h2.errorPageVerbose{
 h3.errorPageJoke{
     font-size: 2em;
 }
+
+/*************************************
+    ABOUT PAGE STYLE
+*************************************/
+#titoloAbout{
+    text-align: center;
+}
+
+#membriTeam{
+    margin:auto;
+    width: 95%;
+    max-width: 1024px;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column ;
+}
+
+#membriTeam > dt{
+    background-color: rgb(var(--secondary600));
+    border: 1px solid black;
+    padding: 0.5em;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    display: flex;
+}
+
+#membriTeam > dd{
+    background-color: rgb(var(--primary400));
+    border: 1px solid black;
+    border-top: none;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    display: flex;
+}
+
+#membriTeam > dd img{
+    width: 15%;
+    float: left;
+    margin-right: 1em;
+}
+
+.membro dt{
+    float: left;
+    font-weight: bold;
+
+}

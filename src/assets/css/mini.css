@@ -85,3 +85,7 @@ header #logo {
     position: relative;
     padding-left: 50%;
 }
+
+#membriTeam img{
+    display: none;
+}
