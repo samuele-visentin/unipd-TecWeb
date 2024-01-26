@@ -844,3 +844,38 @@ h3.errorPageJoke{
     font-weight: bold;
 
 }
+
+/*************************************
+    FAQ PAGE STYLE
+*************************************/
+#titoloFAQ{
+    text-align: center;
+    font-weight: bolder;
+}
+
+.singleFAQ{
+    border-top: 2px solid rgb(var(--secondary600));
+    border-left: 10px solid rgb(var(--secondary600));
+    border-bottom: none;
+    border-right: none;
+    background-color: rgb(var(--primary400));
+    margin-bottom: 2em;
+    padding: 0.5em;
+    font-weight: bold;
+    display: block;
+}
+
+.singleFAQ strong{
+    font-size: large;
+    font-weight: bolder;
+    margin-bottom: 0.2em;
+    display: inline-block;
+    color: rgb(var(--secondary800));
+}
+
+.singleFAQ img{
+    max-width: 1em;
+    max-height: 1em;
+    display: inline-block;
+}
+
