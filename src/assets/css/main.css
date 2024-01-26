@@ -894,7 +894,7 @@ h3.errorPageJoke{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: rgba(var(--primary300));
+    background-color: rgba(var(--primary300), 0.4);
 }
 
 .zoomImg {
