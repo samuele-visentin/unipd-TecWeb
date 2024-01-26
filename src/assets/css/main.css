@@ -22,10 +22,10 @@
     --iconPosition: 0.1em 0.3em;
 
     /* CONTENTMENU PARAMETERS */
-    --contentMenuWidth: 200px;
+    --contentMenuWidth: 12.2em;
 
     /* PAGE-CONTENT PARAMETERS */
-    --contentLeftPadding: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 1.5em);
+    --contentLeftPadding: 17em;
     --contentRightPadding: 1.5em;
     --small-contentLeftPadding: 1.5em;
 
@@ -879,3 +879,42 @@ h3.errorPageJoke{
     display: inline-block;
 }
 
+/*************************************
+    ZOOM IMG STYLE
+*************************************/
+
+#imgFullPage {
+    display: none;
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(var(--primary300));
+}
+
+.zoomImg {
+    cursor: pointer;
+}
+
+#closeImg {
+    padding: 0.4em;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    text-indent: -999em;
+    z-index: 9999;
+    top: 0.5em;
+    right: 0.5em;
+    background-color: rgb(var(--secondary800));
+    border-radius: 20px;
+    background-image: url(../icons/close.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3em;
+    height: 3em;
+}
