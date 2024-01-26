@@ -23,6 +23,7 @@
 
     /* CONTENTMENU PARAMETERS */
     --contentMenuWidth: 12.2em;
+    --contentMenuHeight: 67.5em;
 
     /* PAGE-CONTENT PARAMETERS */
     --contentLeftPadding: 17em;
@@ -53,6 +54,10 @@ html {
     display: flex;
     align-items: center;
     flex-direction: row;
+    position: -webkit-sticky; /* for Safari users */
+    position: sticky;
+    top: 0;
+    float: top;
 }
 
 #pageHeader #menuButton {
@@ -90,6 +95,8 @@ header #logo {
     padding-left: var(--menuLeftPadding);
     padding-right: var(--menuRightPadding);
     font-size: var(--menuFontSize);
+    display: flex;
+    flex-direction: column;
 }
 
 .menu a:link {
@@ -120,6 +127,14 @@ header #logo {
     border-radius: 5px;
     color: rgb(var(--darkColor));
     font-weight: 800;
+}
+
+.menu .menuCases {
+    flex: 1;
+}
+
+.menu .menuBack {
+    padding-bottom: 20em;
 }
 
 /*************************************
@@ -175,11 +190,9 @@ header #logo {
 #contentMenu {
     float: left;
     overflow: hidden;
-    position: -webkit-sticky;  /*per Safari*/
-    position: sticky;
-    top: 0;
+    position: fixed;
     width: var(--contentMenuWidth);
-    height: 100vh;
+    height: var(--contentMenuHeight);
 }
 
 #menuClose {
@@ -277,6 +290,18 @@ header #logo {
 
 #cluesButton.menuSelected {
     background-image: url(../icons/darkIcons/assignment.svg);
+}
+
+#chapterButton {
+    background-image: url(../icons/investigate.svg);
+}
+
+#chapterButton.menuSelected {
+    background-image: url(../icons/darkIcons/investigate.svg);
+}
+
+#backButton {
+    background-image: url(../icons/logout.svg);
 }
 
 /*************************************

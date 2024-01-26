@@ -54,7 +54,7 @@ function getCapitoloByIndagineAndProgressivo(string $idIndagine, int $progressiv
 
 function getLastCapitoloByUtenteAndIndagine(int $idUtente, string $idIndagine) {
     global $DB;
-    $result = $DB->query("SELECT progressivo FROM capitolo WHERE id = (SELECT idCapitolo FROM domanda WHERE id = (SELECT idDomanda FROM salvataggio WHERE idUtente = ? AND idIndagine = ?))", 
+    $result = $DB->query("SELECT progressivo FROM capitolo WHERE id = (SELECT idCapitolo FROM domanda WHERE id = (SELECT progressivoDomanda FROM salvataggio WHERE idUtente = ? AND idIndagine = ?))", 
         array("is", $idUtente, $idIndagine));
     $val = $result->fetch_assoc();
     return $val;
