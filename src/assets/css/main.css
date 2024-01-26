@@ -455,7 +455,7 @@ form.center-form {
     margin: 5em auto;
 }
 
-div.login-container{
+form div#input-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
