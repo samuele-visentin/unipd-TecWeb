@@ -41,6 +41,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Indizi </p>';   
     $content = '<h1>'.$case->nome.'</h1>';
+    $imageCounter = 0;
     for ($i = 0; $i < count($capitoli); $i++) { 
         if(is_null($prove[$i])) continue;     
         $clueContent = "";        
@@ -51,7 +52,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
                 if(is_null($prova->image_path)) {
                     $clue = str_replace("[immagine]", "", $clue);
                 } else {
-                    $clue = str_replace("[immagine]", '<img alt="" src="assets/'.$prova->image_path.'"></img>', $clue);
+                    $clue = str_replace("[immagine]", '<img alt="" class="zoomImg" src="assets/'.$prova->image_path.'">', $clue);
+                    $imageCounter++;
                 }
                 $clueContent.=$clue;
             }

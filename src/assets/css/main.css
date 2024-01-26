@@ -22,10 +22,10 @@
     --iconPosition: 0.1em 0.3em;
 
     /* CONTENTMENU PARAMETERS */
-    --contentMenuWidth: 200px;
+    --contentMenuWidth: 12.2em;
 
     /* PAGE-CONTENT PARAMETERS */
-    --contentLeftPadding: calc(var(--menuLeftPadding) + var(--menuRightPadding) + var(--contentMenuWidth) + 1.5em);
+    --contentLeftPadding: 17em;
     --contentRightPadding: 1.5em;
     --small-contentLeftPadding: 1.5em;
 
@@ -738,4 +738,183 @@ tr:nth-child(odd) {
     padding-right: 0.8em;
     font-weight: 500;
     font-size: large;
+}
+
+/*************************************
+    FRONT PAGE STYLE
+*************************************/
+#content section.frontPageContent{
+    display: block;
+    background-color: rgb(var(--secondary800));
+    background-position: center;
+    background-size: auto;
+    padding: 2em;
+    color: white;
+    font-size: large;
+    
+}
+
+#content section.frontPageContent h2.frontPageTitles{
+    display: block;
+    font-size: 2em;
+    text-align: center;
+    font-style: italic;
+}
+
+#content section.frontPageContent img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    max-height: 45%;
+    max-width: 95%;
+    border-color: rgb(var(--primary300));
+    border-width: 2px;
+}
+
+#content section.frontPageContent .frontPageCaseDesc{
+    margin: auto;
+    max-height: 45%;
+    max-width: 95%;
+    background-color: rgb(var(--secondary600));
+    font-size: large;
+    padding: 1em;
+}
+
+/*************************************
+    ERROR PAGE STYLE
+*************************************/
+h1.errorPageTitle{
+    font-size: 4em;
+}
+
+h2.errorPageVerbose{
+    font-size: 3em;
+}
+
+h3.errorPageJoke{
+    font-size: 2em;
+}
+
+/*************************************
+    ABOUT PAGE STYLE
+*************************************/
+#titoloAbout{
+    text-align: center;
+}
+
+#membriTeam{
+    margin:auto;
+    width: 95%;
+    max-width: 1024px;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column ;
+}
+
+#membriTeam > dt{
+    background-color: rgb(var(--secondary600));
+    border: 1px solid black;
+    padding: 0.5em;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    display: flex;
+}
+
+#membriTeam > dd{
+    background-color: rgb(var(--primary400));
+    border: 1px solid black;
+    border-top: none;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    display: flex;
+}
+
+#membriTeam > dd img{
+    width: 15%;
+    float: left;
+    margin-right: 1em;
+}
+
+.membro dt{
+    float: left;
+    font-weight: bold;
+
+}
+
+/*************************************
+    FAQ PAGE STYLE
+*************************************/
+#titoloFAQ{
+    text-align: center;
+    font-weight: bolder;
+}
+
+.singleFAQ{
+    border-top: 2px solid rgb(var(--secondary600));
+    border-left: 10px solid rgb(var(--secondary600));
+    border-bottom: none;
+    border-right: none;
+    background-color: rgb(var(--primary400));
+    margin-bottom: 2em;
+    padding: 0.5em;
+    font-weight: bold;
+    display: block;
+}
+
+.singleFAQ strong{
+    font-size: large;
+    font-weight: bolder;
+    margin-bottom: 0.2em;
+    display: inline-block;
+    color: rgb(var(--secondary800));
+}
+
+.singleFAQ img{
+    max-width: 1em;
+    max-height: 1em;
+    display: inline-block;
+}
+
+/*************************************
+    ZOOM IMG STYLE
+*************************************/
+
+#imgFullPage {
+    display: none;
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(var(--primary300));
+}
+
+.zoomImg {
+    cursor: pointer;
+}
+
+#closeImg {
+    padding: 0.4em;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    text-indent: -999em;
+    z-index: 9999;
+    top: 0.5em;
+    right: 0.5em;
+    background-color: rgb(var(--secondary800));
+    border-radius: 20px;
+    background-image: url(../icons/close.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3em;
+    height: 3em;
 }
