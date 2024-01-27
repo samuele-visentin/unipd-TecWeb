@@ -25,14 +25,20 @@ function to500($errno, $errstr = null) {
     exit();
 }
 
-function getUserToolBar() {
+function getUserToolBar(bool $account = true) {
     if(isset($_SESSION['userId']) && $_SESSION['userId'] !== "") {
         $content = file_get_contents("templates/logout_layout.html");
-        $isAdmin = '';
-        if($_SESSION['isAdmin']) {
-            $isAdmin = ' admin';
+        if($account) {
+            if($_SESSION['isAdmin'])
+                $content = str_replace("[account]", '<a href="account.php" lang="en">Account admin</a>', $content);
+            else
+                $content = str_replace("[account]", '<a href="account.php" lang="en">Account</a>', $content);
+        } else {
+            if($_SESSION['isAdmin'])
+                $content = str_replace("[account]", '<span lang="en">Account admin</span>', $content);
+            else
+                $content = str_replace("[account]", '<span lang="en">Account</span>', $content);
         }
-        $content = str_replace("[admin]", $isAdmin, $content);
         return $content;
     }
     return file_get_contents("templates/login_layout.html");

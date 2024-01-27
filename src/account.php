@@ -15,7 +15,7 @@ $title = 'Account | ' . $TITLE;
 $keywords = '';
 $description = '';
 $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <span lang="en">Account</span></p>';
-$account = getUserToolBar();
+$account = getUserToolBar(false);
 $usernameError = '';
 $passwordError = '';
 $ariaUsername = '';
