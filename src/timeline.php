@@ -23,7 +23,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $title = 'Cronologia | '.$case->nome.' | Clue Catchers';
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Cronologia </p>';   
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">'. $case->nome .'</a> &raquo; Cronologia </p>';   
     $content = '<h1>'.$case->nome.'</h1>';
     foreach($documenti as $doc) {
         if($doc->tipo === TipoDocumento::cronologia) {
