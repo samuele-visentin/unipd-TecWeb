@@ -592,9 +592,9 @@ div.center-account {
     max-width: 18.7em;
     /*min-width: 12.5em;*/
     padding: 2em;
-    margin: 5em auto;
+    margin: 1em auto;
     min-width: 12.5px;
-    max-width: 25em;
+    max-width: 40em;
 }
 
 form#userform input, form#passwordform input{
@@ -616,21 +616,114 @@ form#userform input[type="submit"], form#passwordform input[type="submit"]{
     margin-top: 0.5em;
 }
 
-form#userform {
-    padding-bottom: 0.5em;
+form#userform, form#passwordform {
+    max-width: 25em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form#userform {
+    padding-bottom: 0.5em;
 }
 
 form#passwordform {
     margin-top: 1.2em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+}
+
+h1#admin-title {
+    background-image: url(../icons/darkIcons/admin.svg);
+    background-repeat: no-repeat;
+    padding-left: 1.8em;
+    background-size: 1.5em;
+    padding-top: 0.2em;
+    background-position: left center;
+    padding-bottom: 0.2em;
+}
+
+h1#user-title {
+    background-image: url(../icons/darkIcons/person.svg);
+    background-repeat: no-repeat;
+    padding-left: 1.8em;
+    background-size: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    background-position: left center;
+    padding-bottom: 0.2em;
+}
+
+table#indagini caption {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+table#indagini {
+    margin: 1em auto 1em auto;
+    padding-top: 0.2em;
+    border-collapse: collapse;
+}
+
+table#indagini th, table#indagini td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.4em;
+}
+
+table#indagini thead th:first-child {
+    min-width: 6em;
+}
+
+table#indagini thead tr:first-child th{
+    background-color: rgb(var(--secondary600));
+    color: rgb(var(--lightColor));
+}
+
+table#indagini tbody tr:nth-child(odd) {
+    background-color: rgb(var(--primary300));
+}
+
+table#indagini tbody tr:nth-child(even) {
+    background-color: rgb(var(--primary500));
+}
+
+table#indagini tbody tr td p {
+    background-color: rgb(var(--secondary800));
+    border-radius: 5px;
+    text-align: center;
+}
+
+table#indagini a:link {
+    color: rgb(var(--aLink));
+}
+
+table#indagini a:visited {
+    color: rgb(var(--aVisited));
+}
+
+p#sumTabellaIndagini {
+    text-indent: -999em;
+    position: absolute;
+}
+
+/************************************
+    RECENSIONI STYLE
+************************************/
+
+div#contenitore-recensioni {
+    max-width: 40em;
+    min-width: 12.5em;
+    margin: auto;
+    background-color: rgb(var(--primary300));
+    padding: 1em;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+p#sumTabellaRecensioni {
+    text-indent: -999em;
+    position: absolute;
 }
 
 /************************************

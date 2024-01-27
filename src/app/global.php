@@ -27,7 +27,13 @@ function to500($errno, $errstr = null) {
 
 function getUserToolBar() {
     if(isset($_SESSION['userId']) && $_SESSION['userId'] !== "") {
-        return file_get_contents("templates/logout_layout.html");
+        $content = file_get_contents("templates/logout_layout.html");
+        $isAdmin = '';
+        if($_SESSION['isAdmin']) {
+            $isAdmin = ' admin';
+        }
+        $content = str_replace("[admin]", $isAdmin, $content);
+        return $content;
     }
     return file_get_contents("templates/login_layout.html");
 }

@@ -13,12 +13,14 @@
     $description = '';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Accedi</p>';
     $account = '<li id="signupButton"><a href="registrati.php" lang="en">Sign up</a></li>';
-    if(isset($_GET["error"])) {
+    if(isset($_GET["error"]) && $_GET["error"] === "invalid") {
         $error = '<p id="error-message">
         <span lang="en">Username</span> o <span lang="en">password</span>
         errati</p>';
         $content = str_replace("[aria]", 'aria-invalid="true" aria-describedby="error-message"', $content);
-    } else {
+    } else if(isset($_GET["error"]) && $_GET["error"] === "notLogged") {
+        $error = '<p id="error-message">Devi prima accedere per visualizzare la pagina.</p>';
+    }else {
         $error = '';
         $content = str_replace("[aria]", "", $content);
     }

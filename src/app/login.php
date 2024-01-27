@@ -15,7 +15,7 @@ if(!isset($_SESSION["userId"])) {
             if(isset($_POST["target"]) && $_POST["target"] !== "") {
                 $target = "&target={$_POST["target"]}";
             }
-            header("Location: ../accedi.php?error=1{$target}#error-message");
+            header("Location: ../accedi.php?error=invalid{$target}#error-message");
             exit();
         }
         $_SESSION["userId"] = $user->id;

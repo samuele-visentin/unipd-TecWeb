@@ -20,7 +20,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
         exit();
     }
     $lastChapt = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
-    //$lastChapt = 5;
+    $lastChapt = 5;
     $prove = array();
     $capitoli = array();
     if(!is_null($lastChapt)) {
