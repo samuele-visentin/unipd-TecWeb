@@ -123,7 +123,7 @@ CREATE TABLE `indagine` (
 
 LOCK TABLES `indagine` WRITE;
 /*!40000 ALTER TABLE `indagine` DISABLE KEYS */;
-INSERT INTO `indagine` VALUES ('000000000000001','2024-01-11 22:02:06','Cena al buio con delitto','Indaga sullo strabiliante caso irrisolto dell\'omicidio del signor Edgardo e scopri l\'assassino e il movente!',NULL);
+INSERT INTO `indagine` VALUES ('000000000000001','2024-01-11 22:02:06','Cena al buio con delitto','Indaga sullo strabiliante caso irrisolto dell\'omicidio del signor Edgardo e scopri l\'assassino e il movente!','/images/indagine1/cover.png');
 /*!40000 ALTER TABLE `indagine` ENABLE KEYS */;
 UNLOCK TABLES;
 

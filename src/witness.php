@@ -38,7 +38,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $title = 'Testimonianze | '.$case->nome.' | Clue Catchers';
     $keywords = '';
     $description = '';
-    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">'. $case->nome .'</a> &raquo; Testimonianze </p>';   
+    $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Testimonianze </p>';   
     $content = '<h1>'.$case->nome.'</h1>';
     for ($i = 0; $i < count($capitoli); $i++) { 
         if(is_null($prove[$i])) continue;     

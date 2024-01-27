@@ -2,32 +2,27 @@
     require_once("data/capitolo.php");
     function getSidebar(string $selected, string $caseName = "", string $caseId = "") {
         $needsCaseMenu = array("CASE", "TIMELINE", "WITNESS", "CLUES");
-        $needsGeneralMenu = array("HOME","CASES","ABOUT","FAQ");
 
-        $sidebar = '';
-
-        if(in_array($selected,$needsGeneralMenu)){
-            $sidebar .= '<p class="menuSection">Generale</p><ul>';
-            $sidebar .= '
-                        <li id="homeButton" class="menuButton'.($selected == "HOME" ? ' menuSelected"' : '"').'>'
-                            .($selected != "HOME" ? '<a href="index.php" lang="en">Home</a>' : 'Home').
-                        '</li>';
+        $sidebar = '<p class="menuSection">Generale</p><ul>';
+        $sidebar .= '
+                    <li id="homeButton" class="menuButton'.($selected == "HOME" ? ' menuSelected"' : '"').'>'
+                        .($selected != "HOME" ? '<a href="index.php" lang="en">Home</a>' : 'Home').
+                    '</li>';
             
-            $sidebar .= '
-                        <li id="casesButton" class="menuButton'.($selected == "CASES" ? ' menuSelected"' : '"').'>'
-                            .($selected != "CASES" ? '<a href="cases.php" lang="en">I nostri casi</a>' : 'I nostri casi').
-                        '</li>';
+        $sidebar .= '
+                    <li id="casesButton" class="menuButton'.($selected == "CASES" ? ' menuSelected"' : '"').'>'
+                        .($selected != "CASES" ? '<a href="cases.php" lang="en">I nostri casi</a>' : 'I nostri casi').
+                    '</li>';
             
-            $sidebar .= '
-                        <li id="aboutButton" class="menuButton'.($selected == "ABOUT" ? ' menuSelected"' : '"').'>'
-                            .($selected != "ABOUT" ? '<a href="about.php" lang="en">Chi siamo</a>' : 'Chi siamo').
-                        '</li>';
+        $sidebar .= '
+                    <li id="aboutButton" class="menuButton'.($selected == "ABOUT" ? ' menuSelected"' : '"').'>'
+                        .($selected != "ABOUT" ? '<a href="about.php" lang="en">Chi siamo</a>' : 'Chi siamo').
+                    '</li>';
 
-            $sidebar .= '
-                        <li id="faqButton" class="menuButton'.($selected == "FAQ" ? ' menuSelected"' : '"').'>'
-                            .($selected != "FAQ" ? '<a href="faq.php" lang="en"><abbr title="Frequently Asked Questions">FAQ</abbr></a>' : '<abbr title="Frequently Asked Questions">FAQ</abbr>').
-                        '</li></ul>';
-        }
+        $sidebar .= '
+                    <li id="faqButton" class="menuButton'.($selected == "FAQ" ? ' menuSelected"' : '"').'>'
+                        .($selected != "FAQ" ? '<a href="faq.php" lang="en"><abbr title="Frequently Asked Questions">FAQ</abbr></a>' : '<abbr title="Frequently Asked Questions">FAQ</abbr>').
+                    '</li></ul>';
         
         if(in_array($selected, $needsCaseMenu)) {
             $userId = (int)$_SESSION["userId"];
@@ -63,14 +58,7 @@
                                 .($selected != "CHAPTER" ? '<a href="chapter.php?id='.$caseId.'">Capitolo '.$lastChapter.'</a>' : 'Indizi').
                             '</li></ul>';
             }
-            $sidebar .= '</div>';
-
-            $sidebar .= '<div class="menuBack">';
-
-            $sidebar .= '<ul><li id="backButton" class="menuButton"><a href="index.php">Torna alla <span lang="en">Home</span></a></li></ul>';
-            
-            $sidebar .= '</div>';
-            
+            $sidebar .= '</div>';            
         }
                     
         return $sidebar;

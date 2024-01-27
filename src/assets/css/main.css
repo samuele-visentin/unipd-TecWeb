@@ -23,7 +23,7 @@
 
     /* CONTENTMENU PARAMETERS */
     --contentMenuWidth: 12.2em;
-    --contentMenuHeight: 67.5em;
+    --contentMenuHeight: 100vh;
 
     /* PAGE-CONTENT PARAMETERS */
     --contentLeftPadding: 17em;
@@ -54,10 +54,6 @@ html {
     display: flex;
     align-items: center;
     flex-direction: row;
-    position: -webkit-sticky; /* for Safari users */
-    position: sticky;
-    top: 0;
-    float: top;
 }
 
 #pageHeader #menuButton {
@@ -95,8 +91,9 @@ header #logo {
     padding-left: var(--menuLeftPadding);
     padding-right: var(--menuRightPadding);
     font-size: var(--menuFontSize);
+    /*
     display: flex;
-    flex-direction: column;
+    flex-direction: column;*/
 }
 
 .menu a:link {
@@ -128,14 +125,14 @@ header #logo {
     color: rgb(var(--darkColor));
     font-weight: 800;
 }
-
+/*
 .menu .menuCases {
     flex: 1;
 }
 
 .menu .menuBack {
     padding-bottom: 20em;
-}
+}*/
 
 /*************************************
     USER TOOLBAR STYLE
@@ -189,8 +186,10 @@ header #logo {
 
 #contentMenu {
     float: left;
-    overflow: hidden;
-    position: fixed;
+    overflow: hidden;    
+    position: -webkit-sticky; /* for Safari users */
+    position: sticky;
+    top: 0;
     width: var(--contentMenuWidth);
     height: var(--contentMenuHeight);
 }
@@ -299,10 +298,10 @@ header #logo {
 #chapterButton.menuSelected {
     background-image: url(../icons/darkIcons/investigate.svg);
 }
-
+/*
 #backButton {
     background-image: url(../icons/logout.svg);
-}
+}*/
 
 /*************************************
     BREADCRUMB STYLE
@@ -366,6 +365,11 @@ header #logo {
     background-image: url(../images/toTop.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    display: none;
+}
+
+#backToTop.show {
+    display: block;
 }
 
 #backToTop:link {
@@ -428,6 +432,7 @@ header #logo {
     order: 1;
     max-height: 10em;
     max-width: 10em;
+    border-radius: 10px;
 }
 
 #content .case header {
@@ -796,8 +801,8 @@ p#sumTabellaRecensioni {
 }
 
 #content .clue th {
-    color: rgb(var(--darkColor));
-    background-color: rgb(var(--primary500));
+    color: rgb(var(--lightColor));
+    background-color: rgb(var(--secondary600));
 }
 
 #content .clue #tabSummary {
@@ -811,7 +816,7 @@ p#sumTabellaRecensioni {
 }
 
 tr:nth-child(even) {
-    background-color: rgb(var(--lightColor));
+    background-color: rgb(var(--primary500));
 }
 
 tr:nth-child(odd) {
@@ -887,8 +892,7 @@ tr:nth-child(odd) {
     margin-bottom: 2em;
 }
 
-#content section.articlePiece p {
-    
+#content section.articlePiece p {    
     margin: 0;
     padding-left: 0.8em;
     padding-right: 0.8em;
@@ -921,8 +925,7 @@ tr:nth-child(odd) {
     background-size: auto;
     padding: 2em;
     color: white;
-    font-size: large;
-    
+    font-size: large;    
 }
 
 #content section.frontPageContent h2.frontPageTitles{
@@ -956,16 +959,35 @@ tr:nth-child(odd) {
 /*************************************
     ERROR PAGE STYLE
 *************************************/
-h1.errorPageTitle{
+#content h1.errorPageTitle{
+    margin: 0.5em 0;
     font-size: 4em;
+    text-align: center;
+    line-height: 1;
 }
 
-h2.errorPageVerbose{
+#content h2.errorPageVerbose{
+    margin: 0.4em 0;
     font-size: 3em;
+    text-align: center;
+    line-height: 1;
 }
 
-h3.errorPageJoke{
+#content h3.errorPageJoke{
     font-size: 2em;
+    text-align: center;
+    padding: 0.3em;
+    line-height: 1.5em;
+    font-weight: normal;
+}
+
+.errorPageImg {
+    display: block;
+    margin: auto;
+    max-width: 70%;
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
 }
 
 /*************************************
@@ -1065,7 +1087,7 @@ h3.errorPageJoke{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: rgba(var(--primary300), 0.4);
+    background-color: rgba(var(--primary300), 0.8);
 }
 
 .zoomImg {

@@ -1,9 +1,4 @@
 @import "palette.css";
-/*
-@font-face {
-    font-family: 'Inconsolata';
-    src: url(../fonts/Inconsolata-VariableFont_wdth.ttf);
-}*/
 
 header #logo {
     background-image: url(../images/logo_small.png);
@@ -15,6 +10,12 @@ header #logo {
 
 #pageHeader #menuButton {
     display: block;
+}
+
+#pageHeader {
+    top: 0;
+    position: -webkit-sticky; /*per Safari*/
+    position: sticky;
 }
 
 #contentMenu {    

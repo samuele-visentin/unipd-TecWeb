@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 12pt;
+    font-family: 'Georgia', serif;
+    line-height: 20pt;
+    margin-left: 2cm;
+    margin-right: 2cm;
+}
+
+html a:link, html a:visited {
+    color: black;
+}
+
+.menu {
+    display: none;
+}
+
+#pageHeader #menuButton {
+    text-indent: -999em;
+}
+
+header #logo {
+    font-size: 28pt;
+}
+
+#breadcrumb {
+    margin: 2mm 0;
+}
+
+#closeImg {
+    display: none;
+}
+
+h1, h2 {
+    margin: 8mm 0;
+}
+
+h3, h4, h5, h6 {
+    margin: 4mm 0;
+}
+
+.case {
+    display: flex;
+    flex-direction: row;
+}
+
+.case img {
+    order: 1;
+    max-width: 4cm;
+}
+
+.case div {
+    order: 2;
+    margin-left: 0.8cm;
+}
+
+.case a {
+    display: none;
+}
+
+.clue, .witness {
+    border-bottom: 2pt solid black;
+    margin-bottom: 1cm;
+}
+
+.clue table, .clue td, .clue th {
+    margin: 0.2cm 0;
+    border: 1px solid;
+}
+  
+.clue table {
+    border-collapse: collapse;
+}
+
+img {
+    max-width: 15cm;
+    max-height: 15cm;
+}
+
+#backToTop {
+    display: none;
+}
+
+ul {
+    list-style-type: circle;
+    margin-left: 5mm;
+}
+
+#content section.letter footer .signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 14pt;
+}
+
+dt {
+    margin-left: 2mm;
+}
+
+dt, dd {
+    display: inline;
+}
+
+dt::before {
+    display: block;
+    content: "";
+}
+
+section.timeline dl {
+    display: grid;
+    grid-template-columns: max-content auto;    
+    gap: 0 8pt;
+    grid-template-columns: minmax(min-content, max-content);
+}
+  
+#content section.timeline dt {
+    font-weight: bold;
+    grid-column-start: 1;
+}
+  
+#content section.timeline dd {
+    grid-column-start: 2;
+}

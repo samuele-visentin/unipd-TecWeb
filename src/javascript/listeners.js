@@ -3,8 +3,18 @@ function focusFirst() {
       preventScroll: true
     });
 }
-  
-document.getElementById("backToTop").addEventListener('click', focusFirst);
+
+let backTopButton = document.getElementById("backToTop");
+
+backTopButton.addEventListener('click', focusFirst);
+
+window.addEventListener('scroll', e => {
+  if(window.scrollY > 20) {
+    backTopButton.classList.add("show");
+  } else {
+    backTopButton.classList.remove("show");
+  }
+});
 
 const zoomImgs = document.getElementsByClassName("zoomImg");
 const fullPage = document.getElementById("imgFullPage");

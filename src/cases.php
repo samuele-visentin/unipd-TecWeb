@@ -11,7 +11,7 @@
 
     foreach($cases as $case) {
         $caseTitle = $case->nome;
-        $caseImgPath = isset($case->image_path) ? ($case->image_path) : 'assets/images/img_placeholder.png';
+        $caseImgPath = isset($case->image_path) ? ('assets/'.$case->image_path) : 'assets/images/img_placeholder.png';
         $caseDescription = $case->descrizione;
 
         $newCase = str_replace("[caseTitle]", $caseTitle, $caseLayout);

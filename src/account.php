@@ -10,7 +10,7 @@ if(!isset($_SESSION['userId']) || $_SESSION['userId'] === "") {
 
 $layout = file_get_contents("templates/layout.html");
 $content = file_get_contents("templates/account_layout.html");
-$content = str_replace("[username]", $_SESSION['username'], $content);
+$content = str_replace('[username]', $_SESSION['username'], $content);
 $title = 'Account | ' . $TITLE;
 $keywords = '';
 $description = '';
