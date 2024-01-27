@@ -20,6 +20,7 @@ if(!isset($_SESSION["userId"])) {
         }
         $_SESSION["userId"] = $user->id;
         $_SESSION["isAdmin"] = $user->is_admin;
+        $_SESSION["username"] = $user->username;
         if(isset($_POST["target"]) && $_POST["target"] !== "") {
             header("Location: {$_POST["target"]}");
         } else {

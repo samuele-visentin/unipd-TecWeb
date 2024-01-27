@@ -6,12 +6,6 @@ function focusFirst() {
   
 document.getElementById("backToTop").addEventListener('click', focusFirst);
 
-document.querySelector("form")?.addEventListener("submit", function(event) {
-  if (!validateForm()) {
-      event.preventDefault();
-  }
-});
-
 const zoomImgs = document.getElementsByClassName("zoomImg");
 const fullPage = document.getElementById("imgFullPage");
 const chiudi = document.getElementById("closeImg");

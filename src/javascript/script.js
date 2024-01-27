@@ -37,7 +37,7 @@ async function displayCriteria(inputId) {
   input.innerHTML = criteria;
 }
 
-function validateForm() {
+function validateSignup() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
   var confermaPassword = document.getElementById("confermaPassword").value;
@@ -47,7 +47,6 @@ function validateForm() {
     errorMessage ??= document.createElement("p");
     errorMessage.role = "alert";
     errorMessage.id = "error-message";
-    errorMessage.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
     errorMessage.innerHTML = message;
     h.parentNode.insertBefore(errorMessage, h.nextSibling);
   }
@@ -64,6 +63,49 @@ function validateForm() {
     return false;
   }
   let p = document.getElementById("error-message");
+  if (p != null) {
+    p.remove();
+  }
+  return true;
+}
+
+function validateUser() {
+  let username = document.getElementById("uname").value;
+  let p = document.getElementById("error-message");
+  if (p == null) {
+    p = document.createElement("p");
+    p.role = "alert";
+    p.id = "error-message";
+    let h = document.getElementById("account-title");
+    h.parentNode.insertBefore(p, h.nextSibling);
+  }
+  if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)){
+    p.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
+    return false;
+  }
+  if (p != null) {
+    p.remove();
+  }
+  return true;
+}
+
+function validatePassword() {
+  let password = document.getElementById("psw").value;
+  let p = document.getElementById("error-message");
+  if (p == null) {
+    p = document.createElement("p");
+    p.role = "alert";
+    p.id = "error-message";
+    let h = document.getElementById("userform");
+    h.parentNode.insertBefore(p, h.nextSibling);
+  }
+  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/)) {
+    p.innerHTML = "La <span lang='en'>password</span> non rispetta i criteri richiesti.";
+    return false;
+  } else if (password !== document.getElementById("confermaPsw").value) {
+    p.innerHTML = "Le <span lang='en'>password</span> non corrispondono.";
+    return false;
+  }
   if (p != null) {
     p.remove();
   }

@@ -1,0 +1,26 @@
+<div class="center-account">
+    <h1 id="account-title">Profilo utente</h1>
+    [usernameError]
+    <form id="userform" action="app/update_user.php" method="post" 
+    class="account-form" onsubmit="return validateUsername()">
+        <label for="uname">Username:</label>
+        <input type="text" name="uname" id="uname" required 
+        value="[username]" onfocus="displayCriteria('username')"
+        [ariaUsername] aria-labelledby="displayCriteria">
+        <input type="submit" value="Cambia username">
+    </form>
+    [passwordError]
+    <form id="passwordform" action="app/update_user.php" method="post" 
+    class="account-form" onsubmit="return validatePassword()">
+        <label for="psw">Nuova password:</label>
+        <input type="password" name="psw" id="psw" required 
+        placeholder="password" onfocus="displayCriteria('password')"
+        [ariaPassowrd] aria-labelledby="displayCriteria">
+        <label for="confermaPsw">Conferma Password:</label>
+        <input type="password" name="confermaPsw" id="confermaPsw" 
+        placeholder="ridigita password" onfocus="displayCriteria('confermaPassword')"
+        [ariaPassword]>
+        <input type="submit" value="Cambia password">
+    </form>
+    <div aria-live="polite" role="region" id="displayCriteria"></div>
+</div>

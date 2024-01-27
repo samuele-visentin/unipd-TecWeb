@@ -476,7 +476,7 @@ form.center-form input {
     height: 1.3em;
 }
 
-form.center-form input[type="submit"] {
+form input[type="submit"] {
     width: auto;
     display: block;
     margin: auto;
@@ -490,7 +490,7 @@ form.center-form input[type="submit"] {
     height: auto;
 }
 
-form.center-form input[type="submit"]:hover {
+form input[type="submit"]:hover {
     opacity: 0.5;
 }
 
@@ -526,6 +526,7 @@ p#error-message {
     background-repeat: no-repeat;
     padding-top: 1.5em;
     background-position: center top;
+    margin-top: 1em;
 }
 
 #displayCriteria dt {
@@ -578,6 +579,58 @@ p#error-message {
 
 #content .witness dd::after {
     content: ".";
+}
+
+/************************************
+    ACCOUNT STYLE
+************************************/
+
+div.center-account {
+    border: 2px solid rgb(var(--darkColor));
+    border-radius: 10px;
+    background-color: rgb(var(--primary300));
+    max-width: 18.7em;
+    /*min-width: 12.5em;*/
+    padding: 2em;
+    margin: 5em auto;
+    min-width: 12.5px;
+    max-width: 25em;
+}
+
+form#userform input, form#passwordform input{
+    margin: auto;
+    padding: 0.3em;
+    border-radius: 5px;
+    border: 1px solid;
+    width: 12em;
+    height: 1.3em;
+}
+
+form#userform label, form#passwordform label {
+    padding: 0.5em;
+    width: 9em;
+}
+
+form#userform input[type="submit"], form#passwordform input[type="submit"]{
+    height: 2em;
+    margin-top: 0.5em;
+}
+
+form#userform {
+    padding-bottom: 0.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+form#passwordform {
+    margin-top: 1.2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 /************************************

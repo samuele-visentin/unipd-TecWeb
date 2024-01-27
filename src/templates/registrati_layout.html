@@ -1,11 +1,11 @@
-<form class="center-form" action="app/registration.php" method="post">
+<form class="center-form" action="app/registration.php" method="post"
+    onsubmit="return validateSingup()">
     <h1 id="login-signup" lang="en">Sign up</h1>
     [errorMessage]
     <div id="input-container">
         <input type="text" name="username" id="username" 
         placeholder="Inserisci l'username" 
         required
-        pattern="^[a-zA-Z0-9_]{4,16}$"
         aria-labelledby="displayCriteria"
         [aria]
         onfocus="displayCriteria('username')">
@@ -13,7 +13,6 @@
         <input type="password" name="password" id="password" 
         placeholder="Inserisci la password"
         required 
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$"
         aria-labelledby="displayCriteria"
         [aria]
         onfocus="displayCriteria('password')">
@@ -21,7 +20,6 @@
         <input type="password" name="confermaPassword" id="confermaPassword" 
         placeholder="Reinserisci la password" 
         required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$"
         [aria]
         onfocus="displayCriteria('confermaPassword')">
         <label id="labelConfermaPassword" for="confermaPassword">Conferma <span lang="en">password</span>:</label>

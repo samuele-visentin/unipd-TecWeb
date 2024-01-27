@@ -1,7 +1,7 @@
 <?php
 
 class Utente {
-    public string $id;
+    public int $id;
     public string $username;
     public string $password_hash;
     public bool $is_admin;
@@ -24,7 +24,7 @@ function getAllUtenti() {
     return $utenti;
 }
 
-function getUtenteById(string $id): ?Utente {
+function getUtenteById(int $id): ?Utente {
     global $DB;
     $result = $DB->query("SELECT * FROM utente WHERE id = ?", array("s", $id));
     $row = $result->fetch_assoc();
@@ -60,5 +60,19 @@ function insertUtente($username, $password) {
     $result = $DB->lock_query("INSERT INTO utente (username, passwordHash) 
         VALUES (?, ?)", "utente", array("ss", $username, 
         hash('sha256',$password)));
+    return $result;
+}
+
+function updatePassowrd(int $idUtente, string $password) {
+    global $DB;
+    $result = $DB->lock_query("UPDATE utente SET passwordHash = ? WHERE id = ?", 
+        "utente", array("ss", hash('sha256',$password), $idUtente));
+    return $result;
+}
+
+function updateUsername(int $idUtente, string $username) {
+    global $DB;
+    $result = $DB->lock_query("UPDATE utente SET username = ? WHERE id = ?", 
+        "utente", array("si", $username, $idUtente));
     return $result;
 }
