@@ -129,3 +129,12 @@ table#indagini tbody td p {
     max-width: 15em;
     margin: auto;
 }
+
+/*************************************
+    FRONT PAGE STYLE
+*************************************/
+
+.caseTitle {
+    position: relative;
+    border-radius: 0;
+}
