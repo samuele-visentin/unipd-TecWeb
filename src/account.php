@@ -49,7 +49,7 @@ if($_SESSION['isAdmin']) {
         $table .= '<th scope="row" data-title="Titolo">' . $indagine->nome . '</th>';
         $table .= '<td data-title="Descrizione">' . $indagine->descrizione . '</td>';
         $table .= '<td data-title="Data">' . $indagine->data_inserimento->format('d/m/Y') . '</td>';
-        $table .= '<td data-title="Recensioni"><p><a href="recensioni.php?id='.$indagine->id.'&name='.$indagine->nome.'">Visualizza recensioni</a></p></td>';
+        $table .= '<td data-title="Recensioni"><p><a href="recensioni.php?id='.$indagine->id.'&name='.linkfy($indagine->nome).'">Visualizza recensioni</a></p></td>';
         $table .= '</tr>';
     }
     $table .= '</tbody></table>';

@@ -18,6 +18,10 @@ function secure_input(string $in): string {
     return htmlentities(strip_tags(trim($in)));
 }
 
+function linkfy(string $in): string {
+    return preg_replace('/\s+/', '%20', $in);
+}
+
 function to500($errno, $errstr = null) {
     global $BASE_URL;
     http_response_code(500);
