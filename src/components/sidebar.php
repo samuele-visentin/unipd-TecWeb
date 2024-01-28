@@ -1,7 +1,7 @@
 <?php
     require_once("data/capitolo.php");
     function getSidebar(string $selected, string $caseName = "", string $caseId = "") {
-        $needsCaseMenu = array("CASE", "TIMELINE", "WITNESS", "CLUES");
+        $needsCaseMenu = array("CASE", "TIMELINE", "WITNESS", "CLUES", "CHAPTER");
 
         $sidebar = '<p class="menuSection">Generale</p><ul>';
         $sidebar .= '
@@ -55,7 +55,7 @@
             for ($i = 0; $i <= $lastChapter; $i++) {
                 $sidebar .= '
                             <li id="chapterButton" class="menuButton'.($selected == "CHAPTER" ? ' menuSelected"' : '"').'>'
-                                .($selected != "CHAPTER" ? '<a href="chapter.php?id='.$caseId.'">Capitolo '.$lastChapter.'</a>' : 'Indizi').
+                                .($selected != "CHAPTER" ? '<a href="chapter.php?id='.$caseId.'&chapter='.$i.'">Capitolo '.$i.'</a>' : 'Capitolo '.$i).
                             '</li></ul>';
             }
             $sidebar .= '</div>';            

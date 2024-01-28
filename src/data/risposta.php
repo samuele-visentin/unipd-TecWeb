@@ -26,7 +26,7 @@ function getAllRisposta() {
     return $risposte;
 }
 
-function getRispostaByIdDomanda(string $id) {
+function getRisposteByIdDomanda(string $id) {
     global $DB;
     $result = $DB->query("SELECT * FROM risposta WHERE idDomanda = ? 
         order by codice asc", array("s", $id));

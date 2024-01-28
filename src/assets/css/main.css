@@ -612,6 +612,36 @@ p#error-message {
 }
 
 /************************************
+    CHAPTER STYLE
+************************************/
+
+form#chapterForm {
+    border: 2px solid rgb(var(--darkColor));
+    border-radius: 10px;
+    background-color: rgb(var(--primary300));
+    padding: 2em;
+    margin-bottom: 2em;
+}
+
+form#chapterForm label {
+    padding: 0.5em;
+    width: 10em;
+}
+
+form#chapterForm input[type="submit"] {
+    height: 2em;
+    margin-top: 0.5em;
+}
+
+form#chapterForm h2 {
+    margin: 0em 0em 0.5em 0em;
+}
+
+.chapter {
+    margin-bottom: 1em;
+}
+
+/************************************
     ACCOUNT STYLE
 ************************************/
 
