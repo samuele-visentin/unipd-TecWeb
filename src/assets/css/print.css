@@ -27,6 +27,11 @@ header #logo {
     font-size: 28pt;
 }
 
+header #logo::before {
+    content: url(../images/logo_small_print.png);
+    padding-right: 0.4cm;
+}
+
 #breadcrumb {
     margin: 2mm 0;
 }
