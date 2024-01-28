@@ -8,7 +8,7 @@
     $description = 'Pagina iniziale del sito Clue Catchers, dove puoi provare l&apos esperienza di detective';
     $breadcrumbs = '<p><span lang="en">Home</span></p>';
     $featuredCaseTitle = 'Omicidio al Buio';
-    $featuredCaseImg = '<img src="/assets/images/indagine1/capitolo0/villa.jpg" alt="Immagine di copertina del caso [CaseTitle]">';
+    $featuredCaseImg = '<img src="assets/images/indagine1/capitolo0/villa.jpg" alt="Immagine di copertina del caso [CaseTitle]">';
     $featuredCaseDesc = '<h3 class="frontPageCaseDesc">Un omicidio durante una cena al buio, in una villa lussuosa. Solo un vero <span lang="en">Clue Catcher</span> sarà in grado di risolvere il mistero...</h3>';
     $content = '
     <section class="frontPageContent">

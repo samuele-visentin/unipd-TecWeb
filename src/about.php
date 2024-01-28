@@ -12,7 +12,7 @@
     <dl id="membriTeam">
         <dt>Linda Barbiero</dt>
         <dd>
-            <img src="../assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
+            <img src="assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
             <dl class="membro">
                 <dt>Contatti: </dt>
                 <dd>linda.barbiero.1@studenti.unipd.it</dd>
@@ -24,7 +24,7 @@
         </dd>
         <dt>Andrea Mangolini</dt>
         <dd>
-            <img src="../assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
+            <img src="assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
             <dl class="membro">
                 <dt>Contatti: </dt>
                 <dd>andrea.mangolini@studenti.unipd.it</dd>
@@ -36,7 +36,7 @@
         </dd>
         <dt>Luca Romio</dt>
         <dd>
-            <img src="../assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
+            <img src="assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
             <dl class="membro">
                 <dt>Contatti: </dt>
                 <dd>luca.romio@studenti.unipd.it</dd>
@@ -48,7 +48,7 @@
         </dd>
         <dt>Samuele Visentin</dt>    
         <dd>
-            <img src="../assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
+            <img src="assets/images/img_placeholder.png" alt="Immagine di profilo temporanea">
             <dl class="membro">
                 <dt>Contatti: </dt>
                 <dd>CIAO</dd>
