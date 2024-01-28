@@ -37,8 +37,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $clueGroupLayout = file_get_contents("templates/clues_group_layout.html");   
 
     $title = 'Indizi | '.$case->nome.' | Clue Catchers';
-    $keywords = '';
-    $description = '';
+    $keywords = 'Clue Catchers, '.$case->nome. ', indizi';
+    $description = 'Visualizza gli indizi del caso '.$case->nome.'.';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Indizi </p>';   
     $content = '<h1>'.$case->nome.'</h1>';
     $imageCounter = 0;

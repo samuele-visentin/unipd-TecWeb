@@ -22,8 +22,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $layout = file_get_contents("templates/layout.html");
 
     $title = $case->nome.' | Clue Catchers';
-    $keywords = '';
-    $description = '';
+    $keywords = 'Clue Catchers, '.$case->nome. ', presentazione, lettera di presentazione';
+    $description = 'Presentazione del caso '.$case->nome.' di Clue Catchers';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; Presentazione</p>';   
     $content = '<h1>'.$case->nome.'</h1>';
     foreach($documenti as $doc) {

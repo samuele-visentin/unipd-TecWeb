@@ -20,8 +20,8 @@ $recensioni = getRecensioniByIndagine($caseId);
 
 $layout = file_get_contents("templates/layout.html");
 $title = $name . ' | ' . $TITLE;
-$keywords = '';
-$description = '';
+$keywords = 'recensioni, recensioni per l\'indagine, ' . $name . ', Clue Catchers';
+$description = 'Visualizza tutte le recensioni per l\'indagine ' . $name . ' di Clue Catchers.';
 $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="account.php" lang="en">Account</a> &raquo; '.$name.'</p>';
 $account = getUserToolBar();
 $content = '<div id="contenitore-recensioni"><h1 id="title-indagine">Recensioni per l\'indagine: ' . $name . '</h1>';

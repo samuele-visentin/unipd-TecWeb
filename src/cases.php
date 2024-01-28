@@ -28,8 +28,8 @@
     $layout = file_get_contents("templates/layout.html");
 
     $title = 'I nostri casi | Clue Catchers';
-    $keywords = '';
-    $description = '';
+    $keywords = 'Clue Catchers, i nostri casi, casi di Clue Catchers';
+    $description = 'Visualizza tutti i casi di Clue Catchers';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; I nostri casi</p>';    
     $content = '<h1>I nostri casi</h1>';
     foreach($caseArray as $case) {

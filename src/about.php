@@ -5,7 +5,7 @@ require_once("components/sidebar.php");
 $layout = file_get_contents("templates/layout.html");
 $content = file_get_contents("templates/about_layout.html");
 $title = 'About | Clue Catchers';
-$keywords = 'Chi siamo Clue Catchers, Clue Catchers, team';
+$keywords = 'Chi siamo, Clue Catchers, team di sviluppo, contatti, biografia';
 $description = 'Pagina del team di sviluppo di Clue Catchers';
 $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Chi siamo</p>';
 

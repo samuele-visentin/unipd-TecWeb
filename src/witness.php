@@ -36,8 +36,8 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $clueGroupLayout = file_get_contents("templates/witnesses_group_layout.html");
 
     $title = 'Testimonianze | '.$case->nome.' | Clue Catchers';
-    $keywords = '';
-    $description = '';
+    $keywords = 'testimonianze, '.$case->nome. ', testimonianza';
+    $description = 'Visualizza le testimonianze del caso '.$case->nome.'.';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Testimonianze </p>';   
     $content = '<h1>'.$case->nome.'</h1>';
     for ($i = 0; $i < count($capitoli); $i++) { 

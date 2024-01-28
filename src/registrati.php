@@ -9,8 +9,8 @@
     $title = 'Registrati | '.$TITLE;
     $layout = file_get_contents("templates/layout.html");
     $content = file_get_contents("templates/registrati_layout.html");
-    $keywords = '';
-    $description = '';
+    $keywords = 'Sign up, Clue Catchers, registrati';
+    $description = 'Registrati per poter giocare con Clue Catchers.';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Registrati</p>';
     $account = '<li id="loginButton"><a href="accedi.php" lang="en">Log in</a></li>';
     $error = '';

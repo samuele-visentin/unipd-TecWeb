@@ -5,8 +5,8 @@
 
     $layout = file_get_contents("templates/layout.html");
     $title = 'Clue Catchers';
-    $keywords = 'Clue Catchers, risolvere misteri, [CaseTitle]';
-    $description = 'Pagina iniziale del sito Clue Catchers, dove puoi provare l&apos;esperienza di detective';
+    $keywords = 'Clue Catchers, home, risolvere misteri, [CaseTitle], detective, indizi, gialli, appassionanti storie';
+    $description = 'Home del sito Clue Catchers, dove puoi immergerti nell&apos;esperienza di detective';
     $breadcrumbs = '<p><span lang="en">Home</span></p>';
     $content = file_get_contents("templates/index_layout.html");
     $lastIndagine = getLastIndagine();

@@ -9,8 +9,8 @@
     $title = 'Accedi | '.$TITLE;
     $layout = file_get_contents("templates/layout.html");
     $content = file_get_contents("templates/accedi_layout.html");
-    $keywords = '';
-    $description = '';
+    $keywords = 'Clue Catchers, accedi, login';
+    $description = 'Accedi a Clue Catchers per giocare ai nostri casi.';
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Accedi</p>';
     $account = '<li id="signupButton"><a href="registrati.php" lang="en">Sign up</a></li>';
     if(isset($_GET["error"]) && $_GET["error"] === "invalid") {
