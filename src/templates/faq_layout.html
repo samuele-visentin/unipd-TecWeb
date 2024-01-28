@@ -1,49 +1,3 @@
-<!DOCTYPE html>
-<html lang="it">
-  <head>
-    <meta charset="UTF-8">
-    <title lang="en">FAQ | Clue Catchers</title>
-    <meta name="keywords" content="Clue Catchers, FAQ, Frequently Asked Questions">
-    <meta name="description" content="Pagina delle domande più frequenti">
-    <meta name="author" content="Clue Catchers">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/main.css" media="screen">
-    <!-- Only screen per il supporto di iphone 8? -->
-    <link rel="stylesheet" href="assets/css/mini.css" media="screen and (max-width: 768px), only screen and (max-width: 768px)">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/print.css" media="print">
-    <script src="javascript/script.js"></script>    
-  </head>
-  <body>
-    <header id="pageHeader">
-      <button id="menuButton" onclick="openMenu()">Mostra menu</button>
-      <h1 id="logo" lang="en">Clue Catchers</h1>
-      <nav class="menu" id="userToolbar" aria-label="Link di accesso account">
-        <ul>
-            <li><a class="navHelp" href="#content">Vai ai contenuti</a></li>
-            <li id="loginButton"><a href="accedi.php" lang="en">Log in</a></li>
-            <li id="signupButton"><a href="registrati.php" lang="en">Sign up</a></li>
-        </ul>   
-      </nav>
-    </header>
-    
-    <nav class="menu" id="contentMenu" aria-label="Navigazione principale">
-      <button id="menuClose" onclick="closeMenu()">Chiudi menu</button>
-      <p class="menuSection">Generale</p>
-      <ul>
-            <li id="homeButton" class="menuButton"><a href="index.php" lang="en">Home</a></li>
-            <li id="casesButton" class="menuButton"><a href="cases.php">I nostri casi</a></li>
-            <li id="aboutButton" class="menuButton"><a href="about.html">Chi siamo</a></li>
-            <li id="faqButton" class="menuButton menuSelected"><abbr lang="en" title="Frequently Asked Questions">FAQ</abbr></li></ul>
-    </nav>
-      
-    <!-- should breadcrumb be outside? -->
-    <nav id="breadcrumb" aria-label="Percorso per questa pagina">
-      <p><a href="index.php" lang="en">Home</a> &raquo; <abbr title="Frequently Asked Questions">FAQ</abbr></p>
-    </nav> 
-
-    <main id="content">
-      
       <h1 id="titoloFAQ"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
       <section class="singleFAQ">
         <header>
@@ -82,15 +36,3 @@
         </header>
         <p>Il nostro team punta a creare un&apos;esperienza utente il più accessibile possibile ma a volte questo non basta. Una sezione di <span lang="en">feedback</span> mirata è in sviluppo per dimostrare la volontà del <span lang="en">team</span> di mantenere questo impegno.</p>
       </section>
-    
-    </main>
-    
-    <a href="#" id="backToTop">Torna su</a>
-
-    <div id="imgFullPage"></div>
-
-    <button id="closeImg" onclick="closeImg()">Chiudi immagine</button>
-
-    <script src="javascript/listeners.js"></script>
-    </body>
-</html>

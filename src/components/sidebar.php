@@ -16,12 +16,12 @@
             
         $sidebar .= '
                     <li id="aboutButton" class="menuButton'.($selected == "ABOUT" ? ' menuSelected"' : '"').'>'
-                        .($selected != "ABOUT" ? '<a href="about.html">Chi siamo</a>' : 'Chi siamo').
+                        .($selected != "ABOUT" ? '<a href="about.php">Chi siamo</a>' : 'Chi siamo').
                     '</li>';
 
         $sidebar .= '
                     <li id="faqButton" class="menuButton'.($selected == "FAQ" ? ' menuSelected"' : '"').'>'
-                        .($selected != "FAQ" ? '<a href="faq.html"><abbr lang="en" title="Frequently Asked Questions">FAQ</abbr></a>' : '<abbr lang="en" title="Frequently Asked Questions">FAQ</abbr>').
+                        .($selected != "FAQ" ? '<a href="faq.php"><abbr lang="en" title="Frequently Asked Questions">FAQ</abbr></a>' : '<abbr lang="en" title="Frequently Asked Questions">FAQ</abbr>').
                     '</li></ul>';
         
         if(in_array($selected, $needsCaseMenu)) {
