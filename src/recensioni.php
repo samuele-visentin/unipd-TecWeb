@@ -27,7 +27,7 @@ $account = getUserToolBar();
 $content = '<div id="contenitore-recensioni"><h1 id="title-indagine">Recensioni per l\'indagine: ' . $name . '</h1>';
 if ($recensioni !== null) {
     $content .= '<table id="indagini" class="recensioni" aria-describedby="sumTabellaRecensioni">';
-    $content  .= '<caption>Recensioni:</caption>';
+    $content .= '<caption>Recensioni:</caption>';
     $content .= '<thead><tr><th scope="col">Recensione</th><th scope="col">Data</th><th scope="col">Id utente</th></tr></thead>';
     $content .= '<tbody>';
     foreach ($recensioni as $recensione) {

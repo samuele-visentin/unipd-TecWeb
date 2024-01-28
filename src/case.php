@@ -43,7 +43,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
 
     echo $page;
 } else {
-    header("Location: 404.php");
+    header("Location: 404.html");
     exit();
 }
 ?>

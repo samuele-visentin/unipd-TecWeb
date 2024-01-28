@@ -13,7 +13,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $caseId = $_GET["id"];
     $case = getIndagineById($caseId);
     if(is_null($case)) {
-        header("Location: 404.php");
+        header("Location: 404.html");
         exit();
     }
     $documenti = getDocumentiInizialeByIndagine($caseId);
@@ -42,7 +42,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
 
     echo $page;
 } else {
-    header("Location: 404.php");
+    header("Location: 404.html");
     exit();
 }
 ?>
