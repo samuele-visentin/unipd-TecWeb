@@ -995,32 +995,31 @@ tr:nth-child(odd) {
 *************************************/
 
 #membriTeam{
-    /*margin:auto;*/
-    /*width: 95%;*/
-    /*max-width: 1024px;*/
-    padding-top: 1em;
     padding-bottom: 2em;
+}
+
+dl#membriTeam > dd {
     display: flex;
-    flex-direction: column ;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #membriTeam > dt{
     background-color: rgb(var(--secondary600));
-    border: 2px solid black;
+    border: 2px solid rgb(var(--darkColor));
     padding: 0.5em;
     font-size: larger;
     font-weight: bold;
-    color: white;
-    display: flex;
+    color: rgb(var(--lightColor));
 }
 
 #membriTeam > dd{
     background-color: rgb(var(--primary400));
-    border: 2px solid black;
+    border: 2px solid rgb(var(--darkColor));
     border-top: none;
     padding: 0.5em;
     margin-bottom: 1em;
-    display: flex;
 }
 
 #membriTeam .membro dd::before{
@@ -1030,8 +1029,11 @@ tr:nth-child(odd) {
 #membriTeam > dd img{
     width: 15%;
     object-fit: contain;
-    float: left;
     margin-right: 1em;
+}
+
+.membro {
+    flex-grow: 1;
 }
 
 .membro dt{
@@ -1042,35 +1044,22 @@ tr:nth-child(odd) {
 /*************************************
     FAQ PAGE STYLE
 *************************************/
-#titoloFAQ{
-    text-align: center;
-    font-weight: bolder;
-}
 
 .singleFAQ{
     border-top: 2px solid rgb(var(--secondary600));
     border-left: 10px solid rgb(var(--secondary600));
-    border-bottom: none;
-    border-right: none;
     background-color: rgb(var(--primary400));
     margin-bottom: 2em;
     padding: 0.5em;
-    font-weight: bold;
-    display: block;
 }
 
-.singleFAQ strong{
+.singleFAQ h2{
     font-size: large;
-    font-weight: bolder;
-    margin-bottom: 0.2em;
-    display: inline-block;
     color: rgb(var(--secondary800));
-}
-
-.singleFAQ img{
-    max-width: 1em;
-    max-height: 1em;
-    display: inline-block;
+    background-image: url(../icons/darkIcons/search.svg);
+    background-repeat: no-repeat;
+    background-size: 1.3em auto;
+    padding-left: 1.8em;
 }
 
 /*************************************
