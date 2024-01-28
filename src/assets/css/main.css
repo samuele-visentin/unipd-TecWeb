@@ -430,8 +430,9 @@ header #logo {
 #content .case img {
     margin: auto 0;
     order: 1;
-    max-height: 10em;
+    height: 10em;
     max-width: 10em;
+    object-fit: cover;
     border-radius: 10px;
 }
 
@@ -918,42 +919,81 @@ tr:nth-child(odd) {
 /*************************************
     FRONT PAGE STYLE
 *************************************/
-#content section.frontPageContent{
-    display: block;
+
+.caseContainer {
+    position: relative;
+    text-align: center;
+    color: rgb(var(--lightColor));
     background-color: rgb(var(--secondary800));
-    background-position: center;
-    background-size: auto;
-    padding: 2em;
-    color: white;
-    font-size: large;    
 }
 
-#content section.frontPageContent h2.frontPageTitles{
+.caseTitle {
+    position: absolute;
+    background-color: rgb(var(--secondary400));
+    color: rgb(var(--darkColor));
+    bottom: 1em;
+    padding: 0.5em;
+    border-radius: 0 15px 15px 0;
+    border: 2px solid rgb(var(--darkColor));
+}
+
+#content section.frontPageContent{
+    background-color: rgb(var(--primary300));
+    background-position: center;
+    background-size: auto;
+    padding: 1.5em;
+    color: rgb(var(--darkColor));
+    font-size: large;
+    border: 2px solid rgb(var(--darkColor));   
+}
+
+#content section.frontPageContent:first-of-type {
+    border-bottom: 0;
+    border-radius: 15px 15px 0 0;
+}
+
+#content section.frontPageContent:last-of-type {
+    border-top: 0;
+    border-radius: 0 0 15px 15px;
+}
+
+#content section .lastCase {
+    background-color: rgb(var(--secondary800));
+    border-radius: 15px 15px 0 0;
+    color: rgb(var(--lightColor));
+}
+
+#content section .lastCase h2 {
+    margin-bottom: 0;
+}
+
+#content section.frontPageContent h1.frontPageTitles, #content section.frontPageContent h2.frontPageTitles{
     display: block;
     font-size: 2em;
     text-align: center;
-    font-style: italic;
+}
+
+#content section.frontPageContent h2.frontPageTitles {
+    font-size: 1.8em;
 }
 
 #content section.frontPageContent img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-    max-height: 45%;
-    max-width: 95%;
+    object-fit: cover;
+    width: 100%;
+    max-height: 600px;
+    height: auto;
     border-color: rgb(var(--primary300));
     border-width: 2px;
 }
 
 #content section.frontPageContent .frontPageCaseDesc{
+    color: rgb(var(--lightColor));
     margin: auto;
     max-height: 45%;
-    max-width: 95%;
-    background-color: rgb(var(--secondary600));
+    background-color: rgb(var(--secondary800));
     font-size: large;
     padding: 1em;
+    border-radius: 0 0 15px 15px;
 }
 
 /*************************************
