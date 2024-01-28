@@ -20,7 +20,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET[
     $validateChapter = getCapitoloByIndagineAndProgressivo($caseId, $chapter);
     $lastChapter = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
     $lastChapter = is_null($lastChapter) ? -1 : array_values($lastChapter)[0];
-    if($chapter > $lastChapter || is_null($validateChapter)){
+    if($chapter > $lastChapter + 1 || is_null($validateChapter)){
         header("Location: 400.html");
         exit();
     }
@@ -42,7 +42,10 @@ if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET[
     $salvataggio = array();
     if(!is_null($domande)){
         $salvataggio = getSalvataggioByUtenteAndIndagine($userId, $caseId);
-        $lastChapter = getLastCapitoloByDomanda($salvataggio->id_domanda);
+        $lastChapter = null;
+        if(!is_null($salvataggio)){
+            $lastChapter = getLastCapitoloByDomanda($salvataggio->id_domanda);
+        }
         $isCompleted = !is_null($lastChapter);
     }
 
