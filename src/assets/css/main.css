@@ -674,7 +674,7 @@ h1#admin-title {
 }
 
 h1#user-title {
-    background-image: url(../icons/darkIcons/person.svg);
+    background-image: url(../icons/darkIcons/user.svg);
     background-repeat: no-repeat;
     padding-left: 1.8em;
     background-size: 1.5em;
