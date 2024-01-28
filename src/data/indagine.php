@@ -31,4 +31,11 @@ function getIndagineById(string $id) {
     $row = $result->fetch_assoc();
     return !is_null($row) ? new Indagine($row) : null;
 }
+
+function getLastIndagine() {
+    global $DB;
+    $result = $DB->query("SELECT * FROM indagine ORDER BY dataInserimento DESC LIMIT 1");
+    $row = $result->fetch_assoc();
+    return !is_null($row) ? new Indagine($row) : null;
+}
 ?>
