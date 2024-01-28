@@ -23,6 +23,18 @@ function getAllDomanda() {
     return $domande;
 }
 
+function getDomandeByIndagineAndProgressivoCapitolo(string $idIndagine, int $progressivoCapitolo) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM domanda WHERE idCapitolo = 
+    (SELECT id FROM capitolo WHERE idIndagine = ? AND progressivo = ?);", 
+    array("si", $idIndagine, $progressivoCapitolo));
+    $domande = array();
+    while ($row = $result->fetch_assoc()) {
+        $domande[] = new Domanda($row);
+    }
+    return (!empty($domande)) ? $domande : null;
+}
+
 function getDomandaById(string $id) {
     global $DB;
     $result = $DB->query("SELECT * FROM domanda WHERE id = ?", 
