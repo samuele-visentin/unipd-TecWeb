@@ -3,7 +3,7 @@
     require_once('components/sidebar.php');
 
     $layout = file_get_contents("templates/layout.html");
-    $title = 'Home | Clue Catchers';
+    $title = 'Clue Catchers';
     $keywords = 'Clue Catchers, risolvere misteri, [CaseTitle]';
     $description = 'Pagina iniziale del sito Clue Catchers, dove puoi provare l&apos esperienza di detective';
     $breadcrumbs = '<p><span lang="en">Home</span></p>';
@@ -15,16 +15,14 @@
         <h2 class="frontPageTitles">Immergiti in appassionanti storie</h2>
         <h3>Hai mai sognato di fare il <span lang="en">detective</span>? Di risolvere misteri? Hai la passione per i gialli? <span lang="en">Clue Catchers</span> è il posto giusto per voi.
         Risolvi casi investigativi tramite semplici domande alle quali dovrai rispondere grazie agli indizi che scopri.</h3>
-    <section>
-
+    </section>
     <section class="frontPageContent">
         <h2 class="frontPageTitles">
         Il nostro ultimo caso:
         <span id="frontPageTitle">[CaseTitle]</span></h2>
         [CaseImg]
         [CaseDesc]
-    <section>
-
+    </section>
     ';
 
     $page = str_replace("[title]", $title, $layout);
@@ -37,6 +35,5 @@
     $page = str_replace("[CaseTitle]", $featuredCaseTitle, $page);
     $page = str_replace("[CaseImg]", $featuredCaseImg, $page);
     $page = str_replace("[CaseDesc]", $featuredCaseDesc, $page);
-
     echo $page;
 ?>
