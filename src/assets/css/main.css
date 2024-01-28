@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Inconsolata';
-    src: url(../fonts/Inconsolata-VariableFont_wdth.ttf);
+    src: url(../fonts/OpenSans-VariableFont_wdth.ttf);
 }
 
 * {
@@ -638,7 +638,7 @@ form#userform input, form#passwordform input{
 
 form#userform label, form#passwordform label {
     padding: 0.5em;
-    width: 9em;
+    width: 10em;
 }
 
 form#userform input[type="submit"], form#passwordform input[type="submit"]{
