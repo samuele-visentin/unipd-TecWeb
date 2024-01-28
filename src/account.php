@@ -39,7 +39,7 @@ $table = '';
 $id_title = 'user-title';
 if($_SESSION['isAdmin']) {
     $id_title = 'admin-title';
-    $table = '<table id="indagini" aria-describedby="sumTabellaIndagini">';
+    $table = '<table id="indagini" class="adminIndagini" aria-describedby="sumTabellaIndagini">';
     $table .= '<caption>Indagini:</caption>';
     $table .= '<thead><tr><th scope="col">Titolo</th><th scope="col">Descrizione</th><th scope="col">Data inserimento</th><th scope="col">Recensioni</th></tr></thead>';
     $indagini = getAllIndagine();

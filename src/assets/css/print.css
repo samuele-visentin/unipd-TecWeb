@@ -37,10 +37,12 @@ header #logo {
 
 h1, h2 {
     margin: 8mm 0;
+    line-height: 1.5em;
 }
 
 h3, h4, h5, h6 {
     margin: 4mm 0;
+    line-height: 1.5em;
 }
 
 .case {
@@ -203,15 +205,34 @@ form#userform, form#passwordform {
     display: none;
 }
 
-table#indagini {
-    border-collapse: collapse;
-    width: 100%;
+table.adminIndagini thead th{
+    display: none;
 }
 
-table#indagini th, table#indagini td {
+table.adminIndagini tbody td, table.adminIndagini tbody tr, 
+table.adminIndagini tbody th {
+    display: block;
+}
+
+table.adminIndagini tbody th[data-title]:before {
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+}
+
+table.adminIndagini tbody td[data-title]:before {
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+}
+
+table.adminIndagini tbody td, table.adminIndagini tbody th{
     border: 1px solid black;
-    text-align: center;
-    padding: 0.4em;
+    border-bottom: 0;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+table.adminIndagini tbody td:last-child {
+    border-bottom: 1px solid black;
 }
 
 p#sumTabellaIndagini {
@@ -221,6 +242,22 @@ p#sumTabellaIndagini {
 /*************************
     RECENSIONI STYLE
 *************************/
+
+table.recensioni {
+    margin: 1em auto 1em auto;
+    padding-top: 0.2em;
+    border-collapse: collapse;
+}
+
+table.recensioni th, table.recensioni td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.4em;
+}
+
+table.recensioni thead th:first-child {
+    min-width: 6em;
+}
 
 p#sumTabellaRecensioni {
     display: none;
