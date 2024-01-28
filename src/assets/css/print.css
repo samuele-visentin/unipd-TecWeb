@@ -11,8 +11,8 @@ html {
     margin-right: 2cm;
 }
 
-html a:link, html a:visited {
-    color: black;
+html a:not([href*="#"]):after {
+    content: " [http://tecweb.studenti.math.unipd.it/svisenti/" attr(href) "]";
 }
 
 .menu {
