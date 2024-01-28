@@ -993,14 +993,11 @@ tr:nth-child(odd) {
 /*************************************
     ABOUT PAGE STYLE
 *************************************/
-#titoloAbout{
-    text-align: center;
-}
 
 #membriTeam{
-    margin:auto;
-    width: 95%;
-    max-width: 1024px;
+    /*margin:auto;*/
+    /*width: 95%;*/
+    /*max-width: 1024px;*/
     padding-top: 1em;
     padding-bottom: 2em;
     display: flex;
@@ -1009,7 +1006,7 @@ tr:nth-child(odd) {
 
 #membriTeam > dt{
     background-color: rgb(var(--secondary600));
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 0.5em;
     font-size: larger;
     font-weight: bold;
@@ -1019,15 +1016,20 @@ tr:nth-child(odd) {
 
 #membriTeam > dd{
     background-color: rgb(var(--primary400));
-    border: 1px solid black;
+    border: 2px solid black;
     border-top: none;
     padding: 0.5em;
     margin-bottom: 1em;
     display: flex;
 }
 
+#membriTeam .membro dd::before{
+    content: "\00a0";
+}
+
 #membriTeam > dd img{
     width: 15%;
+    object-fit: contain;
     float: left;
     margin-right: 1em;
 }
@@ -1035,7 +1037,6 @@ tr:nth-child(odd) {
 .membro dt{
     float: left;
     font-weight: bold;
-
 }
 
 /*************************************
