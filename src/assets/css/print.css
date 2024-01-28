@@ -123,3 +123,105 @@ section.timeline dl {
 #content section.timeline dd {
     grid-column-start: 2;
 }
+
+/*************************
+    ACCEDI style
+*************************/
+
+form.center-form {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 18em;
+    padding: 2em;
+    margin: 5em auto;
+}
+
+form div#input-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form.center-form label {
+    padding: 0.5em;
+    width: 5em;
+}
+
+form.center-form input {
+    margin: auto;
+    padding: 0.3em;
+    border-radius: 5px;
+    border: 1px solid;
+    width: 12em;
+    height: 1.3em;
+}
+
+form input[type="submit"] {
+    width: auto;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 0.5em;
+    font-weight: 600;
+    height: auto;
+}
+
+input#username {
+    order: 2;
+}
+
+input#password{
+    order: 4;
+}
+
+#labelUsername {
+    order: 1;
+}
+
+#labelPassword {
+    order: 3;
+} 
+
+#labelConfermaPassword {
+    order: 5;
+}
+
+#confermaPassword {
+    order: 6;
+}
+
+#displayCriteria {
+    display: none;
+}
+
+/*************************
+    ACCOUNT STYLE
+*************************/
+
+form#userform, form#passwordform {
+    display: none;
+}
+
+table#indagini {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table#indagini th, table#indagini td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.4em;
+}
+
+p#sumTabellaIndagini {
+    display: none;
+}
+
+/*************************
+    RECENSIONI STYLE
+*************************/
+
+p#sumTabellaRecensioni {
+    display: none;
+}
