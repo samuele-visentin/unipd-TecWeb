@@ -16,7 +16,15 @@ if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET[
     $chapter = $_GET["chapter"];
     $userId = (int)$_SESSION["userId"];
     $case = getIndagineById($caseId);
-    
+
+    $validateChapter = getCapitoloByIndagineAndProgressivo($caseId, $chapter);
+    $lastChapter = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
+    $lastChapter = is_null($lastChapter) ? -1 : array_values($lastChapter)[0];
+    if($chapter > $lastChapter || is_null($validateChapter)){
+        header("Location: 400.html");
+        exit();
+    }
+
     $domande = array();
     $domande = getDomandeByIndagineAndProgressivoCapitolo($caseId,$chapter);
 
@@ -31,6 +39,13 @@ if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET[
     $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; <a href="cases.php">I nostri casi</a> &raquo; <a href="case.php?id='.$caseId.'">Presentazione</a> &raquo; Capitolo '.$chapter.' </p>';   
     $chapterContent = str_replace("[title]", '<h1>'.$case->nome.'</h1>', $chapterContent);
     
+    $salvataggio = array();
+    if(!is_null($domande)){
+        $salvataggio = getSalvataggioByUtenteAndIndagine($userId, $caseId);
+        $lastChapter = getLastCapitoloByDomanda($salvataggio->id_domanda);
+        $isCompleted = !is_null($lastChapter);
+    }
+
     for ($i = 0; $i < count($domande); $i++) { 
         if(is_null($domande[$i])) continue;
         
@@ -43,10 +58,18 @@ if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET[
             if(is_null($risposte[$j])) continue;
             $risposta = $risposte[$j];
 
-            $answerContent .= '<div>
-                <input type="radio" name="'.$domanda->id.'" id="'.$risposta->id_domanda.'" value="'.$risposta->is_correct.'" [aria] required>
-                <label for="'.$risposta->id_domanda.'">'.$risposta->contenuto.'</label>
-            </div>';
+            if(!$isCompleted){
+                $answerContent .= '<div>
+                    <input type="radio" name="'.$domanda->id.'" id="'.$risposta->id_domanda.'" value="'.$risposta->is_correct.'" [aria] required>
+                    <label for="'.$risposta->id_domanda.'">'.$risposta->contenuto.'</label>
+                </div>';
+            }
+            else {
+                $answerContent .= '<div>
+                    <input type="radio" name="'.$domanda->id.'" id="'.$risposta->id_domanda.'" value="'.$risposta->is_correct.'" [aria] required disabled '.($risposta->is_correct ? "checked" : "").'>
+                    <label for="'.$risposta->id_domanda.'">'.$risposta->contenuto.'</label>
+                </div>';
+            }
         }
 
         if(!($answerContent === "")) {
@@ -54,14 +77,30 @@ if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET[
             $question = str_replace("[risposta]", $answerContent, $question);
             $questionContent .= $question;
             $content.= $questionContent;
-        }  
-
+        }
     }
 
-    $chapterContent = str_replace("[domande]", $content, $chapterContent);
-    
-    $menu = getSidebar("CHAPTER", $case->nome, $case->id);
+    $domande = array();
+    $error = '';
+    if(isset($_GET["error"]) && $_GET["error"] !== "") {
+        $error = '<p id="error-message">
+        Alcune risposte sono errate. Caso non risolto.</p>';
+        $content = str_replace("[aria]", 'aria-invalid="true" aria-describedby="error-message"', $content);
+    } else {
+        $error = '';
+        $content = str_replace("[aria]", "", $content);
+    }
 
+    if($isCompleted){
+        $chapterContent = str_replace("[disabled]", 'disabled', $chapterContent);
+    }
+
+    $actionUrl = 'app/risoluzione_capitolo.php?id='.$caseId.'&chapter='.$chapter;
+
+    $chapterContent = str_replace("[errorMessage]", $error, $chapterContent);
+    $chapterContent = str_replace("[domande]", $content, $chapterContent);
+    $chapterContent = str_replace("[actionForm]", $actionUrl, $chapterContent);
+    $menu = getSidebar("CHAPTER".$chapter, $case->nome, $case->id);
     $page = str_replace("[title]", $title, $layout);
     $page = str_replace("[keywords]", $keywords, $page);
     $page = str_replace("[description]", $description, $page);

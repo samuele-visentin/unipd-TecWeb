@@ -39,3 +39,18 @@ function getSalvataggioByUtenteAndIndagine(int $idUtente, string $idIndagine) {
     $row = $result->fetch_assoc();
     return (!is_null($row)) ? new Salvataggio($row) : null;
 }
+
+function getSalvataggioByUtenteAndIdDomanda(int $idUtente, string $idDomanda) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM salvataggio WHERE idUtente = ? AND idDomanda <= ?", 
+        array("is", $idUtente, $idDomanda));
+    $row = $result->fetch_assoc();
+    return (!is_null($row)) ? new Salvataggio($row) : null;
+}
+
+function insertSalvataggio($username, $indagine, $domanda) {
+    global $DB;
+    $result = $DB->lock_query("INSERT INTO salvataggio (idIndagine, idUtente, idDomanda) 
+        VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE idDomanda=?", "salvataggio", array("ssss", $indagine, $username, $domanda->id, $domanda->id));
+    return $result;
+}

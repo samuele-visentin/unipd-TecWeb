@@ -1,7 +1,7 @@
 <?php
     require_once("data/capitolo.php");
     function getSidebar(string $selected, string $caseName = "", string $caseId = "") {
-        $needsCaseMenu = array("CASE", "TIMELINE", "WITNESS", "CLUES", "CHAPTER");
+        $needsCaseMenu = array("CASE", "TIMELINE", "WITNESS", "CLUES");
 
         $sidebar = '<p class="menuSection">Generale</p><ul>';
         $sidebar .= '
@@ -24,10 +24,14 @@
                         .($selected != "FAQ" ? '<a href="faq.html"><abbr lang="en" title="Frequently Asked Questions">FAQ</abbr></a>' : '<abbr lang="en" title="Frequently Asked Questions">FAQ</abbr>').
                     '</li></ul>';
         
-        if(in_array($selected, $needsCaseMenu)) {
+        if(in_array($selected, $needsCaseMenu) || str_contains($selected,"CHAPTER")) {
             $userId = (int)$_SESSION["userId"];
             $lastChapter = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
-            $lastChapter = is_null($lastChapter) ? 0 : $lastChapter;
+            $nChapters = count(getCapitoliByIndagine($caseId));
+            $lastChapter = is_null($lastChapter) ? -1 : array_values($lastChapter)[0];
+
+            // Ultimo capitolo possibile, visto che si va in risoluzione di capitoli successivi 
+            $lastChapter = $lastChapter == $nChapters - 1 ? $lastChapter - 1 : $lastChapter;
             
             $sidebar .= '<div class="menuCases">';
 
@@ -52,13 +56,13 @@
 
             $sidebar .= '<p class="menuSection">Capitoli</p><ul>';
             
-            for ($i = 0; $i <= $lastChapter; $i++) {
+            for ($i = -1; $i <= $lastChapter; $i++) {
                 $sidebar .= '
-                            <li id="chapterButton" class="menuButton'.($selected == "CHAPTER" ? ' menuSelected"' : '"').'>'
-                                .($selected != "CHAPTER" ? '<a href="chapter.php?id='.$caseId.'&chapter='.$i.'">Capitolo '.$i.'</a>' : 'Capitolo '.$i).
-                            '</li></ul>';
+                            <li id="chapterButton" class="menuButton'.($selected == "CHAPTER".($i+1) ? ' menuSelected"' : '"').'>'
+                                .($selected != "CHAPTER".($i+1) ? '<a href="chapter.php?id='.$caseId.'&chapter='.($i+1).'">Capitolo '.($i+1).'</a>' : 'Capitolo '.($i+1)).
+                            '</li>';
             }
-            $sidebar .= '</div>';            
+            $sidebar .= '</ul></div>';            
         }
                     
         return $sidebar;
