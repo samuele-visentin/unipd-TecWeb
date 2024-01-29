@@ -42,4 +42,22 @@ function getDomandaById(string $id) {
     $row = $result->fetch_assoc();
     return new Domanda($row);
 }
+
+
+function getNextDomandaByIdDomanda(string $idDomanda) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM domanda WHERE id = 
+    (SELECT id + 1 FROM domanda WHERE id = ?)", 
+    array("s", $idDomanda));
+    $row = $result->fetch_assoc();
+    if ($row === null) {
+        // Get the next chapter's question
+        $nextChapterProgressivo = $progressivoCapitolo + 1;
+        $result = $DB->query("SELECT * FROM domanda WHERE idCapitolo = 
+        (SELECT id FROM capitolo WHERE idIndagine = ? AND progressivo = ?);", 
+        array("si", $idIndagine, $nextChapterProgressivo));
+        $row = $result->fetch_assoc();
+    }
+    return new Domanda($row);
+}
 ?>
