@@ -3,7 +3,7 @@
         private const HOST_DB = "localhost";
         private const DATABASE_NAME = "tecweb";
         private const USERNAME = "root";
-        private const PASSWORD = "";
+        private const PASSWORD = ""; //TODO: inserire password
 
         private $connection;
 

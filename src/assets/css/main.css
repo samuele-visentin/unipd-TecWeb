@@ -525,30 +525,6 @@ form input[type="submit"]:hover {
     opacity: 0.5;
 }
 
-input#username {
-    order: 2;
-}
-
-input#password{
-    order: 4;
-}
-
-#labelUsername {
-    order: 1;
-}
-
-#labelPassword {
-    order: 3;
-} 
-
-#labelConfermaPassword {
-    order: 5;
-}
-
-#confermaPassword {
-    order: 6;
-}
-
 p#error-message {
     color: red;
     font-weight: 600;

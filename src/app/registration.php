@@ -10,10 +10,10 @@ if( $_SERVER["REQUEST_METHOD"] === "POST" &&
     $username = secure_input($_POST["username"]);
     $password = $_POST["password"];
     $params = "";
-    if(check_username($username) === false) {
+    if(check_username($username) !== 1) {
         $params .= "error=1";
     }
-    else if(check_password($password) === false) {
+    else if(check_password($password) !== 1) {
         $params .= "error=2";
     } else if($password !== $_POST["confermaPassword"]) {
         $params .= "error=3";

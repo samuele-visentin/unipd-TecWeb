@@ -15,7 +15,7 @@ html a:not([href*="#"]):after {
     content: " [http://tecweb.studenti.math.unipd.it/svisenti/" attr(href) "]";
 }
 
-.menu {
+.menu, #menuButton {
     display: none;
 }
 
@@ -175,30 +175,6 @@ form input[type="submit"] {
     padding: 0.5em;
     font-weight: 600;
     height: auto;
-}
-
-input#username {
-    order: 2;
-}
-
-input#password{
-    order: 4;
-}
-
-#labelUsername {
-    order: 1;
-}
-
-#labelPassword {
-    order: 3;
-} 
-
-#labelConfermaPassword {
-    order: 5;
-}
-
-#confermaPassword {
-    order: 6;
 }
 
 #displayCriteria {
