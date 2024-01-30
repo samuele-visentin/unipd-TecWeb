@@ -4,7 +4,7 @@ require_once(__DIR__."/database.php");
 
 $SERVER_NAME = $_SERVER['SERVER_NAME'];
 $SERVER_PORT = $_SERVER['SERVER_PORT'];
-$BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/src/";
+$BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/";
 
 $DB = new DatabaseAccess();
 $TITLE = "Clue Catchers";
@@ -25,7 +25,7 @@ function linkfy(string $in): string {
 function to500($errno, $errstr = null) {
     global $BASE_URL;
     http_response_code(500);
-    header("Location: " . $BASE_URL . "500.php");
+    header("Location: " . $BASE_URL . "500.html");
     exit();
 }
 
@@ -85,6 +85,6 @@ function check_username(string $username) {
     return preg_match($pattern, $username);
 }
 
-//set_error_handler('to500');
-//set_exception_handler('to500');
+set_error_handler('to500');
+set_exception_handler('to500');
 ?>

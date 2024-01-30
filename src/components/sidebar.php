@@ -66,25 +66,7 @@
                             .($selected != "CHAPTER" ? '<a href="chapter.php?id='.$caseId.'">'.$titolo.'</a>' : $titolo).
                         '</li>';
 
-            $sidebar .= '</ul></div>';
-            /*
-            $userId = (int)$_SESSION["userId"];
-            $lastChapter = getLastCapitoloByUtenteAndIndagine($userId, $caseId);
-            $nChapters = count(getCapitoliByIndagine($caseId));
-            $lastChapter = is_null($lastChapter) ? -1 : array_values($lastChapter)[0];
-
-            // Ultimo capitolo possibile, visto che si va in risoluzione di capitoli successivi 
-            $lastChapter = $lastChapter == $nChapters - 1 ? $lastChapter - 1 : $lastChapter;
-            
-            
-            
-            for ($i = -1; $i <= $lastChapter; $i++) {
-                $sidebar .= '
-                            <li id="chapterButton" class="menuButton'.($selected == "CHAPTER".($i+1) ? ' menuSelected"' : '"').'>'
-                                .($selected != "CHAPTER".($i+1) ? '<a href="chapter.php?id='.$caseId.'&chapter='.($i+1).'">Capitolo '.($i+1).'</a>' : 'Capitolo '.($i+1)).
-                            '</li>';
-            }
-            $sidebar .= '</ul></div>';*/    
+            $sidebar .= '</ul></div>';  
         }
                     
         return $sidebar;
