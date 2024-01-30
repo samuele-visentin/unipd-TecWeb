@@ -178,30 +178,6 @@ form input[type="submit"] {
     color: black;
 }
 
-input#username {
-    order: 2;
-}
-
-input#password{
-    order: 4;
-}
-
-#labelUsername {
-    order: 1;
-}
-
-#labelPassword {
-    order: 3;
-} 
-
-#labelConfermaPassword {
-    order: 5;
-}
-
-#confermaPassword {
-    order: 6;
-}
-
 #displayCriteria {
     display: none;
 }

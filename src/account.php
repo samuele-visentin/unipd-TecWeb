@@ -4,7 +4,8 @@ require_once("components/sidebar.php");
 require_once("data/indagine.php");
 
 if(!isset($_SESSION['userId']) || $_SESSION['userId'] === "") {
-    header("Location: index.php");
+    $target = $_SERVER["REQUEST_URI"];
+    header("Location: accedi.php?target={$target}&error=notLogged#error-message");
     exit();
 }
 

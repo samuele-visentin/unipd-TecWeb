@@ -11,7 +11,7 @@ if (
     !isset($_GET["id"]) || $_GET["id"] === ""
     || !isset($_GET["name"]) || $_GET["name"] === ""
 ) {
-    header("Location: account.php");
+    header("Location: accedi.php");
     exit();
 }
 $caseId = $_GET["id"];

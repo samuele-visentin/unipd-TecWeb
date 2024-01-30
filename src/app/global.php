@@ -48,6 +48,7 @@ function getUserToolBar(bool $account = true) {
     return file_get_contents("templates/login_layout.html");
 }
 
+//ritorna 1 se la password è valida
 function check_password(string $password) {
     /*
 - `^`: Questo simbolo indica l'inizio della stringa. 
@@ -77,6 +78,7 @@ Questo simbolo indica la fine della stringa.
     return preg_match($pattern, $password);
 }
 
+//ritorna 1 se l'username è valido
 function check_username(string $username) {
     //username cosi continene solo lettere numeri e underscore tra 4 e 16 char
     $pattern = '/^[a-zA-Z0-9_]{4,16}$/';

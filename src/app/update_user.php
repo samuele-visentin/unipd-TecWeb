@@ -11,7 +11,7 @@ require_once("../data/utente.php");
 if(isset($_POST['uname'])) {
     $username = secure_input($_POST["uname"]);
     $params = "";
-    if(check_username($username) === false) {
+    if(check_username($username) !== 1) {
         $params .= "error=username";
     } else {
         $res = getUtenteByUsername($username);
@@ -31,7 +31,7 @@ if(isset($_POST['uname'])) {
 if(isset($_POST['psw']) && isset($_POST['confermaPsw'])) {
     $password = $_POST["psw"];
     $params = "";
-    if(check_password($password) === false) {
+    if(check_password($password) !== 1) {
         $params .= "error=password";
     } else if($password !== $_POST["confermaPsw"]) {
         $params .= "error=passwordNotSame";
