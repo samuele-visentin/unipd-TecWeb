@@ -93,10 +93,6 @@ header #logo {
     padding-left: 50%;
 }
 
-#membriTeam img{
-    display: none;
-}
-
 .singleFAQ img{
     display: none;
 }
@@ -143,4 +139,12 @@ table#indagini tbody td p {
 .caseTitle {
     position: relative;
     border-radius: 0;
+}
+
+/*************************************
+    ABOUT STYLE
+*************************************/
+
+dl#membriTeam > dd {
+    flex-direction: column;
 }
