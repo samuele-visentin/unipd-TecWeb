@@ -1124,6 +1124,7 @@ dl#membriTeam > dd {
 
 #membriTeam > dd img{
     width: 15%;
+    min-width: 15%;
     object-fit: contain;
     margin-right: 1em;
 }
