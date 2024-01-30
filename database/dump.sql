@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: tecweb
 -- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
+-- Server version	10.4.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +31,7 @@ CREATE TABLE `capitolo` (
   PRIMARY KEY (`id`),
   KEY `idIndagine` (`idIndagine`),
   CONSTRAINT `capitolo_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `documentoiniziale` (
   PRIMARY KEY (`progressivo`,`idIndagine`),
   KEY `idIndagine` (`idIndagine`),
   CONSTRAINT `documentoiniziale_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `domanda` (
   PRIMARY KEY (`id`),
   KEY `idCapitolo` (`idCapitolo`),
   CONSTRAINT `domanda_ibfk_1` FOREIGN KEY (`idCapitolo`) REFERENCES `capitolo` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `domanda` (
 
 LOCK TABLES `domanda` WRITE;
 /*!40000 ALTER TABLE `domanda` DISABLE KEYS */;
-INSERT INTO `domanda` VALUES ('000000000000001',1,'000000000000004','È possibile che un esterno si sia introdotto nella villa?'),('000000000000002',2,'000000000000001','Quando è uscito Edgardo?'),('000000000000003',3,'000000000000001','Come è stata rotta la teca?'),('000000000000004',4,'000000000000001','Dove si trovava chi ha rotto il vetro?'),('000000000000005',5,'000000000000001','Quando è stato rubato il cofanetto?'),('000000000000006',6,'000000000000001','Chi non avrebbe potuto rubarlo?'),('000000000000007',1,'000000000000002','Chi poteva introdursi nello studio dopo l\'interruzione di corrente?'),('000000000000008',2,'000000000000002','È plausibile la teoria del suicidio'),('000000000000009',3,'000000000000002','Cosa ci faceva un guscio di petardo nello studio?'),('000000000000010',4,'000000000000002','Per quale motivo c\'è un buco sul piumino?'),('000000000000011',5,'000000000000002','Cosa indicano i movimenti nel frammento di libro contabile?'),('000000000000012',6,'000000000000002','Chi avrebbe potuto covare rancore verso Edgardo?'),('000000000000013',7,'000000000000002','Quando è avvenuto il decesso?'),('000000000000014',1,'000000000000003','A cosa sono dovuti i rumori nei muri della casa?'),('000000000000015',2,'000000000000003','Quali sono le uscite dal giardino d’inverno?'),('000000000000016',3,'000000000000005','Chi ha compiuto il furto?'),('000000000000017',4,'000000000000006','Chi ha ucciso Edgardo?');
+INSERT INTO `domanda` VALUES ('000000000000001',1,'000000000000004','È possibile che un esterno si sia introdotto nella villa?'),('000000000000002',1,'000000000000001','Quando è uscito Edgardo?'),('000000000000003',2,'000000000000001','Come è stata rotta la teca?'),('000000000000004',3,'000000000000001','Dove si trovava chi ha rotto il vetro?'),('000000000000005',4,'000000000000001','Quando è stato rubato il cofanetto?'),('000000000000006',5,'000000000000001','Chi non avrebbe potuto rubarlo?'),('000000000000007',1,'000000000000002','Chi poteva introdursi nello studio dopo l\'interruzione di corrente?'),('000000000000008',2,'000000000000002','È plausibile la teoria del suicidio'),('000000000000009',3,'000000000000002','Cosa ci faceva un guscio di petardo nello studio?'),('000000000000010',4,'000000000000002','Per quale motivo c\'è un buco sul piumino?'),('000000000000011',5,'000000000000002','Cosa indicano i movimenti nel frammento di libro contabile?'),('000000000000012',6,'000000000000002','Chi avrebbe potuto covare rancore verso Edgardo?'),('000000000000013',7,'000000000000002','Quando è avvenuto il decesso?'),('000000000000014',1,'000000000000003','A cosa sono dovuti i rumori nei muri della casa?'),('000000000000015',2,'000000000000003','Quali sono le uscite dal giardino d’inverno?'),('000000000000016',1,'000000000000005','Chi ha compiuto il furto?'),('000000000000017',1,'000000000000006','Chi ha ucciso Edgardo?');
 /*!40000 ALTER TABLE `domanda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `indagine` (
   `descrizione` varchar(255) NOT NULL,
   `image_path` varchar(75) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +147,7 @@ CREATE TABLE `prova` (
   KEY `idCapitolo` (`idCapitolo`),
   CONSTRAINT `prova_ibfk_1` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`),
   CONSTRAINT `prova_ibfk_2` FOREIGN KEY (`idCapitolo`) REFERENCES `capitolo` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `provadimostra` (
   KEY `provadimostra_ibfk_2` (`idDomanda`),
   CONSTRAINT `provadimostra_ibfk_1` FOREIGN KEY (`idProva`) REFERENCES `prova` (`id`),
   CONSTRAINT `provadimostra_ibfk_2` FOREIGN KEY (`idDomanda`) REFERENCES `domanda` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,17 +195,15 @@ DROP TABLE IF EXISTS `recensione`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recensione` (
-  `id` char(8) NOT NULL,
-  `contenuto` varchar(255) NOT NULL,
-  `data` datetime NOT NULL,
   `idUtente` int(11) NOT NULL,
   `idIndagine` char(16) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idUtente` (`idUtente`),
-  KEY `fk_idIndagine` (`idIndagine`),
-  CONSTRAINT `fk_idIndagine` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`),
-  CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `contenuto` varchar(255) NOT NULL,
+  `data` datetime NOT NULL,
+  PRIMARY KEY (`idUtente`,`idIndagine`),
+  KEY `idIndagine` (`idIndagine`),
+  CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`),
+  CONSTRAINT `recensione_ibfk_2` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +212,7 @@ CREATE TABLE `recensione` (
 
 LOCK TABLES `recensione` WRITE;
 /*!40000 ALTER TABLE `recensione` DISABLE KEYS */;
-INSERT INTO `recensione` VALUES ('00000001','TOP 5 storie!','2024-01-27 18:18:33',1,'000000000000001');
+INSERT INTO `recensione` VALUES (16,'000000000000001','Top 5 storie in questo sito!','2024-01-30 11:03:15'),(17,'000000000000001','No vabbè non l\'avrei mai detto!','2024-01-30 11:11:14'),(18,'000000000000001','Si può fare di meglio','2024-01-30 12:21:02');
 /*!40000 ALTER TABLE `recensione` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +232,7 @@ CREATE TABLE `risposta` (
   PRIMARY KEY (`id`),
   KEY `idDomanda` (`idDomanda`),
   CONSTRAINT `risposta_ibfk_1` FOREIGN KEY (`idDomanda`) REFERENCES `domanda` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +241,7 @@ CREATE TABLE `risposta` (
 
 LOCK TABLES `risposta` WRITE;
 /*!40000 ALTER TABLE `risposta` DISABLE KEYS */;
-INSERT INTO `risposta` VALUES ('000000000000001',1,'000000000000001',0,'Si'),('000000000000002',2,'000000000000001',1,'No'),('000000000000003',1,'000000000000002',0,'Non è mai uscito'),('000000000000004',2,'000000000000002',0,'Durante l\'apertura'),('000000000000005',3,'000000000000002',0,'Durante il blackout'),('000000000000006',4,'000000000000003',1,'A inizio cena'),('000000000000007',1,'000000000000003',0,'Spingendolo a terra'),('000000000000008',2,'000000000000003',0,'Con una bottiglia d\'acqua'),('000000000000009',3,'000000000000003',1,'Con una damigiana'),('000000000000010',4,'000000000000003',0,'Con un sasso'),('000000000000011',1,'000000000000004',0,'Nel salone'),('000000000000012',2,'000000000000004',1,'Al piano di sopra'),('000000000000013',3,'000000000000004',0,'Nell\'ingresso'),('000000000000014',4,'000000000000004',0,'In giardino'),('000000000000015',1,'000000000000005',0,'Prima dell\'aperitivo'),('000000000000016',2,'000000000000005',1,'Durante la cena'),('000000000000017',3,'000000000000005',0,'Dopo aver rotto la teca'),('000000000000018',4,'000000000000005',0,'Dopo il blackout'),('000000000000019',1,'000000000000006',0,'Armando'),('000000000000020',2,'000000000000006',1,'Edgardo'),('000000000000021',3,'000000000000006',0,'Genoveffa'),('000000000000022',4,'000000000000006',0,'Ermenegildo'),('000000000000023',1,'000000000000007',1,'Tutti'),('000000000000024',2,'000000000000007',0,'Edgardo'),('000000000000025',3,'000000000000007',0,'Edgardo, Ermenegildo'),('000000000000026',4,'000000000000007',0,'Edgardo, Ermenegildo, Genoveffa'),('000000000000027',1,'000000000000008',0,'Si'),('000000000000028',2,'000000000000008',1,'No'),('000000000000029',1,'000000000000009',0,'Per spaventare Edgardo'),('000000000000030',2,'000000000000009',0,'Per festeggiare capodanno'),('000000000000031',3,'000000000000009',0,'Èsempre stato lì '),('000000000000032',4,'000000000000009',1,'Per sviare le indagini'),('000000000000033',1,'000000000000010',0,'Per una bruciatura di sigaretta'),('000000000000034',2,'000000000000010',0,'A causa di una scintilla del camino'),('000000000000035',3,'000000000000010',0,'Un buco del ferro da stiro'),('000000000000036',4,'000000000000010',1,'Per attutire un suono'),('000000000000037',1,'000000000000011',1,'Appropriazione indebita'),('000000000000038',2,'000000000000011',0,'Un’azienda in difficoltà economica'),('000000000000039',3,'000000000000011',0,'Contabilità inattendibile'),('000000000000040',4,'000000000000011',0,'Troppe spese'),('000000000000041',1,'000000000000012',1,'Un socio'),('000000000000042',2,'000000000000012',0,'Genoveffa'),('000000000000043',3,'000000000000012',0,'Gli spiriti'),('000000000000044',4,'000000000000012',1,'Ermenegildo'),('000000000000045',5,'000000000000013',0,'Armando'),('000000000000046',1,'000000000000013',0,'Prima dell’apericena'),('000000000000047',2,'000000000000013',1,'Prima del rumore di sparo'),('000000000000048',3,'000000000000013',0,'Durante il rumore di sparo'),('000000000000049',4,'000000000000013',0,'Dopo il rumore di sparo'),('000000000000050',1,'000000000000014',0,'Vecchie tubature'),('000000000000051',2,'000000000000014',1,'Bambini nelle mura'),('000000000000052',3,'000000000000014',0,'Roditori'),('000000000000053',4,'000000000000014',0,'Lo spirito di Vittorio Trevisan'),('000000000000054',1,'000000000000015',0,'Una verso il salone e una verso il giardino esterno'),('000000000000055',2,'000000000000015',0,'Due verso il salone, una verso il giardino esterno'),('000000000000056',3,'000000000000015',1,'Una verso l’interno, una verso il salone e una verso il giardino esterno'),('000000000000057',4,'000000000000015',0,'Un accesso alle cantine'),('000000000000058',1,'000000000000016',0,'Armando'),('000000000000059',2,'000000000000016',0,'Lucrezia'),('000000000000060',3,'000000000000016',1,'Matilde'),('000000000000061',4,'000000000000016',0,'Eriberto'),('000000000000062',5,'000000000000016',0,'Mariangela'),('000000000000063',6,'000000000000016',0,'Ermenegildo'),('000000000000064',7,'000000000000016',0,'Genoveffa'),('000000000000065',8,'000000000000016',0,'Gli spiriti'),('000000000000066',1,'000000000000017',0,'Armando'),('000000000000067',2,'000000000000017',0,'Lucrezia'),('000000000000068',3,'000000000000017',0,'Matilde'),('000000000000069',4,'000000000000017',0,'Eriberto'),('000000000000070',5,'000000000000017',0,'Mariangela'),('000000000000071',6,'000000000000017',1,'Ermenegildo'),('000000000000072',7,'000000000000017',0,'Genoveffa'),('000000000000073',8,'000000000000017',0,'Gli spiriti'),('000000000000074',5,'000000000000012',0,'Armando');
+INSERT INTO `risposta` VALUES ('000000000000001',1,'000000000000001',0,'Si'),('000000000000002',2,'000000000000001',1,'No'),('000000000000003',1,'000000000000002',0,'Non è mai uscito'),('000000000000004',2,'000000000000002',0,'Durante l\'apericena'),('000000000000005',3,'000000000000002',0,'Durante il blackout'),('000000000000006',4,'000000000000002',1,'A inizio cena'),('000000000000007',1,'000000000000003',0,'Spingendolo a terra'),('000000000000008',2,'000000000000003',0,'Con una bottiglia d\'acqua'),('000000000000009',3,'000000000000003',1,'Con una damigiana'),('000000000000010',4,'000000000000003',0,'Con un sasso'),('000000000000011',1,'000000000000004',0,'Nel salone'),('000000000000012',2,'000000000000004',1,'Al piano di sopra'),('000000000000013',3,'000000000000004',0,'Nell\'ingresso'),('000000000000014',4,'000000000000004',0,'In giardino'),('000000000000015',1,'000000000000005',0,'Prima dell\'aperitivo'),('000000000000016',2,'000000000000005',1,'Durante la cena'),('000000000000017',3,'000000000000005',0,'Dopo aver rotto la teca'),('000000000000018',4,'000000000000005',0,'Dopo il blackout'),('000000000000019',1,'000000000000006',0,'Armando'),('000000000000020',2,'000000000000006',1,'Edgardo'),('000000000000021',3,'000000000000006',0,'Genoveffa'),('000000000000022',4,'000000000000006',0,'Ermenegildo'),('000000000000023',1,'000000000000007',1,'Tutti'),('000000000000024',2,'000000000000007',0,'Edgardo'),('000000000000025',3,'000000000000007',0,'Edgardo, Ermenegildo'),('000000000000026',4,'000000000000007',0,'Edgardo, Ermenegildo, Genoveffa'),('000000000000027',1,'000000000000008',0,'Si'),('000000000000028',2,'000000000000008',1,'No'),('000000000000029',1,'000000000000009',0,'Per spaventare Edgardo'),('000000000000030',2,'000000000000009',0,'Per festeggiare capodanno'),('000000000000031',3,'000000000000009',0,'È sempre stato lì '),('000000000000032',4,'000000000000009',1,'Per sviare le indagini'),('000000000000033',1,'000000000000010',0,'Per una bruciatura di sigaretta'),('000000000000034',2,'000000000000010',0,'A causa di una scintilla del camino'),('000000000000035',3,'000000000000010',0,'Un buco del ferro da stiro'),('000000000000036',4,'000000000000010',1,'Per attutire un suono'),('000000000000037',1,'000000000000011',1,'Appropriazione indebita'),('000000000000038',2,'000000000000011',0,'Un’azienda in difficoltà economica'),('000000000000039',3,'000000000000011',0,'Contabilità inattendibile'),('000000000000040',4,'000000000000011',0,'Troppe spese'),('000000000000041',1,'000000000000012',1,'Un socio'),('000000000000042',2,'000000000000012',0,'Genoveffa'),('000000000000043',3,'000000000000012',0,'Gli spiriti'),('000000000000044',4,'000000000000012',1,'Ermenegildo'),('000000000000045',5,'000000000000013',0,'Armando'),('000000000000046',1,'000000000000013',0,'Prima dell’apericena'),('000000000000047',2,'000000000000013',1,'Prima del rumore di sparo'),('000000000000048',3,'000000000000013',0,'Durante il rumore di sparo'),('000000000000049',4,'000000000000013',0,'Dopo il rumore di sparo'),('000000000000050',1,'000000000000014',0,'Vecchie tubature'),('000000000000051',2,'000000000000014',1,'Bambini nelle mura'),('000000000000052',3,'000000000000014',0,'Roditori'),('000000000000053',4,'000000000000014',0,'Lo spirito di Vittorio Trevisan'),('000000000000054',1,'000000000000015',0,'Una verso il salone e una verso il giardino esterno'),('000000000000055',2,'000000000000015',0,'Due verso il salone, una verso il giardino esterno'),('000000000000056',3,'000000000000015',1,'Una verso l’interno, una verso il salone e una verso il giardino esterno'),('000000000000057',4,'000000000000015',0,'Un accesso alle cantine'),('000000000000058',1,'000000000000016',0,'Armando'),('000000000000059',2,'000000000000016',0,'Lucrezia'),('000000000000060',3,'000000000000016',1,'Matilde'),('000000000000061',4,'000000000000016',0,'Eriberto'),('000000000000062',5,'000000000000016',0,'Mariangela'),('000000000000063',6,'000000000000016',0,'Ermenegildo'),('000000000000064',7,'000000000000016',0,'Genoveffa'),('000000000000065',8,'000000000000016',0,'Gli spiriti'),('000000000000066',1,'000000000000017',0,'Armando'),('000000000000067',2,'000000000000017',0,'Lucrezia'),('000000000000068',3,'000000000000017',0,'Matilde'),('000000000000069',4,'000000000000017',0,'Eriberto'),('000000000000070',5,'000000000000017',0,'Mariangela'),('000000000000071',6,'000000000000017',1,'Ermenegildo'),('000000000000072',7,'000000000000017',0,'Genoveffa'),('000000000000073',8,'000000000000017',0,'Gli spiriti'),('000000000000074',5,'000000000000012',0,'Armando');
 /*!40000 ALTER TABLE `risposta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +262,7 @@ CREATE TABLE `salvataggio` (
   CONSTRAINT `salvataggio_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `utente` (`id`),
   CONSTRAINT `salvataggio_ibfk_2` FOREIGN KEY (`idDomanda`) REFERENCES `domanda` (`id`),
   CONSTRAINT `salvataggio_ibfk_3` FOREIGN KEY (`idIndagine`) REFERENCES `indagine` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,6 +271,7 @@ CREATE TABLE `salvataggio` (
 
 LOCK TABLES `salvataggio` WRITE;
 /*!40000 ALTER TABLE `salvataggio` DISABLE KEYS */;
+INSERT INTO `salvataggio` VALUES ('000000000000001',16,NULL),('000000000000001',17,NULL),('000000000000001',18,NULL);
 /*!40000 ALTER TABLE `salvataggio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,7 +289,7 @@ CREATE TABLE `utente` (
   `isAdmin` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,7 +298,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (1,'user','04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb',0),(2,'admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',1);
+INSERT INTO `utente` VALUES (1,'user','04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb',0),(2,'admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',1),(16,'user1','0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90',0),(17,'user2','6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',0),(18,'user3','5860faf02b6bc6222ba5aca523560f0e364ccd8b67bee486fe8bf7c01d492ccb',0);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -312,4 +311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-27 18:30:27
+-- Dump completed on 2024-01-30 12:29:09

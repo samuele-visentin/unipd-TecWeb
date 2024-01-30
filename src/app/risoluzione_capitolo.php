@@ -2,40 +2,33 @@
 require_once("global.php");
 require_once("../data/indagine.php");
 require_once("../data/domanda.php");
+require_once("../data/risposta.php");
 require_once("../data/salvataggio.php");
 
-if(isset($_GET["id"]) && $_GET["id"] !== "" && isset($_GET["chapter"]) && $_GET["chapter"] !== "") {
-    if ($_SERVER["REQUEST_METHOD"] == "POST")  {
-        $caseId = $_GET["id"];
-        $chapter = $_GET["chapter"];
+if(isset($_GET["id"]) && $_GET["id"] !== "") {
+    $caseId = $_GET["id"];
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["domanda"]) && $_POST["domanda"] !== "")  {
+        $idDomanda = $_GET["idDomanda"];
         $userId = (int)$_SESSION["userId"];
-        $case = getIndagineById($caseId);
+        $idRisposta = $_POST["domanda"];
+        $risposta = getRispostaById($idRisposta);
 
-        $domande = array();
-        $domande = getDomandeByIndagineAndProgressivoCapitolo($caseId,$chapter);
-
-        $params = "";
-        for ($i = 0; $i < count($domande); $i++) {
-            if(is_null($domande[$i])) continue;
-            
-            $domanda = $domande[$i];
-            $rispostaData = $_POST[$domanda->id];
-
-            if(!$rispostaData){
-                $params .= 'domande['.$i.']='.$domanda->progressivo.'&';
-            }
-        }
-
-        $params = rtrim($params,'&');
-
-        // Domande errate
-        if($params !== "") {
-            header("Location: ../chapter.php?id={$caseId}&chapter={$chapter}&error=invalidDomande#error-message");
+        if ($risposta->is_correct) {
+            $next = getNextDomandaByIdDomanda($idDomanda);
+            echo (is_null($next)) ? "null" : $next->id;
+            if(is_null($next)) {
+                destroySalvataggio($userId, $caseId);
+            } else {
+                insertSalvataggio($userId, $caseId, $next);
+            }            
+            header("Location: ../chapter.php?id={$caseId}");
+        } else {
+            header("Location: ../chapter.php?id={$caseId}&error=invalidDomande#error-message");
             exit();
         }
-
-        insertSalvataggio($userId, $caseId, array_values($domande)[count($domande)-1]);
-        header("Location: ../case.php?id={$caseId}");
+    } else {
+        header("Location: ../chapter.php?id={$caseId}&error=invalidDomande#error-message");
+        exit();
     }
 } else {
     header("Location: 404.html");

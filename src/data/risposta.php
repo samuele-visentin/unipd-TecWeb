@@ -35,4 +35,11 @@ function getRisposteByIdDomanda(string $id) {
     }
     return $risposte;
 }
+
+function getRispostaById(string $id) {
+    global $DB;
+    $result = $DB->query("SELECT * FROM risposta WHERE id = ?", array("s", $id));
+    $row = $result->fetch_assoc();
+    return !is_null($row) ? new Risposta($row) : null;
+}
 ?>

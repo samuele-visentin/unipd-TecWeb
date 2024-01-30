@@ -5,6 +5,9 @@ function openMenu(){
     document.getElementById("menuClose").focus({
       preventScroll: true
     });
+    document.querySelector("body").classList.add("lock");
+
+    document.getElementById("mainContent").addEventListener("click", closeMenu);
 }
 
 function closeMenu(){
@@ -14,15 +17,19 @@ function closeMenu(){
   document.getElementById("menuButton").focus({
     preventScroll: true
   });
+  document.querySelector("body").classList.remove("lock");
+
+  document.getElementById("mainContent").removeEventListener("click", closeMenu);
 }
 
-const mql = window.matchMedia("screen and (max-width: 600px)");
+const mql = window.matchMedia("screen and (max-width: 768px)");
 
 mql.onchange = (e) => {
   if (!e.matches) {
     document.getElementById("contentMenu").classList.remove("toggleMenu");
     document.getElementById("content").classList.remove("toggleMenu");
     document.getElementById("breadcrumb").classList.remove("toggleMenu");
+    document.querySelector("body").classList.remove("lock");
   }
 };
 

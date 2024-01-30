@@ -192,6 +192,7 @@ header #logo {
     top: 0;
     width: var(--contentMenuWidth);
     height: var(--contentMenuHeight);
+    overflow-y: auto;
 }
 
 #menuClose {
@@ -616,30 +617,79 @@ p#error-message {
     CHAPTER STYLE
 ************************************/
 
-form#chapterForm {
+#chapterContent {
     border: 2px solid rgb(var(--darkColor));
     border-radius: 10px;
     background-color: rgb(var(--primary300));
     padding: 2em;
-    margin-bottom: 2em;
+}
+
+form#chapterForm .answerContainer {
+    display: block;
+    border: 1px solid rgb(var(--darkColor));
+    padding: 0.4em;
+    margin: 0.4em;
+}
+
+form#chapterForm input[type="radio"] {
+    height: 1.8em;
+    width: 1.8em;
+    margin: 1.2em;
+    cursor: pointer;
 }
 
 form#chapterForm label {
-    padding: 0.5em;
-    width: 10em;
+    height: 2.4em;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
 }
 
 form#chapterForm input[type="submit"] {
     height: 2em;
-    margin-top: 0.5em;
+    margin-top: 0.8em;
 }
 
-form#chapterForm h2 {
-    margin: 0em 0em 0.5em 0em;
+#question {
+    border-top: 2px solid rgb(var(--darkColor));
+    margin: 0.5em 0;
 }
 
-.chapter {
-    margin-bottom: 1em;
+#question h3 {
+    margin: 0.5em 0;
+}
+
+#recensioneForm {
+    margin: 0.8em 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    max-width: 28em;
+}
+
+#recensioneQuestion {
+    font-size: larger;
+}
+
+#formBreaker {
+    margin-top: 1.2em;
+}
+
+#review {
+    max-width: 25em;
+    height: 8em;
+    resize: none;
+    padding: 0.5em;
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 1em;
+    width: 90%;
+    display: block;
+    margin: auto;
+    border-color: #888;
+}
+
+#review:focus {
+    border-color: rgb(var(--darkColor));
 }
 
 /************************************

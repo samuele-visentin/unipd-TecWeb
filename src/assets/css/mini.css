@@ -39,6 +39,11 @@ header #logo {
     padding-left: var(--small-contentLeftPadding);
 }
 
+.lock {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
 #contentMenu.toggleMenu {
     display: block;
 }
