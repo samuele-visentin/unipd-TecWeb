@@ -1,4 +1,4 @@
-<form class="center-form" action="app/login.php" method="post">
+<form class="center-form" action="app/login.php[target]" method="post">
     <h1 id="login-signup" lang="en">Login</h1>
     [errorMessage]
     <div id="input-container">
@@ -6,7 +6,6 @@
         <input type="text" name="username" id="username" placeholder="Inserisci l'username" [aria] required> 
         <label id="labelPassword" for="password" lang="en">Password: </label> 
         <input type="password" name="password" id="password" placeholder="Inserisci la password" [aria] required>
-        <input name="target" hidden value="[target]">
     </div>    
     <input type="submit" value="Accedi">
 </form>
