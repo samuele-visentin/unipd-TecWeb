@@ -1,7 +1,7 @@
 @import "palette.css";
 
 @font-face {
-    font-family: 'Inconsolata';
+    font-family: 'OpenSans';
     src: url(../fonts/OpenSans-VariableFont_wdth.ttf);
 }
 
@@ -38,7 +38,7 @@
 html {
     height: fit-content;
     font-size: 100%;
-    font-family: 'Inconsolata', sans-serif;
+    font-family: 'OpenSans', sans-serif;
     line-height: 1.5;
     margin: auto;
     background-color: rgb(var(--primary500));
@@ -656,7 +656,7 @@ form#chapterForm input[type="submit"] {
     height: 8em;
     resize: none;
     padding: 0.5em;
-    font-family: 'Inconsolata', sans-serif;
+    font-family: 'OpenSans', sans-serif;
     font-size: 1em;
     width: 90%;
     display: block;
