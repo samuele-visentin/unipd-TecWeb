@@ -12,7 +12,6 @@ if(!isset($_SESSION['userId']) || $_SESSION['userId'] === "") {
     header("Location: accedi.php?target={$target}&error=notLogged#error-message");
     exit();
 }
-
 if(isset($_GET["id"]) && $_GET["id"] !== "") {
     $caseId = $_GET["id"];
     $userId = (int)$_SESSION["userId"];

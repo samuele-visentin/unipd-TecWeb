@@ -52,8 +52,8 @@ function validateSignup() {
     let h = document.getElementById("login-signup");
     let errorMessage = document.getElementById("error-message");
     errorMessage ??= document.createElement("p");
-    errorMessage.role = "alert";
     errorMessage.id = "error-message";
+    errorMessage.role = "alert";
     errorMessage.innerHTML = message;
     h.parentNode.insertBefore(errorMessage, h.nextSibling);
   }
@@ -76,17 +76,17 @@ function validateSignup() {
   return true;
 }
 
-function validateUser() {
+function validateUsername() {
   let username = document.getElementById("uname").value;
   let p = document.getElementById("error-message");
   if (p == null) {
     p = document.createElement("p");
-    p.role = "alert";
     p.id = "error-message";
     let h = document.getElementById("account-title");
     h.parentNode.insertBefore(p, h.nextSibling);
   }
-  if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)){
+  p.role = "alert";
+  if (username.match(/^[a-zA-Z0-9_]{4,16}$/) == null){
     p.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
     return false;
   }
@@ -101,12 +101,12 @@ function validatePassword() {
   let p = document.getElementById("error-message");
   if (p == null) {
     p = document.createElement("p");
-    p.role = "alert";
     p.id = "error-message";
     let h = document.getElementById("userform");
     h.parentNode.insertBefore(p, h.nextSibling);
   }
-  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/)) {
+  p.role = "alert";
+  if (password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/) == null) {
     p.innerHTML = "La <span lang='en'>password</span> non rispetta i criteri richiesti.";
     return false;
   } else if (password !== document.getElementById("confermaPsw").value) {
