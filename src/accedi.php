@@ -13,6 +13,7 @@ $keywords = 'Clue Catchers, accedi, login';
 $description = 'Accedi a Clue Catchers per giocare ai nostri casi.';
 $breadcrumbs = '<p><a href="index.php" lang="en">Home</a> &raquo; Accedi</p>';
 $account = '<li id="signupButton"><a href="registrati.php" lang="en">Sign up</a></li>';
+$error = '';
 if(isset($_GET["error"])) { 
     if($_GET["error"] === "invalid") {
         $error = '<p id="error-message"><span lang="en">Username</span> o <span lang="en">password </span>errati</p>';
