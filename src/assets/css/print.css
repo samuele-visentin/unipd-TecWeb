@@ -19,10 +19,6 @@ html a:not([href*="#"]):after {
     display: none;
 }
 
-#pageHeader #menuButton {
-    text-indent: -999em;
-}
-
 header #logo {
     font-size: 28pt;
 }
@@ -134,6 +130,10 @@ section.timeline dl {
     grid-column-start: 2;
 }
 
+dd > img {
+    display: none;
+}
+
 /*************************
     ACCEDI style
 *************************/
@@ -175,6 +175,7 @@ form input[type="submit"] {
     padding: 0.5em;
     font-weight: 600;
     height: auto;
+    color: black;
 }
 
 #displayCriteria {

@@ -30,8 +30,16 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
             $prove[$i] = getProveByIndagineAndProgressivoCapitolo($caseId, $i);
         }
     } else {
-        $capitoli[0] = getCapitoloByIndagineAndProgressivo($caseId, 0);
-        $prove[0] = getProveByIndagineAndProgressivoCapitolo($caseId, 0);
+        if(isFinished($userId, $caseId)) {
+            $lastChapt = getFinalCapitolo($caseId);
+            for ($i = 0; $i <= $lastChapt; $i++) { 
+                $capitoli[$i] = getCapitoloByIndagineAndProgressivo($caseId, $i);
+                $prove[$i] = getProveByIndagineAndProgressivoCapitolo($caseId, $i);
+            }
+        } else {
+            $capitoli[0] = getCapitoloByIndagineAndProgressivo($caseId, 0);
+            $prove[0] = getProveByIndagineAndProgressivoCapitolo($caseId, 0);
+        }        
     }
     $layout = file_get_contents("templates/layout.html");
     $clueLayout = file_get_contents("templates/clue_layout.html");
