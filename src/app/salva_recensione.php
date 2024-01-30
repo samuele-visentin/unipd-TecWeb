@@ -15,7 +15,7 @@ if(isset($_GET["id"]) && $_GET["id"] !== "") {
             header('Location: ../chapter.php?id='.$caseId.'&errorRecensione=StringOverflow#error-message');
             exit();
         }
-        saveRecensione($_SESSION["userId"], $caseId, $_POST["review"]);
+        saveRecensione($_SESSION["userId"], $caseId, secure_input($_POST["review"]));
         header("Location: ../chapter.php?id=".$caseId."&savedRecensioni=1#conferma");
         exit();
     } else {
