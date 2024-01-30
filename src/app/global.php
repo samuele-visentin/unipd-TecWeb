@@ -1,10 +1,14 @@
 <?php
 require_once(__DIR__."/database.php");
 
+function to500($errno, $errstr = null) {
+    http_response_code(500);
+    echo file_get_contents(__DIR__."/../500.html");
+    exit();
+}
 
-$SERVER_NAME = $_SERVER['SERVER_NAME'];
-$SERVER_PORT = $_SERVER['SERVER_PORT'];
-$BASE_URL = "http://{$SERVER_NAME}:{$SERVER_PORT}/";
+set_error_handler('to500');
+set_exception_handler('to500');
 
 $DB = new DatabaseAccess();
 $TITLE = "Clue Catchers";
@@ -20,13 +24,6 @@ function secure_input(string $in): string {
 
 function linkfy(string $in): string {
     return preg_replace('/\s+/', '%20', $in);
-}
-
-function to500($errno, $errstr = null) {
-    global $BASE_URL;
-    http_response_code(500);
-    header("Location: " . $BASE_URL . "500.html");
-    exit();
 }
 
 function getUserToolBar(bool $account = true) {
@@ -85,6 +82,4 @@ function check_username(string $username) {
     return preg_match($pattern, $username);
 }
 
-set_error_handler('to500');
-set_exception_handler('to500');
 ?>
