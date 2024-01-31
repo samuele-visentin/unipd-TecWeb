@@ -76,16 +76,18 @@ header #logo {
 }
 
 #content .clue th {
-    position: absolute;
-    left: -999em;
+    display: none;
 }
 
 #content .clue td::before {
-    content: attr(data-th); /* Ripeto senza il contenuto alternativo per garantire il supporto ai browser che non lo comprendono */
-    content: attr(data-th) / ""; /* contenuto alternativo vuoto per evitare che lo screen reader legga due volte la stessa intestazione */
+    content: attr(data-th);
     position: absolute;
     left: 0.5em;
     font-weight: bold;
+}
+
+#content .clue caption {
+    display: block;
 }
 
 #content .clue td {

@@ -8,8 +8,8 @@ if($_SERVER["REQUEST_METHOD"] !== "POST") {
 require_once("global.php");
 require_once("../data/utente.php");
 
-if(isset($_POST['uname'])) {
-    $username = secure_input($_POST["uname"]);
+if(isset($_POST['username'])) {
+    $username = secure_input($_POST["username"]);
     $params = "";
     if(check_username($username) !== 1) {
         $params .= "error=username";
@@ -28,12 +28,12 @@ if(isset($_POST['uname'])) {
     header("Location: ../account.php");
     exit();
 }
-if(isset($_POST['psw']) && isset($_POST['confermaPsw'])) {
-    $password = $_POST["psw"];
+if(isset($_POST['password']) && isset($_POST['confermaPassword'])) {
+    $password = $_POST["password"];
     $params = "";
     if(check_password($password) !== 1) {
         $params .= "error=password";
-    } else if($password !== $_POST["confermaPsw"]) {
+    } else if($password !== $_POST["confermaPassword"]) {
         $params .= "error=passwordNotSame";
     } 
     if($params !== "") {

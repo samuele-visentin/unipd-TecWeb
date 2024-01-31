@@ -82,16 +82,16 @@ function validateSignup() {
 }
 
 function validateUsername() {
-  let username = document.getElementById("uname").value;
+  let username = document.getElementById("username").value;
   let p = document.getElementById("error-message");
   if (p == null) {
     p = document.createElement("p");
     p.id = "error-message";
-    let h = document.getElementById("account-title");
-    h.parentNode.insertBefore(p, h.nextSibling);
+    let h = document.getElementById("userform");
+    h.parentNode.insertBefore(p, h);
   }
   p.role = "alert";
-  if (username.match(/^[a-zA-Z0-9_]{4,16}$/) == null){
+  if (!username.match(/^[a-zA-Z0-9_]{4,16}$/)){
     p.innerHTML = "L'<span lang='en'>username</span> non rispetta i criteri richiesti";
     return false;
   }
@@ -102,19 +102,19 @@ function validateUsername() {
 }
 
 function validatePassword() {
-  let password = document.getElementById("psw").value;
+  let password = document.getElementById("password").value;
   let p = document.getElementById("error-message");
   if (p == null) {
     p = document.createElement("p");
     p.id = "error-message";
     let h = document.getElementById("userform");
-    h.parentNode.insertBefore(p, h.nextSibling);
+    h.parentNode.insertBefore(p, h);
   }
   p.role = "alert";
-  if (password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/) == null) {
+  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,25}$/)) {
     p.innerHTML = "La <span lang='en'>password</span> non rispetta i criteri richiesti.";
     return false;
-  } else if (password !== document.getElementById("confermaPsw").value) {
+  } else if (password !== document.getElementById("confermaPassword").value) {
     p.innerHTML = "Le <span lang='en'>password</span> non corrispondono.";
     return false;
   }
