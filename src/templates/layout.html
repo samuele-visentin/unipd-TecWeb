@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title lang="en">[title]</title>
+    <meta name="keywords" content="[keywords]">
+    <meta name="description" content="[description]">
+    <meta name="author" content="Clue Catchers">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css" media="screen">
+    <link rel="stylesheet" href="assets/css/mini.css" media="screen and (max-width: 768px), only screen and (max-width: 768px)">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <script src="javascript/script.js"></script>    
+  </head>
+  <body>
+    <header id="pageHeader">
+      <button id="menuButton" onclick="openMenu()">Mostra menu</button>
+      <h1 id="logo" lang="en">Clue Catchers</h1>
+      <nav class="menu" id="userToolbar" aria-label="Link di accesso account">
+        <ul>
+          <li><a class="navHelp" href="#content">Vai ai contenuti</a></li>
+          [userToolbar]
+        </ul>   
+      </nav>
+    </header>
+    
+    <nav class="menu" id="contentMenu" aria-label="Navigazione principale">
+      <button id="menuClose" onclick="closeMenu()">Chiudi menu</button>
+      [sidebar]
+    </nav>
+  
+    <div id="mainContent">
+      <nav id="breadcrumb" aria-label="Percorso per questa pagina">
+        [breadcrumbs]
+      </nav> 
+  
+      <main id="content">          
+        [content]
+      </main>
+      
+      <a href="#" id="backToTop">Torna su</a>
+    </div>    
+
+    <div id="imgFullPage"></div>
+
+    <button id="closeImg" onclick="closeImg()">Chiudi immagine</button>
+
+    <script src="javascript/listeners.js"></script>
+    </body>
+</html>

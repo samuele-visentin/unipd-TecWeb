@@ -1,0 +1,45 @@
+<div class="center-account">
+    <h1 id="[idTitle]">Profilo utente</h1>
+    [usernameError]
+    [passwordError]
+    <form id="userform" action="app/update_user.php" method="post" 
+    class="account-form" onsubmit="return validateUsername()">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required value="[username]" aria-labelledby="UsernameHint" onfocus="displayCriteria('username')" onblur="removeFocus('username')" [ariaUsername]>
+        <input type="submit" value="Cambia username">
+    </form>
+    <form id="passwordform" action="app/update_user.php" method="post" 
+    class="account-form" onsubmit="return validatePassword()">
+        <label for="password">Nuova password:</label>
+        <input type="password" name="password" id="password" required placeholder="password" [ariaPassword] aria-labelledby="PasswordHint" onfocus="displayCriteria('password')" onblur="removeFocus('password')">
+        <label for="confermaPassword">Conferma Password:</label>
+        <input type="password" name="confermaPassword" id="confermaPassword" placeholder="ridigita password" [ariaPassword]>
+        <input type="submit" value="Cambia password">
+    </form>
+    <div id="UsernameHint" class="hideHint signupHint">
+        <h2 lang='en'>Username: </h2>
+        <dl>
+            <dt>Deve contenere:</dt>
+            <dd>Numeri</dd>
+            <dd>Lettere</dd>
+            <dd lang='en'>Underscore</dd>
+            <dt>Deve essere lungo:</dt>
+            <dd>Minimo 4 caratteri</dd>
+            <dd>Massimo 16 caratteri</dd>
+        </dl>
+    </div>
+    <div id="PasswordHint" class="hideHint signupHint">
+        <h2 lang='en'>Nuova password: </h2>
+        <dl>
+            <dt>Deve contenere:</dt>
+            <dd>Una lettera minuscola</dd>
+            <dd>Una lettera maiuscola</dd>
+            <dd>Un numero</dd>
+            <dd>Un carattere speciale (@ $ <span aria-label="punto esclamativo">!</span > % * <span aria-label="punto interrogativo">?</span> &)</dd>
+            <dt>Deve essere lunga:</dt>
+            <dd>Minimo 4 caratteri</dd>
+            <dd>Massimo 25 caratteri</dd>
+        </dl>
+    </div>
+    [table]
+</div>

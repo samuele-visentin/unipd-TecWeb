@@ -1,0 +1,256 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 12pt;
+    font-family: 'Georgia', serif;
+    line-height: 20pt;
+    margin-left: 2cm;
+    margin-right: 2cm;
+}
+
+html a:not([href*="#"]):after {
+    content: " [http://tecweb.studenti.math.unipd.it/svisenti/" attr(href) "]";
+}
+
+.menu, #menuButton {
+    display: none;
+}
+
+header #logo {
+    font-size: 28pt;
+}
+
+header #logo::before {
+    content: url(../images/logo_small_print.png);
+    padding-right: 0.4cm;
+}
+
+#breadcrumb {
+    margin: 2mm 0;
+}
+
+#closeImg {
+    display: none;
+}
+
+h1, h2 {
+    margin: 8mm 0;
+    line-height: 1.5em;
+}
+
+h3, h4, h5, h6 {
+    margin: 4mm 0;
+    line-height: 1.5em;
+}
+
+.case {
+    display: flex;
+    flex-direction: row;
+}
+
+.case img {
+    object-fit: cover;
+    margin: auto 0;
+    order: 1;
+    height: 10em;
+    max-width: 10em;    
+}
+
+.case div {
+    order: 2;
+    margin-left: 0.8cm;
+}
+
+.case a {
+    display: none;
+}
+
+.clue, .witness {
+    border-bottom: 2pt solid black;
+    margin-bottom: 1cm;
+}
+
+.clue table, .clue td, .clue th {
+    margin: 0.2cm 0;
+    border: 1px solid;
+}
+  
+.clue table {
+    border-collapse: collapse;
+}
+
+img {
+    max-width: 15cm;
+    max-height: 15cm;
+}
+
+#backToTop {
+    display: none;
+}
+
+ul {
+    list-style-type: circle;
+    margin-left: 5mm;
+}
+
+#content section.letter footer .signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 14pt;
+}
+
+dt {
+    margin-left: 2mm;
+}
+
+dt, dd {
+    display: inline;
+}
+
+dt::before {
+    display: block;
+    content: "";
+}
+
+section.timeline dl {
+    display: grid;
+    grid-template-columns: max-content auto;    
+    gap: 0 8pt;
+    grid-template-columns: minmax(min-content, max-content);
+}
+  
+#content section.timeline dt {
+    font-weight: bold;
+    grid-column-start: 1;
+}
+  
+#content section.timeline dd {
+    grid-column-start: 2;
+}
+
+dd > img {
+    display: none;
+}
+
+/*************************
+    ACCEDI style
+*************************/
+
+form.center-form {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 18em;
+    padding: 2em;
+    margin: 5em auto;
+}
+
+form div#input-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form.center-form label {
+    padding: 0.5em;
+    width: 5em;
+}
+
+form.center-form input {
+    margin: auto;
+    padding: 0.3em;
+    border-radius: 5px;
+    border: 1px solid;
+    width: 12em;
+    height: 1.3em;
+}
+
+form input[type="submit"] {
+    width: auto;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 0.5em;
+    font-weight: 600;
+    height: auto;
+    color: black;
+}
+
+#displayCriteria {
+    display: none;
+}
+
+/*************************
+    ACCOUNT STYLE
+*************************/
+
+form#userform, form#passwordform {
+    display: none;
+}
+
+table.adminIndagini thead th{
+    display: none;
+}
+
+table.adminIndagini tbody td, table.adminIndagini tbody tr, 
+table.adminIndagini tbody th {
+    display: block;
+}
+
+table.adminIndagini tbody th[data-title]:before {
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+}
+
+table.adminIndagini tbody td[data-title]:before {
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+}
+
+table.adminIndagini tbody td, table.adminIndagini tbody th{
+    border: 1px solid black;
+    border-bottom: 0;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+table.adminIndagini tbody td:last-child {
+    border-bottom: 1px solid black;
+}
+
+p#sumTabellaIndagini {
+    display: none;
+}
+
+/*************************
+    RECENSIONI STYLE
+*************************/
+
+table.recensioni {
+    margin: 1em auto 1em auto;
+    padding-top: 0.2em;
+    border-collapse: collapse;
+}
+
+table.recensioni th, table.recensioni td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.4em;
+}
+
+table.recensioni thead th:first-child {
+    min-width: 6em;
+}
+
+p#sumTabellaRecensioni {
+    display: none;
+}
+
+#content section.frontPageContent img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 400px;
+    height: auto;
+}

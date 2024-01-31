@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ 404.html [L]
+</IfModule>
+
+ErrorDocument 400 /400.html
+
+ErrorDocument 404 /404.html
+
+ErrorDocument 500 /500.html
+
+ErrorDocument 501 /500.html
+
+ErrorDocument 502 /500.html
+
+ErrorDocument 503 /500.html
+
+ErrorDocument 504 /500.html
+
+ErrorDocument 505 /500.html
+
+ErrorDocument 507 /500.html

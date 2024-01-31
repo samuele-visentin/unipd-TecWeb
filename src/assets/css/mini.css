@@ -1,0 +1,152 @@
+@import "palette.css";
+
+header #logo {
+    background-image: url(../images/logo_small.png);
+    min-width: 2em;
+    min-height: 2.5em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#pageHeader #menuButton {
+    display: block;
+}
+
+#pageHeader {
+    top: 0;
+    position: -webkit-sticky; /*per Safari*/
+    position: sticky;
+    z-index: 1;
+}
+
+#contentMenu {    
+    z-index: 1;    
+    position: fixed;
+    float: none;
+    display: none;
+    -webkit-box-shadow: 10px 0 10px -8px #333;
+    box-shadow: 10px 0 10px -8px #333;
+}
+
+#menuClose {
+    display: block;
+}
+
+#breadcrumb {
+    padding-left: var(--small-contentLeftPadding);
+}
+
+#content {
+    padding-left: var(--small-contentLeftPadding);
+}
+
+.lock {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+#contentMenu.toggleMenu {
+    display: block;
+}
+
+/*************************************
+    MAIN CASE STYLE
+*************************************/
+
+#content .case {
+    flex-direction: column;
+}
+
+#content .case img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content .case header {
+    margin-top: 1em;
+}
+
+#content .case a {
+    align-self: center;
+}
+
+#content .clue table, #content .clue thead, #content .clue tbody, #content .clue th, #content .clue td, #content .clue tr {
+    display: block;
+}
+
+#content .clue th {
+    display: none;
+}
+
+#content .clue td::before {
+    content: attr(data-th);
+    position: absolute;
+    left: 0.5em;
+    font-weight: bold;
+}
+
+#content .clue caption {
+    display: block;
+}
+
+#content .clue td {
+    position: relative;
+    padding-left: 50%;
+}
+
+.singleFAQ img{
+    display: none;
+}
+
+/*************************************
+    ACCOUNT CASE STYLE
+*************************************/
+
+table#indagini thead th{
+    display: none;
+}
+
+table#indagini tbody th {
+    display: block;
+}
+
+table#indagini tbody td, table#indagine tbody tr {
+    display: block;
+}
+
+table#indagini tbody th[data-title]:before {
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+}
+
+table#indagini tbody td[data-title]:before {
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+}
+
+table#indagini tbody td {
+    border: 1px solid black;
+}
+
+table#indagini tbody td p {
+    max-width: 15em;
+    margin: auto;
+}
+
+/*************************************
+    FRONT PAGE STYLE
+*************************************/
+
+.caseTitle {
+    position: relative;
+    border-radius: 0;
+}
+
+/*************************************
+    ABOUT STYLE
+*************************************/
+
+dl#membriTeam > dd {
+    flex-direction: column;
+}
