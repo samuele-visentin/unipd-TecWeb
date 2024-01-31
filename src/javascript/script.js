@@ -33,15 +33,20 @@ mql.onchange = (e) => {
   }
 };
 
-async function displayCriteria(inputId) {
-  var input = document.getElementById("displayCriteria");
-  var criteria = "";
+function displayCriteria(inputId) {
   if (inputId === "username") {
-      criteria = await (await fetch("hint/username.html")).text();
-  } else if (inputId === "password" || inputId === "confermaPassword") {
-      criteria = await (await fetch("hint/password.html")).text();
+    document.getElementById("UsernameHint").classList.remove("hideHint");
+  } else if (inputId === "password") {
+    document.getElementById("PasswordHint").classList.remove("hideHint");
   }
-  input.innerHTML = criteria;
+}
+
+function removeFocus(inputType) {
+  if (inputType === "username") {
+    document.getElementById("UsernameHint").classList.add("hideHint");
+  } else if (inputType === "password") {
+    document.getElementById("PasswordHint").classList.add("hideHint");
+  }
 }
 
 function validateSignup() {

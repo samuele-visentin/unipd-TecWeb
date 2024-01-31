@@ -4,12 +4,36 @@
     [errorMessage]
     <div id="input-container">
         <label id="labelUsername" for="username" lang="en">Username:</label>
-        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required aria-labelledby="displayCriteria" [aria] onfocus="displayCriteria('username')">  
+        <input type="text" name="username" id="username" placeholder="Inserisci l'username" required aria-labelledby="UsernameHint" [aria] onfocus="displayCriteria('username')" onblur="removeFocus('username')">  
         <label id="labelPassword" for="password" lang="en">Password:</label>
-        <input type="password" name="password" id="password" placeholder="Inserisci la password" required aria-labelledby="displayCriteria" [aria] onfocus="displayCriteria('password')">
+        <input type="password" name="password" id="password" placeholder="Inserisci la password" required aria-labelledby="PasswordHint" [aria] onfocus="displayCriteria('password')" onblur="removeFocus('password')">
         <label id="labelConfermaPassword" for="confermaPassword">Conferma <span lang="en">password</span>:</label>
-        <input type="password" name="confermaPassword" id="confermaPassword" placeholder="Reinserisci la password" required [aria] onfocus="displayCriteria('confermaPassword')">
+        <input type="password" name="confermaPassword" id="confermaPassword" placeholder="Reinserisci la password" required [aria]>
     </div>
-    <div id="displayCriteria"></div>
+    <div id="UsernameHint" class="hideHint signupHint">
+        <h2 lang='en'>Username: </h2>
+        <dl>
+            <dt>Deve contenere:</dt>
+            <dd>Numeri</dd>
+            <dd>Lettere</dd>
+            <dd lang='en'>Underscore</dd>
+            <dt>Deve essere lungo:</dt>
+            <dd>Minimo 4 caratteri</dd>
+            <dd>Massimo 16 caratteri</dd>
+        </dl>
+    </div>
+    <div id="PasswordHint" class="hideHint signupHint">
+        <h2 lang='en'> Password: </h2>
+        <dl>
+            <dt>Deve contenere:</dt>
+            <dd>Una lettera minuscola</dd>
+            <dd>Una lettera maiuscola</dd>
+            <dd>Un numero</dd>
+            <dd>Un carattere speciale (@ $ <span aria-label="punto esclamativo">!</span > % * <span aria-label="punto interrogativo">?</span> &)</dd>
+            <dt>Deve essere lunga:</dt>
+            <dd>Minimo 4 caratteri</dd>
+            <dd>Massimo 25 caratteri</dd>
+        </dl>
+    </div>
     <input type="submit" value="Registrati">
 </form>

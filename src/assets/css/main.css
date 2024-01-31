@@ -465,6 +465,11 @@ header #logo {
     ACCEDI REGISTRATI STYLE
 *************************************/
 
+div.hideHint {
+    text-indent: -999em;
+    position: absolute;
+}
+
 h1#login-signup {
     background-image: url(../icons/darkIcons/person.svg);
     background-repeat: no-repeat;
@@ -537,24 +542,25 @@ p#error-message {
     margin-top: 1em;
 }
 
-#displayCriteria dt {
+.signuphint dt {
     font-weight: bold;
 }
 
-#displayCriteria dd {
+.signupHint dd {
     margin-left: 1em;
 }
 
-#displayCriteria dd::before {
+.signupHint dd::before {
     content: '\2022';
     margin-right: 0.2em;
     font-size: 1.5em;
 }
 
-#displayCriteria h2 {
+.signupHint h2 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 0;
+    margin-top: 0.3em;
 }
 
 /************************************
