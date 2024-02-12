@@ -468,6 +468,8 @@ header #logo {
 div.hideHint {
     text-indent: -999em;
     position: absolute;
+    height: 0;
+    overflow: hidden;
 }
 
 h1#login-signup {

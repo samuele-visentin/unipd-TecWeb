@@ -1,7 +1,7 @@
 <?php
 class DatabaseAccess {
     private const HOST_DB = "localhost";
-    private const DATABASE_NAME = "tecweb";
+    private const DATABASE_NAME = "svisenti";
     private const USERNAME = "root";
     private const PASSWORD = ""; 
 
