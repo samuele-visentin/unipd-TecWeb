@@ -1205,3 +1205,7 @@ dl#membriTeam > dd {
     width: 3em;
     height: 3em;
 }
+
+#closeImg.open, #imgFullPage.open {
+    display: block;
+}

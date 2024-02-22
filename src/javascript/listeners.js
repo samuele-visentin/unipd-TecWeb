@@ -23,12 +23,12 @@ const chiudi = document.getElementById("closeImg");
 for (let i = 0; i < zoomImgs.length; i++) {
   zoomImgs[i].addEventListener('click', function() {
     fullPage.style.backgroundImage = 'url(' + zoomImgs[i].src + ')';
-    fullPage.style.display = 'block';
-    chiudi.style.display = 'block';
+    fullPage.classList.add("open");
+    chiudi.classList.add("open");
   });
 }
 
 function closeImg() {
-  fullPage.style.display = 'none';
-  chiudi.style.display = 'none';
+  fullPage.classList.remove("open");
+    chiudi.classList.remove("open");
 }
